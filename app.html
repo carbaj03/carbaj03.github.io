@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cohesive App</title>
+
+    <!-- Google Authentication -->
+    <script async defer src="https://accounts.google.com/gsi/client"></script>
+
+    <!-- Notification Worker -->
+    <script src="notification-worker.js"></script>
+
+    <!-- App Styles -->
+    <link type="text/css" rel="stylesheet" href="styles.css">
+
+    <script>
+        // Check if we're on the right path
+        if (!window.location.pathname.includes('/app')) {
+            console.log('Not on app path, redirecting');
+            window.location.href = '/app';
+        } else {
+            console.log('On app path, loading WASM application');
+            // The app will load after this check
+        }
+    </script>
+</head>
+<body>
+<script src="composeApp.js" type="application/javascript"></script>
+</body>
+</html>
