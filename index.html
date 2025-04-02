@@ -1,30 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-        // Single Page Apps for GitHub Pages
-        // MIT License
-        // https://github.com/rafgraph/spa-github-pages
-        (function (l) {
-            if (l.search[1] === '/') {
-                var decoded = l.search.slice(1).split('&').map(function (s) {
-                    return s.replace(/~and~/g, '&')
-                }).join('?');
-                window.history.replaceState(null, null,
-                    l.pathname.slice(0, -1) + decoded + l.hash
-                );
-            }
-        }(window.location))
-    </script>
-    <script async defer src="https://accounts.google.com/gsi/client"></script>
-    <script src="notification-worker.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cohesive</title>
-    <link type="text/css" rel="stylesheet" href="styles.css">
-    <base href="/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cohesive - Build Your Second Brain</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Organize your thoughts, collaborate with others, and boost your productivity with Cohesive - your second brain in the digital world.">
+  <meta name="keywords" content="note taking, productivity, second brain, knowledge management, collaboration">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourcohesiveapp.com">
+  <meta property="og:title" content="Cohesive - Your Second Brain">
+  <meta property="og:description" content="Organize your thoughts, collaborate with others, and boost your productivity.">
+  <meta property="og:image" content="/images/og-image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/images/favicon.ico">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="landing-styles.css">
+
+  <!-- Optional: Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Other head content omitted for brevity -->
 </head>
 <body>
-<script src="composeApp.js" type="application/javascript"></script>
+<!-- Simplified header that matches more closely with the app UI -->
+<header>
+  <div class="container">
+    <div class="logo">
+      <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 60C20 37.9086 37.9086 20 60 20C82.0914 20 100 37.9086 100 60C100 82.0914 82.0914 100 60 100C37.9086 100 20 82.0914 20 60Z" fill="#86a6a7" opacity="0.7"/>
+        <path d="M0 40C0 17.9086 17.9086 0 40 0C62.0914 0 80 17.9086 80 40C80 62.0914 62.0914 80 40 80C17.9086 80 0 62.0914 0 40Z" fill="#d1a9a0" opacity="0.7"/>
+      </svg>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="/app.html" class="btn btn-secondary">Login</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero section that exactly matches the screenshot -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <!-- Logo with exact colors from screenshot -->
+      <svg class="hero-logo" width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 60C20 37.9086 37.9086 20 60 20C82.0914 20 100 37.9086 100 60C100 82.0914 82.0914 100 60 100C37.9086 100 20 82.0914 20 60Z" fill="#86a6a7" opacity="0.7"/>
+        <path d="M0 40C0 17.9086 17.9086 0 40 0C62.0914 0 80 17.9086 80 40C80 62.0914 62.0914 80 40 80C17.9086 80 0 62.0914 0 40Z" fill="#d1a9a0" opacity="0.7"/>
+      </svg>
+
+      <h1>Hi <span id="user-name">Alejandro</span>!</h1>
+      <h2>Let's start building your second brain</h2>
+
+      <!-- Input that exactly matches the one in the screenshot -->
+      <div class="note-input-container">
+        <form id="note-form">
+          <div class="input-wrapper">
+            <input type="text" id="note-input" placeholder="What's on your mind?" required>
+            <div class="action-buttons">
+              <button type="button" class="btn-icon" aria-label="Add attachment">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <button type="button" class="btn-icon" aria-label="Add magic">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.5 3.5L16 7.5L20 9L16 10.5L14.5 14.5L13 10.5L9 9L13 7.5L14.5 3.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <button type="button" id="voice-button" class="btn-icon" aria-label="Voice input">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 1C11.2044 1 10.4413 1.31607 9.87868 1.87868C9.31607 2.44129 9 3.20435 9 4V12C9 12.7956 9.31607 13.5587 9.87868 14.1213C10.4413 14.6839 11.2044 15 12 15C12.7956 15 13.5587 14.6839 14.1213 14.1213C14.6839 13.5587 15 12.7956 15 12V4C15 3.20435 14.6839 2.44129 14.1213 1.87868C13.5587 1.31607 12.7956 1 12 1Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M19 10V12C19 13.8565 18.2625 15.637 16.9497 16.9497C15.637 18.2625 13.8565 19 12 19C10.1435 19 8.36301 18.2625 7.05025 16.9497C5.7375 15.637 5 13.8565 5 12V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 19V23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8 23H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <!-- Submit button is hidden but still functional for form submission -->
+          <button type="submit" id="submit-note" class="btn btn-primary">Start Organizing</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features" class="features">
+  <div class="container">
+    <h2 class="section-title">Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📝</div>
+        <h3>Effortless Note-Taking</h3>
+        <p>Quickly capture your thoughts, ideas, and inspiration with our intuitive interface.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔗</div>
+        <h3>Smart Connections</h3>
+        <p>Discover hidden relationships between your ideas with our AI-powered linking system.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤝</div>
+        <h3>Seamless Collaboration</h3>
+        <p>Share and collaborate on notes with team members in real-time.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3>Access Anywhere</h3>
+        <p>Your second brain is available on all your devices, online and offline.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how-it-works" class="how-it-works">
+  <div class="container">
+    <h2 class="section-title">How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Capture</h3>
+        <p>Quickly save any thought, idea, or information that comes your way.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Connect</h3>
+        <p>Our system automatically finds connections between your notes.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Create</h3>
+        <p>Transform your connected thoughts into meaningful projects and content.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials" class="testimonials">
+  <div class="container">
+    <h2 class="section-title">What Our Users Say</h2>
+    <div class="testimonial-slider">
+      <div class="testimonial">
+        <p class="quote">"Cohesive has completely transformed how I organize my thoughts and projects. It's like having a second brain!"</p>
+        <div class="author">
+          <img src="/images/testimonial-1.jpg" alt="Sarah J." class="author-img">
+          <div class="author-info">
+            <h4>Sarah J.</h4>
+            <p>Content Creator</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <p class="quote">"I've tried dozens of note-taking apps, but nothing comes close to the intuitive design and powerful features of Cohesive."</p>
+        <div class="author">
+          <img src="/images/testimonial-2.jpg" alt="Michael R." class="author-img">
+          <div class="author-info">
+            <h4>Michael R.</h4>
+            <p>Software Engineer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="pricing">
+  <div class="container">
+    <h2 class="section-title">Simple Pricing</h2>
+    <div class="pricing-cards">
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>Free</h3>
+          <p class="price">$0<span>/month</span></p>
+        </div>
+        <ul class="pricing-features">
+          <li>Up to 100 notes</li>
+          <li>Basic connections</li>
+          <li>Mobile app access</li>
+          <li>7-day history</li>
+        </ul>
+        <a href="/app" class="btn btn-secondary">Get Started</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="popular-badge">Most Popular</div>
+        <div class="pricing-header">
+          <h3>Pro</h3>
+          <p class="price">$9.99<span>/month</span></p>
+        </div>
+        <ul class="pricing-features">
+          <li>Unlimited notes</li>
+          <li>Advanced AI connections</li>
+          <li>Collaboration (up to 3 users)</li>
+          <li>Full history</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="/app" class="btn btn-primary">Get Started</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>Teams</h3>
+          <p class="price">$19.99<span>/month</span></p>
+        </div>
+        <ul class="pricing-features">
+          <li>Everything in Pro</li>
+          <li>Unlimited team members</li>
+          <li>Team workspaces</li>
+          <li>Advanced permissions</li>
+          <li>Admin controls</li>
+        </ul>
+        <a href="/app" class="btn btn-secondary">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>Ready to build your second brain?</h2>
+    <p>Join thousands of users who are already thinking clearer and creating better.</p>
+    <a href="/app" class="btn btn-primary btn-large">Get Started for Free</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-column">
+        <img src="/images/logo.svg" alt="Cohesive Logo" class="footer-logo">
+        <p>Helping you organize your thoughts and ideas into a cohesive second brain.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="/app">Login</a></li>
+          <li><a href="/app">Sign Up</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Community</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Cohesive. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  // Simple JavaScript to personalize the greeting and handle form submission
+  document.addEventListener('DOMContentLoaded', function() {
+    // Try to get name from localStorage (if they've visited before)
+    const savedName = localStorage.getItem('cohesive_user_name');
+    if (savedName) {
+      document.getElementById('user-name').textContent = savedName;
+    }
+
+    // Handle note form submission - redirect to app
+    const noteForm = document.getElementById('note-form');
+    noteForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const noteInput = document.getElementById('note-input');
+      const noteText = noteInput.value.trim();
+
+      if (noteText) {
+        // Save note to localStorage
+        localStorage.setItem('cohesive_initial_note', noteText);
+
+        // Redirect to app page
+        window.location.href = '/app.html';
+      }
+    });
+
+    // Also make the Enter key submit the form
+    const noteInput = document.getElementById('note-input');
+    noteInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const noteText = noteInput.value.trim();
+        if (noteText) {
+          localStorage.setItem('cohesive_initial_note', noteText);
+          window.location.href = '/app.html';
+        }
+      }
+    });
+
+    // Optional: Get URL parameters to personalize (e.g., ?name=John)
+    const urlParams = new URLSearchParams(window.location.search);
+    const nameParam = urlParams.get('name');
+    if (nameParam) {
+      document.getElementById('user-name').textContent = nameParam;
+      localStorage.setItem('cohesive_user_name', nameParam);
+    }
+  });
+</script>
 </body>
 </html>

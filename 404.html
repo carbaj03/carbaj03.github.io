@@ -4,20 +4,33 @@
     <meta charset="utf-8">
     <title>Cohesive</title>
     <script>
+        // This script handles client-side routing for GitHub Pages
+        // Modified from https://github.com/rafgraph/spa-github-pages
+
         // Single Page Apps for GitHub Pages
-        // MIT License
-        // https://github.com/rafgraph/spa-github-pages
-        var pathSegmentsToKeep = 0;
-        var l = window.location;
-        l.replace(
-            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-            l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-            l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-            l.hash
-        );
+        (function() {
+            // This is to ensure we redirect properly on GitHub Pages
+            var segmentCount = 0;
+            var l = window.location;
+
+            // Handle the /app path specifically
+            if (l.pathname.indexOf('/app') === 0) {
+                window.location.href = '/app.html' + l.search + l.hash;
+                return;
+            }
+
+            // Handle other paths
+            l.replace(
+                l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+                l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?p=/' +
+                l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+                (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+                l.hash
+            );
+        })();
     </script>
 </head>
 <body>
+Redirecting...
 </body>
 </html>
