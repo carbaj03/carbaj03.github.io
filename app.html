@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Cohesive App</title>
 
     <!-- Google Authentication -->
@@ -12,17 +12,42 @@
     <script src="notification-worker.js"></script>
 
     <!-- App Styles -->
-    <link type="text/css" rel="stylesheet" href="styles.css">
+    <link href="styles.css" rel="stylesheet" type="text/css">
 
     <script>
-        // Check if we're on the right path
-        if (!window.location.pathname.includes('/app')) {
-            console.log('Not on app path, redirecting');
-            window.location.href = '/app';
-        } else {
-            console.log('On app path, loading WASM application');
-            // The app will load after this check
-        }
+        // Enhanced navigation handling for app paths
+        (function() {
+            const originalPath = window.location.pathname;
+            const originalSearch = window.location.search;
+            const originalHash = window.location.hash;
+            
+            // Special URL handling for different cases
+            
+            // Case 1: Payment URLs - we'll let the app handle these and change the URL later in main.kt
+            if (originalPath.includes('payment-success') || 
+                originalPath.includes('payment-failure') || 
+                originalPath.includes('payment-cancel') || 
+                originalPath.includes('payment-back') || 
+                originalPath.includes('payment-restored') || 
+                originalPath.includes('payment-error')) {
+                console.log('Payment URL detected: ' + originalPath + ', letting the app process it first');
+                // The URL will be changed by the app after processing the payment
+            }
+            // Case 2: Direct app.html access - show a clean URL
+            else if (originalPath === '/app.html') {
+                // Update the URL to simply "/app" without reloading
+                try {
+                    history.replaceState(null, '', '/app');
+                    console.log('URL updated to /app for cleaner display');
+                } catch (e) {
+                    console.error('Failed to update URL:', e);
+                }
+            }
+            
+            // We've already handled the path above
+            
+            console.log('App path validated, loading WASM application');
+        })();
     </script>
 </head>
 <body>
