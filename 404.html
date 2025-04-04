@@ -2,44 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Cohesive</title>
     <script>
         // Enhanced script for SPA routing with dev server and production support
-        (function() {
+        (function () {
             var l = window.location;
-            
+
             // Special handling for app routes - redirect any /app/* paths to app.html
             if (l.pathname.startsWith('/app') || l.pathname.indexOf('/app') === 0) {
                 console.log('Detected app path: ' + l.pathname + ', redirecting to app.html');
-                
+
                 // We'll keep the URL visible as /app in the browser but load app.html
                 // This allows React/SPA routing to work properly
                 window.location.replace('/app.html' + l.search + l.hash);
                 return;
             }
-            
+
             // For payment routes, which need to be handled by the app
-            if (l.pathname.includes('payment-success') || 
+            if (l.pathname.includes('payment-success') ||
                 l.pathname.includes('payment-failure') ||
-                l.pathname.includes('payment-cancel') || 
-                l.pathname.includes('payment-back') || 
-                l.pathname.includes('payment-restored') || 
+                l.pathname.includes('payment-cancel') ||
+                l.pathname.includes('payment-back') ||
+                l.pathname.includes('payment-restored') ||
                 l.pathname.includes('payment-error')) {
                 console.log('Detected payment path: ' + l.pathname + ', redirecting to app.html');
-                
+
                 // Save the payment URL for potential recovery, though the app should handle this directly
                 sessionStorage.setItem('paymentData', JSON.stringify({
                     path: l.pathname,
                     search: l.search,
                     hash: l.hash
                 }));
-                
+
                 // Redirect to app.html with all query parameters intact
                 window.location.replace('/app.html' + l.search + l.hash);
                 return;
             }
-            
+
             // For all other non-found paths, redirect to the landing page
             console.log('Unknown path: ' + l.pathname + ', redirecting to home');
             window.location.replace('/');
@@ -47,9 +47,9 @@
     </script>
 </head>
 <body>
-    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: sans-serif;">
-        <h2>Redirecting...</h2>
-        <p>Please wait while we take you to the right place.</p>
-    </div>
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: sans-serif;">
+    <h2>Redirecting...</h2>
+    <p>Please wait while we take you to the right place.</p>
+</div>
 </body>
 </html>

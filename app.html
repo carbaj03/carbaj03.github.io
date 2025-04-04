@@ -16,19 +16,19 @@
 
     <script>
         // Enhanced navigation handling for app paths
-        (function() {
+        (function () {
             const originalPath = window.location.pathname;
             const originalSearch = window.location.search;
             const originalHash = window.location.hash;
-            
+
             // Special URL handling for different cases
-            
+
             // Case 1: Payment URLs - we'll let the app handle these and change the URL later in main.kt
-            if (originalPath.includes('payment-success') || 
-                originalPath.includes('payment-failure') || 
-                originalPath.includes('payment-cancel') || 
-                originalPath.includes('payment-back') || 
-                originalPath.includes('payment-restored') || 
+            if (originalPath.includes('payment-success') ||
+                originalPath.includes('payment-failure') ||
+                originalPath.includes('payment-cancel') ||
+                originalPath.includes('payment-back') ||
+                originalPath.includes('payment-restored') ||
                 originalPath.includes('payment-error')) {
                 console.log('Payment URL detected: ' + originalPath + ', letting the app process it first');
                 // The URL will be changed by the app after processing the payment
@@ -43,9 +43,9 @@
                     console.error('Failed to update URL:', e);
                 }
             }
-            
+
             // We've already handled the path above
-            
+
             console.log('App path validated, loading WASM application');
         })();
     </script>

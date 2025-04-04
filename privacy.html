@@ -2,35 +2,97 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><!DOCTYPE html>
-        <html lang="en">
-        <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Cohesive App - Privacy Policy</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Cohesive Journal - Privacy Policy</title>
     <style>
+        :root {
+            --primary-color: #86a6a7;
+            --secondary-color: #d1a9a0;
+            --text-color: #333;
+            --light-bg: #f7f9fa;
+            --border-color: #e1e4e8;
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
-            color: #333;
+            color: var(--text-color);
+            background-color: white;
         }
 
-        h1, h2 {
+        .content {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-svg {
+            height: 40px;
+            width: 40px;
+        }
+
+        .logo span {
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 5px 15px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--light-bg);
+        }
+
+        h1, h2, h3 {
             color: #2c3e50;
-            margin-top: 30px;
         }
 
         h1 {
-            text-align: center;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #eee;
+            font-size: 32px;
+            margin-top: 0;
+        }
+
+        h2 {
+            margin-top: 40px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            margin-top: 25px;
+        }
+
+        p, li {
+            color: #4a5568;
         }
 
         section {
-            margin: 30px 0;
+            margin: 40px 0;
         }
 
         ul {
@@ -41,81 +103,301 @@
             margin: 10px 0;
         }
 
+        .highlight-box {
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px 20px;
+            border-radius: 0 5px 5px 0;
+            margin: 20px 0;
+        }
+        
         .footer {
             margin-top: 50px;
             padding-top: 20px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid var(--border-color);
             text-align: center;
             font-size: 0.9em;
             color: #666;
         }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--light-bg);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px 15px;
+                box-shadow: none;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            nav {
+                margin-top: 10px;
+            }
+        }
     </style>
 </head>
 <body>
-<h1>Privacy Policy for Cohesive App</h1>
+<div class="content">
+    <header>
+        <a class="logo" href="/">
+            <svg class="logo-svg" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 60C20 37.9086 37.9086 20 60 20C82.0914 20 100 37.9086 100 60C100 82.0914 82.0914 100 60 100C37.9086 100 20 82.0914 20 60Z" fill="#86a6a7" opacity="0.7"/>
+                <path d="M0 40C0 17.9086 17.9086 0 40 0C62.0914 0 80 17.9086 80 40C80 62.0914 62.0914 80 40 80C17.9086 80 0 62.0914 0 40Z" fill="#d1a9a0" opacity="0.7"/>
+            </svg>
+            <span>Cohesive Journal</span>
+        </a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/app.html">App</a>
+        </nav>
+    </header>
 
-<section>
-    <h2>Introduction</h2>
-    <p>
-        This privacy policy describes how Cohesive App ("we", "our", or "us") collects, uses, and protects your information when you use our mobile application.
-    </p>
-</section>
+    <h1>Privacy Policy</h1>
 
-<section>
-    <h2>Information Collection and Use</h2>
-    <p>
-        For a better experience while using our application, we require certain permissions and may collect certain information.
-    </p>
-</section>
+    <div class="highlight-box">
+        <strong>Last updated:</strong> April 3, 2024
+    </div>
 
-<section>
-    <h2>Required Permissions</h2>
-    <h3>Camera Permission</h3>
-    <p>We request camera access to:</p>
-    <ul>
-        <li>Capture documents for text extraction</li>
-        <li>Take photos of handwritten notes</li>
-        <li>Scan physical documents</li>
-    </ul>
-    <p>
-        The photos are processed on your device and optionally uploaded to our secure servers for cloud sync.
-        We never share your photos with third parties.
-    </p>
-</section>
+    <section>
+        <h2>Introduction</h2>
+        <p>
+            Welcome to Cohesive Journal ("we," "our," or "us"). We are committed to protecting your privacy and ensuring you have a positive experience when using our application.
+        </p>
+        <p>
+            This Privacy Policy explains how we collect, use, process, and disclose your information across our services. By using Cohesive Journal, you consent to the data practices described in this policy.
+        </p>
+    </section>
 
-<section>
-    <h2>Data Storage and Security</h2>
-    <ul>
-        <li>Photos are only taken when you explicitly use the camera feature</li>
-        <li>Images are stored securely and encrypted</li>
-        <li>You can delete your data at any time</li>
-        <li>We don't use photos for any purpose other than providing app functionality</li>
-    </ul>
-</section>
+    <section>
+        <h2>Information We Collect</h2>
 
-<section>
-    <h2>Changes to This Policy</h2>
-    <p>
-        We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.
-    </p>
-</section>
+        <h3>Account Information</h3>
+        <p>When you register for Cohesive Journal, we collect:</p>
+        <ul>
+            <li>Your email address</li>
+            <li>Your username</li>
+            <li>Authentication information (password hash or social login information)</li>
+        </ul>
 
-<section>
-    <h2>Contact Us</h2>
-    <p>
-        If you have any questions about this Privacy Policy, please contact us at:
-        <br>
-        Email: [Your Email Address]
-    </p>
-</section>
+        <h3>User Content</h3>
+        <p>We collect and store the content you create, upload, or receive from others when using our service, including:</p>
+        <ul>
+            <li>Notes and journal entries</li>
+            <li>Tags and categorization information</li>
+            <li>Voice recordings</li>
+            <li>Images</li>
+            <li>Hierarchical relationships between content</li>
+        </ul>
 
-<div class="footer">
-    Last updated: November 30, 2024
+        <h3>Device Information</h3>
+        <p>We collect information about the devices you use to access Cohesive Journal, including:</p>
+        <ul>
+            <li>Device type and model</li>
+            <li>Operating system and version</li>
+            <li>Unique device identifiers</li>
+            <li>Browser type (for web app users)</li>
+        </ul>
+
+        <h3>Usage Information</h3>
+        <p>We collect information about how you use Cohesive Journal, including:</p>
+        <ul>
+            <li>Features you use</li>
+            <li>Actions you take</li>
+            <li>Time, frequency, and duration of your activities</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>How We Use Your Information</h2>
+
+        <table>
+            <tr>
+                <th>Purpose</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><strong>Providing our Service</strong></td>
+                <td>To provide and maintain the Cohesive Journal service, including syncing your content across devices and providing hierarchical organization.</td>
+            </tr>
+            <tr>
+                <td><strong>Improving our Service</strong></td>
+                <td>To understand how users interact with our app, identify areas for improvement, and develop new features.</td>
+            </tr>
+            <tr>
+                <td><strong>AI-Enhanced Features</strong></td>
+                <td>To provide AI-powered features like hierarchical organization suggestions, tag recommendations, and pattern recognition.</td>
+            </tr>
+            <tr>
+                <td><strong>Communication</strong></td>
+                <td>To send service announcements, updates, security alerts, and support messages.</td>
+            </tr>
+            <tr>
+                <td><strong>Account Management</strong></td>
+                <td>To create and manage your account, including authentication and billing.</td>
+            </tr>
+            <tr>
+                <td><strong>Security</strong></td>
+                <td>To detect, prevent, and address technical issues, security risks, and potentially prohibited activities.</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>Required Permissions</h2>
+
+        <h3>Camera Permission</h3>
+        <p>We request camera access to allow you to:</p>
+        <ul>
+            <li>Take photos and attach them to your notes</li>
+            <li>Capture important visual information for your reference</li>
+        </ul>
+        <p>
+            Photos are processed on your device and synced with your account. We do not analyze the content of your photos for advertising or tracking purposes.
+        </p>
+
+        <h3>Microphone Permission</h3>
+        <p>We request microphone access to enable:</p>
+        <ul>
+            <li>Voice recording functionality for audio notes</li>
+            <li>Audio attachments to text notes</li>
+        </ul>
+        <p>
+            Audio recordings are stored securely and are only accessible to you through your account.
+        </p>
+
+        <h3>Storage Permission</h3>
+        <p>On mobile devices, we request storage access to:</p>
+        <ul>
+            <li>Save temporary files during note creation</li>
+            <li>Allow you to select and upload images from your device</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Data Security</h2>
+        <p>
+            The security of your information is important to us. We implement appropriate security measures to protect your information:
+        </p>
+        <ul>
+            <li>HTTPS encryption for all data in transit</li>
+            <li>Secure JWT authentication for user sessions</li>
+            <li>User-specific data filtering to ensure information is only accessible to authorized users</li>
+            <li>Regular security audits and updates</li>
+        </ul>
+        <p>
+            While we strive to protect your personal information, no method of internet transmission or electronic storage is 100% secure. We cannot guarantee absolute security.
+        </p>
+    </section>
+
+    <section>
+        <h2>Data Sharing and Disclosure</h2>
+        <p>We may share your information in the following situations:</p>
+
+        <h3>Service Providers</h3>
+        <p>
+            We use trusted third-party service providers to help us operate our service. These providers have access to your information only to perform specific tasks on our behalf and are obligated to protect your information.
+        </p>
+
+        <h3>Legal Requirements</h3>
+        <p>
+            We may disclose your information if required to do so by law or in response to valid requests by public authorities (e.g., a court or government agency).
+        </p>
+
+        <h3>Business Transfers</h3>
+        <p>
+            If we are involved in a merger, acquisition, or asset sale, your information may be transferred as part of that transaction. We will notify you before your information is transferred and becomes subject to a different privacy policy.
+        </p>
+
+        <h3>With Your Consent</h3>
+        <p>
+            We may disclose your personal information for any other purpose with your consent.
+        </p>
+    </section>
+
+    <section>
+        <h2>Your Rights and Choices</h2>
+        <p>Depending on your location, you may have certain rights regarding your personal information:</p>
+
+        <ul>
+            <li><strong>Access:</strong> You can request access to the personal information we hold about you.</li>
+            <li><strong>Correction:</strong> You can request that we correct inaccurate or incomplete information.</li>
+            <li><strong>Deletion:</strong> You can request that we delete your personal information.</li>
+            <li><strong>Data Portability:</strong> You may have the right to receive your personal information in a structured, commonly used, and machine-readable format.</li>
+            <li><strong>Withdraw Consent:</strong> If we process your information based on consent, you have the right to withdraw that consent at any time.</li>
+        </ul>
+
+        <p>
+            To exercise these rights, please contact us using the information provided at the end of this policy.
+        </p>
+    </section>
+
+    <section>
+        <h2>Children's Privacy</h2>
+        <p>
+            Our service is not directed to children under the age of 13, and we do not knowingly collect personal information from children under 13. If we learn that we have collected personal information from a child under 13, we will promptly delete that information.
+        </p>
+    </section>
+
+    <section>
+        <h2>International Data Transfers</h2>
+        <p>
+            Your information may be transferred to — and maintained on — computers located outside of your state, province, country, or other governmental jurisdiction where the data protection laws may differ from those of your jurisdiction.
+        </p>
+        <p>
+            If you are located outside the United States and choose to provide information to us, please note that we transfer the information, including personal information, to the United States and process it there.
+        </p>
+    </section>
+
+    <section>
+        <h2>Changes to This Privacy Policy</h2>
+        <p>
+            We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.
+        </p>
+        <p>
+            You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
+        </p>
+    </section>
+
+    <section>
+        <h2>Contact Us</h2>
+        <p>
+            If you have any questions about this Privacy Policy or our data practices, please contact us at:
+        </p>
+        <p>
+            Email: <a href="mailto:privacy@cohesivejournal.com">privacy@cohesivejournal.com</a>
+        </p>
+    </section>
+
+    <div class="footer">
+        <p>&copy; 2024 Cohesive Journal. All rights reserved.</p>
+    </div>
 </div>
-</body>
-</html></title>
-</head>
-<body>
-
 </body>
 </html>
