@@ -130,7 +130,7 @@
 <header>
   <div class="container">
     <div class="logo">
-      <img src="images/logo.svg" alt="Cohesive Logo" width="40" height="40">
+        <img alt="Cohesive Logo" height="40" src="images/logo.svg" width="40">
       <span>Cohesive</span>
     </div>
     <div class="mobile-menu-toggle" id="mobile-menu-toggle">
@@ -462,10 +462,10 @@
     <h2 class="section-title">Always Free to Start, Pro When You Need More</h2>
 
     <div class="pricing-toggle">
-      <div class="toggle-pill">
-        <span class="toggle-option monthly active" id="monthly-toggle">Monthly</span>
-        <span class="toggle-option annually" id="annually-toggle">Annually <span class="save-badge">Save 20%</span></span>
-      </div>
+        <div class="toggle-pill">
+            <span class="toggle-option monthly active" id="monthly-toggle">Monthly</span>
+            <span class="toggle-option annually" id="annually-toggle">Annually <span class="save-badge">Save 20%</span></span>
+        </div>
     </div>
 
     <div class="pricing-cards">
@@ -651,7 +651,7 @@
     <div class="footer-grid">
       <div class="footer-column">
         <div class="logo footer-logo">
-          <img src="images/logo.svg" alt="Cohesive Logo" width="60" height="60">
+            <img alt="Cohesive Logo" height="60" src="images/logo.svg" width="60">
           <span>Cohesive</span>
         </div>
         <p>Your digital sanctuary for organizing thoughts and building your second brain.</p>
@@ -736,58 +736,58 @@
 
           if (isMobile) {
             e.preventDefault();
-            
-            // Different approach based on platform
-            const isAndroid = /Android/i.test(navigator.userAgent);
-            const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-            
-            if (isiOS) {
-              // iOS specific approach
-              // Use direct location change for iOS
-              const visitedAt = Date.now();
-              
-              // First try opening the app
-              window.location.href = appUri;
-              
-              // Set timeout to check if app opened
-              setTimeout(function() {
-                // If we're still here and less time has passed than expected for a page change,
-                // the app probably didn't open, so go to web version
-                if (document.hidden || Date.now() - visitedAt > 2000) {
-                  // Either the app was opened or we somehow left this page
-                  return;
-                }
-                
-                // App didn't open, go to web version
-                window.location.href = webUrl;
-              }, 1500);
-            } else if (isAndroid) {
-              // Android specific approach with Intent URL (modern Android approach)
-              const packageName = 'org.acv.cohesive';
-              const fallbackUrl = encodeURIComponent(webUrl);
-              const intentUrl = `intent://${appUri.replace('cohesive://', '')}#Intent;scheme=cohesive;package=${packageName};S.browser_fallback_url=${fallbackUrl};end`;
-              
-              try {
-                window.location.href = intentUrl;
-              } catch (error) {
-                // Direct fallback if intent fails
-                window.location.href = appUri;
-                
-                // Set a timeout to load the web app if the native app doesn't open
-                setTimeout(function() {
-                  window.location.href = webUrl;
-                }, 2000);
+
+              // Different approach based on platform
+              const isAndroid = /Android/i.test(navigator.userAgent);
+              const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+              if (isiOS) {
+                  // iOS specific approach
+                  // Use direct location change for iOS
+                  const visitedAt = Date.now();
+
+                  // First try opening the app
+                  window.location.href = appUri;
+
+                  // Set timeout to check if app opened
+                  setTimeout(function () {
+                      // If we're still here and less time has passed than expected for a page change,
+                      // the app probably didn't open, so go to web version
+                      if (document.hidden || Date.now() - visitedAt > 2000) {
+                          // Either the app was opened or we somehow left this page
+                          return;
+                      }
+
+                      // App didn't open, go to web version
+                      window.location.href = webUrl;
+                  }, 1500);
+              } else if (isAndroid) {
+                  // Android specific approach with Intent URL (modern Android approach)
+                  const packageName = 'org.acv.cohesive';
+                  const fallbackUrl = encodeURIComponent(webUrl);
+                  const intentUrl = `intent://${appUri.replace('cohesive://', '')}#Intent;scheme=cohesive;package=${packageName};S.browser_fallback_url=${fallbackUrl};end`;
+
+                  try {
+                      window.location.href = intentUrl;
+                  } catch (error) {
+                      // Direct fallback if intent fails
+                      window.location.href = appUri;
+
+                      // Set a timeout to load the web app if the native app doesn't open
+                      setTimeout(function () {
+                          window.location.href = webUrl;
+                      }, 2000);
+                  }
+              } else {
+                  // Fallback for other mobile platforms
+                  // Try a more direct approach
+                  window.location.href = appUri;
+
+                  // Wait a bit and check if we're still on the page
+                  setTimeout(function () {
+                      window.location.href = webUrl;
+                  }, 2000);
               }
-            } else {
-              // Fallback for other mobile platforms
-              // Try a more direct approach
-              window.location.href = appUri;
-              
-              // Wait a bit and check if we're still on the page
-              setTimeout(function() {
-                window.location.href = webUrl;
-              }, 2000);
-            }
           }
         });
       });
@@ -835,31 +835,31 @@
     });
 
     // Pricing toggle
-    const monthlyToggle = document.getElementById('monthly-toggle');
-    const annuallyToggle = document.getElementById('annually-toggle');
-    const monthlyPrices = document.querySelectorAll('.price.monthly');
-    const annualPrices = document.querySelectorAll('.price.annually');
-    
-    function setMonthlyPricing() {
-      monthlyPrices.forEach(el => el.style.display = 'block');
-      annualPrices.forEach(el => el.style.display = 'none');
-      monthlyToggle.classList.add('active');
-      annuallyToggle.classList.remove('active');
-    }
-    
-    function setAnnualPricing() {
-      monthlyPrices.forEach(el => el.style.display = 'none');
-      annualPrices.forEach(el => el.style.display = 'block');
-      monthlyToggle.classList.remove('active');
-      annuallyToggle.classList.add('active');
-    }
-    
-    // Initialize with monthly pricing
-    setMonthlyPricing();
-    
-    // Add click handlers
-    monthlyToggle.addEventListener('click', setMonthlyPricing);
-    annuallyToggle.addEventListener('click', setAnnualPricing);
+      const monthlyToggle = document.getElementById('monthly-toggle');
+      const annuallyToggle = document.getElementById('annually-toggle');
+      const monthlyPrices = document.querySelectorAll('.price.monthly');
+      const annualPrices = document.querySelectorAll('.price.annually');
+
+      function setMonthlyPricing() {
+          monthlyPrices.forEach(el => el.style.display = 'block');
+          annualPrices.forEach(el => el.style.display = 'none');
+          monthlyToggle.classList.add('active');
+          annuallyToggle.classList.remove('active');
+      }
+
+      function setAnnualPricing() {
+          monthlyPrices.forEach(el => el.style.display = 'none');
+          annualPrices.forEach(el => el.style.display = 'block');
+          monthlyToggle.classList.remove('active');
+          annuallyToggle.classList.add('active');
+      }
+
+      // Initialize with monthly pricing
+      setMonthlyPricing();
+
+      // Add click handlers
+      monthlyToggle.addEventListener('click', setMonthlyPricing);
+      annuallyToggle.addEventListener('click', setAnnualPricing);
 
     // FAQ accordion
     const faqItems = document.querySelectorAll('.faq-item');
