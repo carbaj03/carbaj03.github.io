@@ -8,6 +8,7 @@
   <!-- SEO Meta Tags -->
   <meta content="Organize your thoughts hierarchically, collaborate with AI, and boost your productivity with Cohesive - your digital sanctuary for building a second brain." name="description">
   <meta content="note taking, second brain, knowledge management, AI notes, hierarchical notes, thought organization" name="keywords">
+  <meta name="robots" content="index, follow">
 
   <!-- Open Graph / Social Media -->
   <meta content="website" property="og:type">
@@ -16,6 +17,7 @@
   <meta content="Organize your thoughts hierarchically and capture everything that matters to you." property="og:description">
   <meta content="images/og-image.jpg" property="og:image">
 
+  <link rel="canonical" href="https://cohesivejournal.com/">
   <!-- Favicon -->
   <link href="favicon.ico" rel="icon">
 
@@ -123,6 +125,25 @@
       /*box-shadow: var(--box-shadow-medium);*/
       /*border-color: var(--tertiary-color);*/
     }
+
+    /* Try Claude style button - resembling Anthropic's style */
+    .btn-login {
+      background-color: #333;
+      color: white;
+      font-weight: 500;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      border: none;
+      transition: all 0.2s ease;
+      font-size: 0.95rem;
+    }
+
+    .btn-login:hover {
+      background-color: #000;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      color: white;
+    }
   </style>
 </head>
 <body>
@@ -143,7 +164,7 @@
         <li><a href="#features">Features</a></li>
         <li><a href="#how-it-works">How It Works</a></li>
         <li><a href="#pricing">Pricing</a></li>
-        <li><a class="btn btn-secondary open-app-btn" data-app-link="cohesive://login" href="/app.html">Login</a></li>
+        <li><a class="btn btn-login open-app-btn" data-app-link="cohesive://login" href="/app.html">Login</a></li>
       </ul>
     </nav>
   </div>
@@ -462,9 +483,15 @@
     <h2 class="section-title">Always Free to Start, Pro When You Need More</h2>
 
     <div class="pricing-toggle">
-        <div class="toggle-pill">
-            <span class="toggle-option monthly active" id="monthly-toggle">Monthly</span>
-            <span class="toggle-option annually" id="annually-toggle">Annually <span class="save-badge">Save 20%</span></span>
+      <div class="pricing-toggle-container">
+        <div class="pricing-label">Monthly</div>
+        <label class="pricing-switch">
+          <input id="pricing-toggle-input" type="checkbox">
+          <span class="pricing-slider">
+                    <span class="pricing-ball"></span>
+                </span>
+        </label>
+        <div class="pricing-label">Annually <span class="save-badge">Save 20%</span></div>
         </div>
     </div>
 
@@ -475,11 +502,13 @@
           <p class="price">€0<span>/month</span></p>
         </div>
         <ul class="pricing-features">
-          <li><span class="check">✓</span> Up to 50 notes/month</li>
+          <li><span class="check">✓</span> Up to 30 notes/month (100 total)</li>
           <li><span class="check">✓</span> Basic hierarchical organization</li>
           <li><span class="check">✓</span> Cross-platform sync</li>
-          <li><span class="check">✓</span> Voice recording (45 sec)</li>
-          <li><span class="check">✓</span> 15 total tags</li>
+          <li><span class="check">✓</span> Limited AI features (try before you buy)</li>
+          <li><span class="check">✓</span> Voice recording (30 sec, 3/month)</li>
+          <li><span class="check">✓</span> Basic tagging (10 tags, 1 group)</li>
+          <li><span class="lock">✗</span> Unlimited note creation</li>
           <li><span class="lock">✗</span> Advanced AI insights</li>
           <li><span class="lock">✗</span> Extended voice recording</li>
         </ul>
@@ -488,9 +517,18 @@
       <div class="pricing-card featured">
         <div class="popular-badge">Most Popular</div>
         <div class="pricing-header">
-          <h3>Pro Plan</h3>
-          <p class="price monthly">€12.99<span>/month</span></p>
-          <p class="price annually" style="display: none;">€9.99<span>/month</span></p>
+          <div class="pricing-options">
+            <div class="pricing-option monthly active">
+              <h3>Monthly</h3>
+              <p class="price-primary">€12.99<span>/month</span></p>
+              <p class="price-secondary">€155.88/year</p>
+            </div>
+            <div class="pricing-option annual">
+              <h3>Annual</h3>
+              <p class="price-primary">€119.88<span>/year</span></p>
+              <p class="price-secondary">€9.99/month</p>
+            </div>
+          </div>
         </div>
         <ul class="pricing-features">
           <li><span class="check">✓</span> Unlimited notes</li>
@@ -571,7 +609,7 @@
       <h3>Available on all your devices</h3>
       <div class="download-buttons">
         <a class="store-button google-play" href="https://play.google.com/store/apps/details?id=org.acv.cohesive">
-          <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png">
+          <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png">
         </a>
         <a class="store-button app-store" href="https://apps.apple.com/app/cohesive-journal/id6470116043">
           <img alt="Download on the App Store" src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg">
@@ -619,8 +657,13 @@
     transform: translateY(-3px);
   }
 
-  .google-play img, .app-store img {
+  .app-store img {
     height: 50px;
+  }
+
+  .google-play img {
+    height: 60px;
+    margin: -10px; /* Remove padding around the image */
   }
 
   .desktop {
@@ -834,32 +877,54 @@
       }
     });
 
-    // Pricing toggle
-      const monthlyToggle = document.getElementById('monthly-toggle');
-      const annuallyToggle = document.getElementById('annually-toggle');
-      const monthlyPrices = document.querySelectorAll('.price.monthly');
-      const annualPrices = document.querySelectorAll('.price.annually');
+    // Pricing options toggle
+    const monthlyPricingOption = document.querySelector('.pricing-option.monthly');
+    const annualPricingOption = document.querySelector('.pricing-option.annual');
+    const pricingToggleInput = document.getElementById('pricing-toggle-input');
 
       function setMonthlyPricing() {
-          monthlyPrices.forEach(el => el.style.display = 'block');
-          annualPrices.forEach(el => el.style.display = 'none');
-          monthlyToggle.classList.add('active');
-          annuallyToggle.classList.remove('active');
+        monthlyPricingOption.classList.add('active');
+        annualPricingOption.classList.remove('active');
+        pricingToggleInput.checked = false;
       }
 
       function setAnnualPricing() {
-          monthlyPrices.forEach(el => el.style.display = 'none');
-          annualPrices.forEach(el => el.style.display = 'block');
-          monthlyToggle.classList.remove('active');
-          annuallyToggle.classList.add('active');
+        monthlyPricingOption.classList.remove('active');
+        annualPricingOption.classList.add('active');
+        pricingToggleInput.checked = true;
       }
 
-      // Initialize with monthly pricing
-      setMonthlyPricing();
+    // Initialize with yearly pricing selected by default (since it has a discount)
+    setAnnualPricing();
 
-      // Add click handlers
-      monthlyToggle.addEventListener('click', setMonthlyPricing);
-      annuallyToggle.addEventListener('click', setAnnualPricing);
+    // Add click handlers for pricing cards
+    monthlyPricingOption.addEventListener('click', setMonthlyPricing);
+    annualPricingOption.addEventListener('click', setAnnualPricing);
+
+    // Add touch support for mobile
+    monthlyPricingOption.addEventListener('touchend', function (e) {
+      e.preventDefault();
+      setMonthlyPricing();
+    });
+
+    annualPricingOption.addEventListener('touchend', function (e) {
+      e.preventDefault();
+      setAnnualPricing();
+    });
+
+    // Add event listener to the toggle switch
+    pricingToggleInput.addEventListener('change', function () {
+      if (this.checked) {
+        setAnnualPricing();
+      } else {
+        setMonthlyPricing();
+      }
+    });
+
+    // Add click handlers for the labels to improve UX
+    const pricingLabels = document.querySelectorAll('.pricing-label');
+    pricingLabels[0].addEventListener('click', setMonthlyPricing);
+    pricingLabels[1].addEventListener('click', setAnnualPricing);
 
     // FAQ accordion
     const faqItems = document.querySelectorAll('.faq-item');
