@@ -6,7 +6,7 @@
     --tertiary-color: #80A4A6; /* Muted teal */
     --quaternary-color: #9FB2C3; /* Soft blue-gray */
 
-    --background-color: #F9F7F5; /* Warm off-white */
+    --background-color: #FAF5F0; /* Warm off-white */
     --text-primary: #3B3B38; /* Soft dark text */
     --text-secondary: #5D5B55; /* Medium dark text */
 
@@ -486,7 +486,7 @@ nav ul {
 }
 
 .hierarchy-item.parent {
-    background-color: #f9f7f5;
+    background-color: #FAF5F0;
 }
 
 .hierarchy-item.child {
