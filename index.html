@@ -847,35 +847,13 @@
       }
     }
 
-    function submitNote() {
-      const noteText = editableInput.innerText.trim();
-
-      if (noteText) {
-        // Note content will be stored in the database after login
-        // Redirect to app.html where the user can save the note properly
-        window.location.href = '/app.html?initialNote=' + encodeURIComponent(noteText);
-      }
-    }
+      // Note: This function is replaced by noteSubmit.js functionality
 
     // Initialize the button state
     updateSendButton();
 
     // Input event to detect text changes
     editableInput.addEventListener('input', updateSendButton);
-
-    // Send button click handler
-    sendButton.addEventListener('click', function (e) {
-      e.preventDefault();
-      submitNote();
-    });
-
-    // Enter key in contenteditable field (without shift)
-    editableInput.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        submitNote();
-      }
-    });
 
     // Pricing options toggle
     const monthlyPricingOption = document.querySelector('.pricing-option.monthly');
@@ -1054,5 +1032,6 @@
     }
   });
 </script>
+<script src="noteSubmit.js"></script>
 </body>
 </html>

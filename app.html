@@ -8,8 +8,29 @@
     <!-- Google Authentication -->
     <script async defer src="https://accounts.google.com/gsi/client"></script>
 
-    <!-- Notification Worker -->
-    <script src="notification-worker.js"></script>
+    <!-- Firebase App (the core Firebase SDK) - using compat version for v8 syntax -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <!-- Firebase Messaging for push notifications - using compat version -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-messaging-compat.js"></script>
+
+    <!-- Your Firebase configuration -->
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCx7n3xoEDuNExFOwZ12GKfGbikqbBgc9A",
+            authDomain: "cohesive-443220.firebaseapp.com",
+            projectId: "cohesive-443220",
+            storageBucket: "cohesive-443220.firebasestorage.app",
+            messagingSenderId: "779478088692",
+            appId: "1:779478088692:web:052def6dab53fd095457a1",
+            measurementId: "G-G9FRMRPQ35"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <!-- Firebase Messaging Helper -->
+    <script src="firebase-messaging.js"></script>
 
     <!-- App Styles -->
     <link href="styles.css" rel="stylesheet" type="text/css">
