@@ -4,6 +4,7 @@
     --primary-color: #CCBEAF; /* Soft sand */
     --secondary-color: #93B0A0; /* Sage green */
     --tertiary-color: #80A4A6; /* Muted teal */
+    --tertiary-color-dark: #6A8A8C; /* Darker teal for hover states */
     --quaternary-color: #9FB2C3; /* Soft blue-gray */
 
     --background-color: #FAF5F0; /* Warm off-white */
@@ -888,6 +889,76 @@ nav ul {
     background-color: var(--background-color);
 }
 
+/* Payment Switch Styling */
+.payment-switch-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto 3rem;
+}
+
+.payment-switch {
+  display: flex;
+  position: relative;
+  width: 340px;
+  height: 60px;
+  background-color: #F2F2ED;
+  border-radius: 30px;
+  padding: 4px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.payment-option {
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 500;
+  color: #939393;
+  transition: color 0.3s ease;
+  height: 100%;
+}
+
+.payment-option.active {
+  color: #000;
+  font-weight: 600;
+}
+
+/* Adjust save badge in payment switch */
+.payment-option .save-badge {
+  font-size: 0.6rem;
+  padding: 0.1rem 0.3rem;
+  margin-left: 0.3rem;
+  vertical-align: middle;
+}
+
+.payment-slider {
+  position: absolute;
+  height: calc(100% - 8px);
+  width: calc(50% - 8px);
+  border-radius: 26px;
+  background-color: white;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  left: 4px;
+  top: 4px;
+}
+
+.payment-slider.right {
+  transform: translateX(calc(100% + 8px));
+}
+
+/* Responsive adjustments for payment switch */
+@media (max-width: 480px) {
+  .payment-switch {
+    width: 300px;
+    height: 50px;
+  }
+}
+
 .pricing-toggle {
     display: flex;
     align-items: center;
@@ -1026,7 +1097,7 @@ nav ul {
     .pricing-switch input:checked + .pricing-slider .pricing-ball {
         transform: translateX(22px);
     }
-    
+
     .save-badge {
         font-size: 0.65rem;
         padding: 0.1rem 0.3rem;

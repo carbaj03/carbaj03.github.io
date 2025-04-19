@@ -42,7 +42,7 @@
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "EUR",
-          "description": "Free Plan"
+          "description": "Free Plan - 50 notes/month with AI enhancement"
         },
         {
           "@type": "Offer",
@@ -75,7 +75,7 @@
           "name": "Is there a free plan?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, Cohesive offers a free plan that allows you to store up to 50 notes per month with basic AI organization features."
+            "text": "Yes, Cohesive offers a generous free plan that allows you to store up to 50 notes per month (200 total) with AI-powered note enhancement, voice recording, and smart tagging features."
           }
         },
         {
@@ -480,19 +480,15 @@
 
 <section class="pricing" id="pricing">
   <div class="container">
-    <h2 class="section-title">Always Free to Start, Pro When You Need More</h2>
+    <h2 class="section-title">Start Your Journey Free, Unleash Your Full Potential with Pro</h2>
 
-    <div class="pricing-toggle">
-      <div class="pricing-toggle-container">
-        <div class="pricing-label">Monthly</div>
-        <label class="pricing-switch">
-          <input id="pricing-toggle-input" type="checkbox">
-          <span class="pricing-slider">
-                    <span class="pricing-ball"></span>
-                </span>
-        </label>
-        <div class="pricing-label">Annually <span class="save-badge">Save 20%</span></div>
-        </div>
+
+    <div class="payment-switch-container">
+      <div class="payment-switch" id="pricing-toggle">
+        <div class="payment-slider" id="pricing-slider"></div>
+        <div class="payment-option active" id="monthly-option">Monthly</div>
+        <div class="payment-option" id="annual-option">Annually <span class="save-badge">Save 23%</span></div>
+      </div>
     </div>
 
     <div class="pricing-cards">
@@ -502,17 +498,17 @@
           <p class="price">€0<span>/month</span></p>
         </div>
         <ul class="pricing-features">
-          <li><span class="check">✓</span> Up to 30 notes/month (100 total)</li>
-          <li><span class="check">✓</span> Basic hierarchical organization</li>
-          <li><span class="check">✓</span> Cross-platform sync</li>
-          <li><span class="check">✓</span> Limited AI features (try before you buy)</li>
-          <li><span class="check">✓</span> Voice recording (30 sec, 3/month)</li>
-          <li><span class="check">✓</span> Basic tagging (10 tags, 1 group)</li>
+          <li><span class="check">✓</span> Up to 50 notes/month (200 total)</li>
+          <li><span class="check">✓</span> Essential hierarchical organization</li>
+          <li><span class="check">✓</span> Seamless cross-platform sync</li>
+          <li><span class="check">✓</span> AI-powered note enhancement</li>
+          <li><span class="check">✓</span> Voice recording (45 sec, 5/month)</li>
+          <li><span class="check">✓</span> Smart tagging (15 tags, 2 groups)</li>
           <li><span class="lock">✗</span> Unlimited note creation</li>
-          <li><span class="lock">✗</span> Advanced AI insights</li>
-          <li><span class="lock">✗</span> Extended voice recording</li>
+          <li><span class="lock">✗</span> Advanced AI insights & suggestions</li>
+          <li><span class="lock">✗</span> Extended voice & multimedia features</li>
         </ul>
-        <a class="btn btn-secondary open-app-btn" data-app-link="cohesive://signup" href="/app.html">Start Now - No Card Required</a>
+        <a class="btn btn-secondary open-app-btn" data-app-link="cohesive://signup" href="/app.html">Start Free - No Credit Card Needed</a>
       </div>
       <div class="pricing-card featured">
         <div class="popular-badge">Most Popular</div>
@@ -521,26 +517,26 @@
             <div class="pricing-option monthly active">
               <h3>Monthly</h3>
               <p class="price-primary">€12.99<span>/month</span></p>
-              <p class="price-secondary">€155.88/year</p>
+              <p class="price-secondary">Flexible, no long-term commitment</p>
             </div>
             <div class="pricing-option annual">
               <h3>Annual</h3>
               <p class="price-primary">€119.88<span>/year</span></p>
-              <p class="price-secondary">€9.99/month</p>
+              <p class="price-secondary">Just €9.99/month (save €36/year)</p>
             </div>
           </div>
         </div>
         <ul class="pricing-features">
-          <li><span class="check">✓</span> Unlimited notes</li>
-          <li><span class="check">✓</span> Advanced hierarchical organization</li>
-          <li><span class="check">✓</span> Cross-platform sync</li>
-          <li><span class="check">✓</span> Extended voice recording (2 min)</li>
-          <li><span class="check">✓</span> Unlimited tags & tag groups</li>
-          <li><span class="check">✓</span> Advanced AI insights</li>
-          <li><span class="check">✓</span> Language translation</li>
-          <li><span class="check">✓</span> Priority support</li>
+          <li><span class="check">✓</span> Unlimited notes & ideas capture</li>
+          <li><span class="check">✓</span> Advanced hierarchical organization with unlimited depth</li>
+          <li><span class="check">✓</span> Real-time sync across all your devices</li>
+          <li><span class="check">✓</span> Premium voice recording (5 min, unlimited per month)</li>
+          <li><span class="check">✓</span> Unlimited tags & smart organization system</li>
+          <li><span class="check">✓</span> Advanced AI insights & personalized suggestions</li>
+          <li><span class="check">✓</span> Multilingual support with instant translation</li>
+          <li><span class="check">✓</span> Priority support & early access to new features</li>
         </ul>
-        <a class="btn btn-primary open-app-btn" data-app-link="cohesive://upgrade" href="/app.html">Upgrade to Pro</a>
+        <a class="btn btn-primary open-app-btn" data-app-link="cohesive://upgrade" href="/app.html">Unlock Full Potential Now</a>
       </div>
     </div>
   </div>
@@ -858,18 +854,24 @@
     // Pricing options toggle
     const monthlyPricingOption = document.querySelector('.pricing-option.monthly');
     const annualPricingOption = document.querySelector('.pricing-option.annual');
-    const pricingToggleInput = document.getElementById('pricing-toggle-input');
+    const monthlyOption = document.getElementById('monthly-option');
+    const annualOption = document.getElementById('annual-option');
+    const pricingSlider = document.getElementById('pricing-slider');
 
       function setMonthlyPricing() {
         monthlyPricingOption.classList.add('active');
         annualPricingOption.classList.remove('active');
-        pricingToggleInput.checked = false;
+        monthlyOption.classList.add('active');
+        annualOption.classList.remove('active');
+        pricingSlider.classList.remove('right');
       }
 
       function setAnnualPricing() {
         monthlyPricingOption.classList.remove('active');
         annualPricingOption.classList.add('active');
-        pricingToggleInput.checked = true;
+        monthlyOption.classList.remove('active');
+        annualOption.classList.add('active');
+        pricingSlider.classList.add('right');
       }
 
     // Initialize with yearly pricing selected by default (since it has a discount)
@@ -879,30 +881,21 @@
     monthlyPricingOption.addEventListener('click', setMonthlyPricing);
     annualPricingOption.addEventListener('click', setAnnualPricing);
 
+    // Add click handlers for the new pricing toggle
+    monthlyOption.addEventListener('click', setMonthlyPricing);
+    annualOption.addEventListener('click', setAnnualPricing);
+
     // Add touch support for mobile
-    monthlyPricingOption.addEventListener('touchend', function (e) {
+    monthlyOption.addEventListener('touchend', function (e) {
       e.preventDefault();
       setMonthlyPricing();
     });
 
-    annualPricingOption.addEventListener('touchend', function (e) {
+    annualOption.addEventListener('touchend', function (e) {
       e.preventDefault();
       setAnnualPricing();
     });
 
-    // Add event listener to the toggle switch
-    pricingToggleInput.addEventListener('change', function () {
-      if (this.checked) {
-        setAnnualPricing();
-      } else {
-        setMonthlyPricing();
-      }
-    });
-
-    // Add click handlers for the labels to improve UX
-    const pricingLabels = document.querySelectorAll('.pricing-label');
-    pricingLabels[0].addEventListener('click', setMonthlyPricing);
-    pricingLabels[1].addEventListener('click', setAnnualPricing);
 
     // FAQ accordion
     const faqItems = document.querySelectorAll('.faq-item');
