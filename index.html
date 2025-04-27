@@ -1,1030 +1,787 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Cohesive - Build Your Second Brain</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Cohesive: AI Note Taking App for Your Second Brain</title>
+    <meta content="Capture thoughts instantly with Cohesive, the AI-powered note taking app. Organize ideas, link notes, get insights, and build your second brain effortlessly across all devices." name="description">
+    <meta content="ai note taking, second brain, organize thoughts, cohesive app, smart notes, quick capture, note linking, voice notes, image notes, kotlin multiplatform" name="keywords">
+    <link href="https://YOUR_DOMAIN.com/" rel="canonical"/>
 
-  <!-- SEO Meta Tags -->
-  <meta content="Organize your thoughts hierarchically, collaborate with AI, and boost your productivity with Cohesive - your digital sanctuary for building a second brain." name="description">
-  <meta content="note taking, second brain, knowledge management, AI notes, hierarchical notes, thought organization" name="keywords">
-  <meta content="index, follow" name="robots">
-
-  <!-- Open Graph / Social Media -->
-  <meta content="website" property="og:type">
-  <meta content="https://cohesivejournal.com" property="og:url">
-  <meta content="Cohesive - Your Digital Sanctuary" property="og:title">
-  <meta content="Organize your thoughts hierarchically and capture everything that matters to you." property="og:description">
-  <meta content="images/og-image.jpg" property="og:image">
-
-  <link href="https://cohesivejournal.com/" rel="canonical">
-  <!-- Favicon -->
-  <link href="favicon.ico" rel="icon">
-
-  <!-- Styles -->
-  <link href="landing-styles.css" rel="stylesheet">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Structured Data for SEO -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Cohesive",
-      "applicationCategory": "ProductivityApplication",
-      "operatingSystem": "Web, iOS, Android, Desktop",
-      "offers": [
-        {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "EUR",
-          "description": "Free Plan - 50 notes/month with AI enhancement"
-        },
-        {
-          "@type": "Offer",
-          "price": "9.99",
-          "priceCurrency": "EUR",
-          "description": "Pro Plan (Annual)",
-          "priceValidUntil": "2025-12-31"
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="landing-styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'domain-primary': '#CCBEAF',
+                        'domain-on-primary': '#3D3930',
+                        'domain-primary-container': '#FAF5F0',
+                        'domain-on-primary-container': '#4E4A41',
+                        'domain-secondary': '#93B0A0',
+                        'domain-on-secondary': '#FFFFFF',
+                        'domain-secondary-container': '#E8F0EA',
+                        'domain-on-secondary-container': '#354A3F',
+                        'domain-tertiary': '#80A4A6',
+                        'domain-on-tertiary': '#2A3536',
+                        'domain-background': '#F9F7F5',
+                        'domain-on-background': '#3B3B38',
+                        'domain-surface': '#FFFFFF',
+                        'domain-on-surface': '#3B3B38',
+                        'domain-outline': '#ACA8A2',
+                    }
+                }
+            }
         }
-      ],
-      "description": "Organize your thoughts hierarchically, collaborate with AI, and boost your productivity with Cohesive."
-    }
-  </script>
-
-  <!-- FAQ Schema for SEO -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is Cohesive?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Cohesive is an AI-powered note-taking app that helps you organize your thoughts hierarchically and build your second brain."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is there a free plan?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, Cohesive offers a generous free plan that allows you to store up to 50 notes per month (200 total) with AI-powered note enhancement, voice recording, and smart tagging features."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Which platforms does Cohesive support?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Cohesive is available on iOS, Android, and Web. You can use the same account across all platforms, and your notes will synchronize seamlessly."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is my data private and secure?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, your data is private and secure. We use HTTPS for all communication and secure JWT authentication. Your notes are only accessible to you, and our database enforces user-specific data filtering to ensure no one else can access your content."
-          }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
         }
-      ]
-    }
-  </script>
 
-  <style>
-    /* Critical CSS for faster initial load */
-    .hero {
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-    }
-
-    .note-input-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .input-wrapper {
-      border-radius: var(--border-radius-lg);
-      background-color: var(--input-background);
-      box-shadow: var(--box-shadow-light);
-      display: flex;
-      align-items: center;
-      transition: all 0.3s ease;
-    }
-
-    .input-wrapper:focus-within {
-      transform: translateY(-2px);
-      /*box-shadow: var(--box-shadow-medium);*/
-      /*border-color: var(--tertiary-color);*/
-    }
-
-    /* Try Claude style button - resembling Anthropic's style */
-    .btn-login {
-      background-color: #333;
-      color: white;
-      font-weight: 500;
-      padding: 0.5rem 1.2rem;
-      border-radius: 50px;
-      border: none;
-      transition: all 0.2s ease;
-      font-size: 0.95rem;
-    }
-
-    .btn-login:hover {
-      background-color: #000;
-      transform: translateY(-1px);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      color: white;
-    }
-  </style>
+        textarea::placeholder {
+            color: #ACA8A2;
+            transition: placeholder 0.3s ease-in-out;
+        }
+    </style>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Cohesive",
+            "applicationCategory": "ProductivityApplication",
+            "operatingSystem": "iOS, Android, Windows, macOS, Web",
+            "description": "Cohesive is an AI-powered note taking app designed to help you capture, organize, and connect your thoughts effortlessly, building your second brain.",
+            "url": "https://cohesivejournal.com/",
+            "offers": {
+                "@type": "AggregateOffer",
+                "priceCurrency": "EUR",
+                "lowPrice": "0.00",
+                "highPrice": "12.99",
+                "offers": [
+                    {
+                        "@type": "Offer",
+                        "name": "Free Plan",
+                        "price": "0.00",
+                        "priceCurrency": "EUR"
+                    },
+                    {
+                        "@type": "Offer",
+                        "name": "Pro Monthly Plan",
+                        "price": "12.99",
+                        "priceCurrency": "EUR",
+                        "priceSpecification": {
+                            "@type": "PriceSpecification",
+                            "price": "12.99",
+                            "priceCurrency": "EUR",
+                            "valueAddedTaxIncluded": "true",
+                            "billingIncrement": "P1M"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "name": "Pro Annual Plan",
+                        "price": "119.88",
+                        "priceCurrency": "EUR",
+                        "priceSpecification": {
+                            "@type": "PriceSpecification",
+                            "price": "119.88",
+                            "priceCurrency": "EUR",
+                            "valueAddedTaxIncluded": "true",
+                            "billingIncrement": "P1Y"
+                        }
+                    }
+                ]
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Cohesive",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://cohesivejournal.com/images/logo.svg"
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-<!-- Header with minimal navigation -->
-<header>
-  <div class="container">
-    <div class="logo">
-        <img alt="Cohesive Logo" height="40" src="images/logo.svg" width="40">
-      <span>Cohesive</span>
-    </div>
-    <div class="mobile-menu-toggle" id="mobile-menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <nav id="main-nav">
-      <ul>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a class="btn btn-login open-app-btn" data-app-link="cohesive://login" href="/app.html">Login</a></li>
-      </ul>
+<body class="bg-domain-background text-domain-on-background antialiased overflow-x-hidden">
+
+<header class="bg-domain-primary-container sticky top-0 z-50 shadow-sm">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a class="text-2xl font-bold text-domain-on-primary flex items-center shrink-0" href="/">
+            <img alt="Cohesive Logo" class="h-8 w-auto mr-3" src="/images/logo.svg">
+            Cohesive
+        </a>
+
+
+        <div class="hidden md:flex items-center space-x-6">
+            <a class="text-domain-on-primary-container hover:text-domain-secondary transition duration-200" href="#features">Features</a>
+            <a class="text-domain-on-primary-container hover:text-domain-secondary transition duration-200" href="#how-it-works">How It Works</a>
+            <a class="text-domain-on-primary-container hover:text-domain-secondary transition duration-200" href="#pricing">Pricing</a>
+            <a class="bg-domain-on-primary-container text-white hover:opacity-90 text-sm font-medium py-2 px-5 rounded-full transition duration-200 transform hover:scale-105 active:scale-95" href="/app.html">Login</a>
+        </div>
+
+
+        <div class="md:hidden">
+            <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open mobile menu" class="text-domain-on-primary-container p-1" id="mobile-menu-button">
+
+                <svg class="w-6 h-6" fill="none" id="menu-icon-open" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                <svg class="w-6 h-6 hidden" fill="none" id="menu-icon-close" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
     </nav>
-  </div>
+    <!-- Mobile Menu -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" id="mobile-menu">
+        <div class="bg-domain-background h-full w-4/5 max-w-xs p-6 shadow-lg transform transition-transform duration-300 ease-in-out">
+            <div class="flex justify-between items-center mb-8">
+                <a class="text-xl font-bold text-domain-on-primary flex items-center" href="/">
+                    <svg class="h-7 w-auto mr-2" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 60C20 37.9086 37.9086 20 60 20C82.0914 20 100 37.9086 100 60C100 82.0914 82.0914 100 60 100C37.9086 100 20 82.0914 20 60Z" fill="#CCBEAF" opacity="0.7"/>
+                        <path d="M0 40C0 17.9086 17.9086 0 40 0C62.0914 0 80 17.9086 80 40C80 62.0914 62.0914 80 40 80C17.9086 80 0 62.0914 0 40Z" fill="#93B0A0" opacity="0.7"/>
+                    </svg>
+                    Cohesive
+                </a>
+                <button aria-label="Close mobile menu" class="text-domain-on-background" id="mobile-menu-close">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-4">
+                <a class="text-domain-on-background hover:text-domain-secondary py-2 transition duration-200" href="/#features">Features</a>
+                <a class="text-domain-on-background hover:text-domain-secondary py-2 transition duration-200" href="/#how-it-works">How It Works</a>
+                <a class="text-domain-on-background hover:text-domain-secondary py-2 transition duration-200" href="/#pricing">Pricing</a>
+                <div class="pt-4 border-t border-domain-outline/20">
+                    <a class="block w-full bg-domain-on-primary-container text-white text-center font-medium py-3 px-5 rounded-lg hover:opacity-90 transition duration-200" href="/app.html">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
 
-<!-- Hero section with thought input field prominently positioned -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-content">
-      <h1>Organize Your Thoughts</h1>
-      <h2>AI-powered note-taking for building your second brain</h2>
+<main>
+    <section class="bg-domain-primary-container pt-24 pb-32 md:pt-32 md:pb-40 relative overflow-hidden">
+        <div class="absolute top-0 left-0 -translate-x-1/4 -translate-y-1/4 w-96 h-96 bg-domain-secondary/10 rounded-full blur-3xl opacity-50"></div>
+        <div class="absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 w-80 h-80 bg-domain-tertiary/10 rounded-full blur-3xl opacity-50"></div>
 
-      <!-- Advanced chat-style input field -->
-      <div class="note-input-container">
-        <div class="chat-input-wrapper">
-          <div class="flex-col-container">
-            <div class="editable-container">
-              <div class="editable-area" contenteditable="true" id="note-input-editable" placeholder="Write your thoughts, ideas, or anything you want to remember..."></div>
-            </div>
-            <div class="input-actions">
-              <button aria-label="Send Message" class="send-btn" id="send-button">
-                <svg fill="currentColor" height="16" viewBox="0 0 256 256" width="16" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M208.49,120.49a12,12,0,0,1-17,0L140,69V216a12,12,0,0,1-24,0V69L64.49,120.49a12,12,0,0,1-17-17l72-72a12,12,0,0,1,17,0l72,72A12,12,0,0,1,208.49,120.49Z"></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Feature Showcase Section -->
-<section class="features" id="features">
-  <div class="container">
-    <h2 class="section-title">Features</h2>
-
-    <!-- Feature 1: Hierarchical Organization -->
-    <div class="feature-showcase">
-      <div class="feature-text">
-        <h3>Hierarchical Organization</h3>
-        <p>Organize your thoughts naturally with parent-child relationships. Create complex knowledge structures that mirror how you think.</p>
-        <ul class="feature-bullets">
-          <li>Unlimited nesting levels</li>
-          <li>Drag and drop organization</li>
-          <li>Collapsible sections</li>
-        </ul>
-      </div>
-      <div class="feature-visual hierarchy-demo">
-        <div class="hierarchy-item parent">
-          <span>Project Idea</span>
-          <div class="hierarchy-children">
-            <div class="hierarchy-item child">
-              <span>Research Phase</span>
-            </div>
-            <div class="hierarchy-item child">
-              <span>Implementation</span>
-              <div class="hierarchy-children">
-                <div class="hierarchy-item grandchild">
-                  <span>Step 1</span>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-domain-on-primary mb-5 leading-tight animate-on-scroll">
+                        Organize Your Thoughts
+                    </h1>
+                    <p class="text-lg md:text-xl text-domain-on-primary-container mb-10 max-w-xl mx-auto animate-on-scroll animation-delay-200">
+                        The mind is for having ideas, not holding them. Build your second brain.
+                    </p>
+                    <div class="bg-white border border-[#0000000A] rounded-[20px] shadow-[0_4px_24px_0_rgba(0,0,0,0.05)] hover:shadow-[0_4px_28px_0_rgba(0,0,0,0.08)] transition-all duration-200 relative max-w-3xl mx-auto animate-on-scroll animation-delay-400">
+                        <form class="relative p-1" id="thought-form">
+                            <textarea
+                                    aria-label="Enter your thought"
+                                    class="block w-full min-h-[5.5rem] p-5 pr-16 bg-transparent border-none focus:ring-0 focus:outline-none resize-none text-xl text-domain-on-surface placeholder-[#AFAFAF] transition duration-300"
+                                    id="thought-textarea"
+                                    name="thought"
+                                    placeholder="Capture an idea instantly..."
+                                    rows="3"
+                            ></textarea>
+                            <button
+                                    aria-label="Save thought"
+                                    class="absolute bottom-5 right-5 w-9 h-9 rounded-full flex items-center justify-center bg-[#C2B8AA] hover:bg-opacity-90 text-white transition duration-200 ease-in-out transform hover:scale-110 active:scale-95 focus:outline-none focus:ring-0"
+                                    id="send-button"
+                                    type="submit"
+                            >
+                                <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
                 </div>
-                <div class="hierarchy-item grandchild">
-                  <span>Step 2</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-domain-surface" id="how-it-works">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-domain-on-background mb-4 animate-on-scroll">
+                How Cohesive Works
+            </h2>
+            <p class="text-lg text-domain-on-background/70 mb-6 max-w-2xl mx-auto animate-on-scroll animation-delay-100">
+                From fleeting thought to meaningful insight in three simple steps
+            </p>
+
+            <!-- Step indicators -->
+            <div class="hidden md:flex justify-center items-center mb-12 relative animate-on-scroll animation-delay-200">
+                <div class="h-1 absolute bg-domain-secondary/20 w-1/2 left-1/4"></div>
+                <div class="w-12 h-12 rounded-full bg-domain-secondary flex items-center justify-center text-white font-bold text-lg z-10 mx-8">1</div>
+                <div class="w-12 h-12 rounded-full bg-domain-secondary flex items-center justify-center text-white font-bold text-lg z-10 mx-8">2</div>
+                <div class="w-12 h-12 rounded-full bg-domain-secondary flex items-center justify-center text-white font-bold text-lg z-10 mx-8">3</div>
+            </div>
+
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                <div class="group bg-domain-primary-container/20 p-6 rounded-xl shadow-sm border border-domain-outline/10 transition duration-300 hover:shadow-md animate-on-scroll animation-delay-200">
+                    <div class="w-16 h-16 bg-domain-secondary-container rounded-full flex items-center justify-center mx-auto mb-4 transition duration-300 group-hover:bg-domain-secondary group-hover:scale-110">
+                        <svg class="w-8 h-8 text-domain-secondary transition duration-300 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-domain-on-surface mb-3">1. Capture Instantly</h3>
+                    <p class="text-domain-on-surface/80 mb-4">No more lost ideas. Capture thoughts the way that works for you – quick text notes, voice memos, or images – anytime inspiration strikes.</p>
                 </div>
-              </div>
-            </div>
-            <div class="hierarchy-item child">
-              <span>Future Ideas</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Feature 2: Smart Tagging System -->
-    <div class="feature-showcase reverse">
-      <div class="feature-text">
-        <h3>Smart Tagging System</h3>
-        <p>Organize content your way with our intelligent tagging system. Group related ideas together and find them instantly.</p>
-        <ul class="feature-bullets">
-          <li>AI-suggested tags</li>
-          <li>Custom tag groups</li>
-          <li>Color-coded organization</li>
-        </ul>
-      </div>
-      <div class="feature-visual tag-demo">
-        <div class="tag-group">
-          <div class="tag" style="background-color: var(--primary-color)">Project</div>
-          <div class="tag" style="background-color: var(--secondary-color)">Research</div>
-          <div class="tag" style="background-color: var(--tertiary-color)">Idea</div>
-          <div class="tag" style="background-color: var(--quaternary-color)">Follow-up</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Feature 3: Voice & OCR -->
-    <div class="feature-showcase">
-      <div class="feature-text">
-        <h3>Voice & Camera Integration</h3>
-        <p>Capture thoughts on the go with voice recording and add photos directly to your notes.</p>
-        <ul class="feature-bullets">
-          <li>Voice recording and audio notes</li>
-          <li>Camera integration for visual notes</li>
-          <li>Multimedia capture for rich content</li>
-        </ul>
-      </div>
-      <div class="feature-visual voice-ocr-demo">
-        <div class="demo-icon voice">
-          <svg fill="none" height="60" viewBox="0 0 24 24" width="60" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 1C11.2044 1 10.4413 1.31607 9.87868 1.87868C9.31607 2.44129 9 3.20435 9 4V12C9 12.7956 9.31607 13.5587 9.87868 14.1213C10.4413 14.6839 11.2044 15 12 15C12.7956 15 13.5587 14.6839 14.1213 14.1213C14.6839 13.5587 15 12.7956 15 12V4C15 3.20435 14.6839 2.44129 14.1213 1.87868C13.5587 1.31607 12.7956 1 12 1Z" stroke="var(--tertiary-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-            <path d="M19 10V12C19 13.8565 18.2625 15.637 16.9497 16.9497C15.637 18.2625 13.8565 19 12 19C10.1435 19 8.36301 18.2625 7.05025 16.9497C5.7375 15.637 5 13.8565 5 12V10" stroke="var(--tertiary-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-            <path d="M12 19V23" stroke="var(--tertiary-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-            <path d="M8 23H16" stroke="var(--tertiary-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-          </svg>
-          <span>Voice</span>
-        </div>
-        <div class="demo-icon camera">
-          <svg fill="none" height="60" viewBox="0 0 24 24" width="60" xmlns="http://www.w3.org/2000/svg">
-            <path d="M23 19C23 19.5304 22.7893 20.0391 22.4142 20.4142C22.0391 20.7893 21.5304 21 21 21H3C2.46957 21 1.96086 20.7893 1.58579 20.4142C1.21071 20.0391 1 19.5304 1 19V8C1 7.46957 1.21071 6.96086 1.58579 6.58579C1.96086 6.21071 2.46957 6 3 6H7L9 3H15L17 6H21C21.5304 6 22.0391 6.21071 22.4142 6.58579C22.7893 6.96086 23 7.46957 23 8V19Z" stroke="var(--tertiary-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-            <path d="M12 17C14.2091 17 16 15.2091 16 13C16 10.7909 14.2091 9 12 9C9.79086 9 8 10.7909 8 13C8 15.2091 9.79086 17 12 17Z" stroke="var(--tertiary-color)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-          </svg>
-          <span>Camera</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Feature 4: AI Analysis -->
-    <div class="feature-showcase reverse">
-      <div class="feature-text">
-        <h3>AI-Powered Analysis</h3>
-        <p>Let our AI help you discover connections between your ideas and organize your thoughts more effectively.</p>
-        <ul class="feature-bullets">
-          <li>Automatic content linking</li>
-          <li>Smart suggestions</li>
-          <li>Pattern recognition</li>
-        </ul>
-      </div>
-      <div class="feature-visual ai-demo">
-        <div class="ai-improvement">
-          <div class="before">
-            <h4>Before</h4>
-            <p>meeting with team about project timeline need to discuss budget concerns and resource allocation</p>
-          </div>
-          <div class="after">
-            <h4>After AI</h4>
-            <p>Meeting with team about project timeline
-              <br>• Discuss budget concerns
-              <br>• Address resource allocation
-              <br>• Set milestones</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="how-it-works" id="how-it-works">
-  <div class="container">
-    <h2 class="section-title">How It Works</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-number">1</div>
-        <h3>Capture Anything</h3>
-        <p>Text, voice notes, images, links, tags—all your thoughts, ideas, and inspiration in one place. No need to organize as you go, just capture everything.</p>
-      </div>
-      <div class="step">
-        <div class="step-number">2</div>
-        <h3>Discover Connections</h3>
-        <p>Our AI automatically analyzes your notes, finding patterns and relationships you might miss. Watch as your personal knowledge graph grows and evolves.</p>
-      </div>
-      <div class="step">
-        <div class="step-number">3</div>
-        <h3>Transform Ideas Into Action</h3>
-        <p>Use hierarchical organization to turn scattered thoughts into actionable plans. Easily convert ideas into projects with clear next steps.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="testimonials" id="testimonials">
-  <div class="container">
-    <h2 class="section-title">What Our Users Say</h2>
-    <div class="testimonial-carousel">
-      <div class="carousel-container">
-        <div class="carousel-track">
-          <!-- Page 1 -->
-          <div class="carousel-page">
-            <div class="testimonial">
-              <p class="quote">"Cohesive has completely transformed how I organize my thoughts and projects. The hierarchical organization finally lets my mind be free to explore new ideas without getting overwhelmed!"</p>
-              <div class="author">
-                <img alt="Sarah J." class="author-img" src="/images/testimonial-1.jpg">
-                <div class="author-info">
-                  <h4>Sarah J.</h4>
-                  <p>Content Creator</p>
+                <div class="group bg-domain-primary-container/20 p-6 rounded-xl shadow-sm border border-domain-outline/10 transition duration-300 hover:shadow-md animate-on-scroll animation-delay-400">
+                    <div class="w-16 h-16 bg-domain-secondary-container rounded-full flex items-center justify-center mx-auto mb-4 transition duration-300 group-hover:bg-domain-secondary group-hover:scale-110">
+                        <svg class="w-8 h-8 text-domain-secondary transition duration-300 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 6h.008v.008H6V6Z" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-domain-on-surface mb-3">2. AI Organizes</h3>
+                    <p class="text-domain-on-surface/80 mb-4">Sit back while Cohesive automatically tags, categorizes, and links related notes. No more manual sorting or searching through scattered thoughts.</p>
                 </div>
-              </div>
-            </div>
-            <div class="testimonial">
-              <p class="quote">"I've tried dozens of note-taking apps, but nothing comes close to Cohesive. Since I started using it, I've been more focused and productive than ever before. My mind feels free!"</p>
-              <div class="author">
-                <img alt="Michael R." class="author-img" src="/images/testimonial-2.jpg">
-                <div class="author-info">
-                  <h4>Michael R.</h4>
-                  <p>Software Engineer</p>
-                </div>
-              </div>
-            </div>
-            <div class="testimonial">
-              <p class="quote">"The parent-child relationships in Cohesive make it so easy to organize complex projects. I'm now much more aware of the connections between my ideas and tasks."</p>
-              <div class="author">
-                <img alt="Elena T." class="author-img" src="/images/testimonial-3.jpg">
-                <div class="author-info">
-                  <h4>Elena T.</h4>
-                  <p>Project Manager</p>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <!-- Page 2 -->
-          <div class="carousel-page">
-            <div class="testimonial">
-              <p class="quote">"Since using Cohesive, my stress levels have dropped significantly. Being able to organize my thoughts hierarchically means I no longer keep everything in my head. My mental health has improved!"</p>
-              <div class="author">
-                <img alt="David L." class="author-img" src="/images/testimonial-4.jpg">
-                <div class="author-info">
-                  <h4>David L.</h4>
-                  <p>Health Coach</p>
+                <div class="group bg-domain-primary-container/20 p-6 rounded-xl shadow-sm border border-domain-outline/10 transition duration-300 hover:shadow-md animate-on-scroll animation-delay-600">
+                    <div class="w-16 h-16 bg-domain-secondary-container rounded-full flex items-center justify-center mx-auto mb-4 transition duration-300 group-hover:bg-domain-secondary group-hover:scale-110">
+                        <svg class="w-8 h-8 text-domain-secondary transition duration-300 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-domain-on-surface mb-3">3. Discover & Act</h3>
+                    <p class="text-domain-on-surface/80 mb-4">Uncover powerful insights as AI highlights patterns in your thoughts, habits, and goals. Set reminders to turn ideas into action.</p>
                 </div>
-              </div>
             </div>
-            <div class="testimonial">
-              <p class="quote">"As someone with ADHD, finding a note system that works with my brain has been life-changing. Cohesive helps me stay focused and organized in a way that feels natural."</p>
-              <div class="author">
-                <img alt="Jennifer K." class="author-img" src="/images/testimonial-5.jpg">
-                <div class="author-info">
-                  <h4>Jennifer K.</h4>
-                  <p>Graphic Designer</p>
-                </div>
-              </div>
-            </div>
-            <div class="testimonial">
-              <p class="quote">"The AI features in Cohesive have helped me discover connections in my work that I would have missed. I'm more aware of patterns in my thinking and it's improved my creative output tremendously."</p>
-              <div class="author">
-                <img alt="Robert P." class="author-img" src="/images/testimonial-6.jpg">
-                <div class="author-info">
-                  <h4>Robert P.</h4>
-                  <p>Researcher</p>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <!-- Page 3 -->
-          <div class="carousel-page">
-            <div class="testimonial">
-              <p class="quote">"I used to suffer from chronic headaches from information overload. Since organizing my life in Cohesive, they've almost disappeared. My brain no longer has to work overtime to remember everything!"</p>
-              <div class="author">
-                <img alt="Maria S." class="author-img" src="/images/testimonial-7.jpg">
-                <div class="author-info">
-                  <h4>Maria S.</h4>
-                  <p>Business Analyst</p>
-                </div>
-              </div>
+            <div class="mt-12 animate-on-scroll animation-delay-700">
+                <a class="inline-flex items-center justify-center bg-domain-secondary hover:opacity-90 text-domain-on-secondary font-semibold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 active:scale-95" href="/app.html">
+                    Try It For Free
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
             </div>
-            <div class="testimonial">
-              <p class="quote">"The voice transcription feature has been a game-changer for my health. Instead of hunching over a keyboard, I can capture my thoughts while walking or exercising. My back pain has significantly improved!"</p>
-              <div class="author">
-                <img alt="Thomas G." class="author-img" src="/images/testimonial-8.jpg">
-                <div class="author-info">
-                  <h4>Thomas G.</h4>
-                  <p>Author</p>
-                </div>
-              </div>
-            </div>
-            <div class="testimonial">
-              <p class="quote">"As a medical student, I need to organize massive amounts of information. Cohesive's hierarchical system perfectly mirrors how medical knowledge is structured, making my studies more efficient and effective."</p>
-              <div class="author">
-                <img alt="Aisha N." class="author-img" src="/images/testimonial-9.jpg">
-                <div class="author-info">
-                  <h4>Aisha N.</h4>
-                  <p>Medical Student</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Navigation buttons -->
-      <div class="carousel-nav">
-        <button aria-label="Previous testimonials" class="prev-btn">
-          <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-        <div class="carousel-dots">
-          <span class="dot active" data-index="0"></span>
-          <span class="dot" data-index="1"></span>
-          <span class="dot" data-index="2"></span>
+    <section class="py-16 md:py-24 bg-domain-surface relative overflow-hidden" id="features">
+        <!-- Background decorative elements -->
+        <div class="absolute top-0 left-0 -translate-x-1/3 w-64 h-64 bg-domain-secondary/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 translate-x-1/3 w-64 h-64 bg-domain-primary/5 rounded-full blur-3xl"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-domain-on-background mb-4 animate-on-scroll">
+                    Powerful Features
+                </h2>
+                <p class="text-lg text-domain-on-background/70 animate-on-scroll animation-delay-100">
+                    Everything you need to capture, organize, and connect your thoughts
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                <!-- Quick Capture Feature -->
+                <div class="group bg-domain-surface rounded-xl shadow-md border border-domain-outline/20 transition duration-300 hover:shadow-xl hover:-translate-y-1 animate-on-scroll">
+                    <div class="p-6 flex flex-col items-center">
+                        <div class="w-full aspect-square mb-6 rounded-lg overflow-hidden">
+                            <img alt="Capturing ideas with voice and text" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" src="/images/features/quick-capture.webp">
+                        </div>
+                        <h3 class="text-xl font-semibold text-domain-on-surface mb-3 text-center">Multi-Modal Capture</h3>
+                        <p class="text-domain-on-surface/80 text-center">Instantly save ideas using text, voice recording, or image OCR before they fade away.</p>
+                    </div>
+                </div>
+
+                <!-- AI Tagging Feature -->
+                <div class="group bg-domain-surface rounded-xl shadow-md border border-domain-outline/20 transition duration-300 hover:shadow-xl hover:-translate-y-1 animate-on-scroll animation-delay-100">
+                    <div class="p-6 flex flex-col items-center">
+                        <div class="w-full aspect-square mb-6 rounded-lg overflow-hidden">
+                            <img alt="AI automatically tagging and organizing notes" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" src="/images/features/ai-tagging.webp">
+                        </div>
+                        <h3 class="text-xl font-semibold text-domain-on-surface mb-3 text-center">Intelligent Organization</h3>
+                        <p class="text-domain-on-surface/80 text-center">AI automatically suggests tags and links related notes, building your knowledge network effortlessly.</p>
+                    </div>
+                </div>
+
+                <!-- Insights Feature -->
+                <div class="group bg-domain-surface rounded-xl shadow-md border border-domain-outline/20 transition duration-300 hover:shadow-xl hover:-translate-y-1 animate-on-scroll animation-delay-200">
+                    <div class="p-6 flex flex-col items-center">
+                        <div class="w-full aspect-square mb-6 rounded-lg overflow-hidden">
+                            <img alt="AI revealing insights and patterns in notes" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" src="/images/features/ai-insights.webp">
+                        </div>
+                        <h3 class="text-xl font-semibold text-domain-on-surface mb-3 text-center">Discover Patterns</h3>
+                        <p class="text-domain-on-surface/80 text-center">AI analysis reveals connections between your notes and surfaces insights you might have missed.</p>
+                    </div>
+                </div>
+
+                <!-- Language Enhancement Feature -->
+                <div class="group bg-domain-surface rounded-xl shadow-md border border-domain-outline/20 transition duration-300 hover:shadow-xl hover:-translate-y-1 animate-on-scroll animation-delay-300">
+                    <div class="p-6 flex flex-col items-center">
+                        <div class="w-full aspect-square mb-6 rounded-lg overflow-hidden">
+                            <img alt="AI helping with language and structure" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" src="/images/features/language-assist.webp">
+                        </div>
+                        <h3 class="text-xl font-semibold text-domain-on-surface mb-3 text-center">Writing Assistant</h3>
+                        <p class="text-domain-on-surface/80 text-center">Express ideas clearly with AI assistance for structure, phrasing, and meaning in any language.</p>
+                    </div>
+                </div>
+
+                <!-- Reminders Feature -->
+                <div class="group bg-domain-surface rounded-xl shadow-md border border-domain-outline/20 transition duration-300 hover:shadow-xl hover:-translate-y-1 animate-on-scroll animation-delay-400">
+                    <div class="p-6 flex flex-col items-center">
+                        <div class="w-full aspect-square mb-6 rounded-lg overflow-hidden">
+                            <img alt="Setting reminders directly in notes" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" src="/images/features/reminders.webp">
+                        </div>
+                        <h3 class="text-xl font-semibold text-domain-on-surface mb-3 text-center">Action Reminders</h3>
+                        <p class="text-domain-on-surface/80 text-center">Turn thoughts into actions with intelligent reminders that free your mental RAM for creative thinking.</p>
+                    </div>
+                </div>
+
+                <!-- Multi-Platform Feature -->
+                <div class="group bg-domain-surface rounded-xl shadow-md border border-domain-outline/20 transition duration-300 hover:shadow-xl hover:-translate-y-1 animate-on-scroll animation-delay-500">
+                    <div class="p-6 flex flex-col items-center">
+                        <div class="w-full aspect-square mb-6 rounded-lg overflow-hidden">
+                            <img alt="Seamless sync across multiple devices" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" src="/images/features/cross-platform.webp">
+                        </div>
+                        <h3 class="text-xl font-semibold text-domain-on-surface mb-3 text-center">Everywhere Access</h3>
+                        <p class="text-domain-on-surface/80 text-center">Your thoughts stay with you across all devices with seamless sync for iOS, Android, Web, Windows, macOS, and Linux.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <button aria-label="Next testimonials" class="next-btn">
-          <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-domain-secondary-container" id="testimonials">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-domain-on-secondary-container mb-6 animate-on-scroll">
+                Success Stories
+            </h2>
+            <p class="text-lg text-domain-on-secondary-container/80 text-center max-w-3xl mx-auto mb-12 animate-on-scroll animation-delay-100">
+                From professional tasks to personal growth, see how people use Cohesive to transform their lives
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Personal Growth Testimonial -->
+                <div class="group bg-domain-surface rounded-lg shadow-lg p-8 flex flex-col border border-domain-outline/20 h-full transition duration-300 hover:shadow-xl animate-on-scroll">
+                    <img alt="Maya K., Cohesive User" class="w-16 h-16 rounded-full mx-auto mb-4 object-cover transition duration-300 group-hover:scale-110" src="images/testimonial-1.jpg">
+                    <div class="flex-grow mb-4 text-center">
+                        <p class="text-lg text-domain-on-surface italic leading-relaxed">
+                            "My <strong>gratitude journal</strong> was scattered across different apps. Now I use Cohesive to <strong>track daily blessings</strong> and the AI shows me <strong>patterns in my happiness</strong> over time. It's become an essential part of my spiritual practice."
+                        </p>
+                    </div>
+                    <div class="mt-auto text-center">
+                        <p class="font-semibold text-domain-on-background">Maya K.</p>
+                        <p class="text-sm text-domain-outline">Mindfulness Practitioner</p>
+                    </div>
+                </div>
+
+                <!-- Habit Tracking Testimonial -->
+                <div class="group bg-domain-surface rounded-lg shadow-lg p-8 flex flex-col border border-domain-outline/20 h-full transition duration-300 hover:shadow-xl animate-on-scroll animation-delay-100">
+                    <img alt="James T., Cohesive User" class="w-16 h-16 rounded-full mx-auto mb-4 object-cover transition duration-300 group-hover:scale-110" src="images/testimonial-2.jpg">
+                    <div class="flex-grow mb-4 text-center">
+                        <p class="text-lg text-domain-on-surface italic leading-relaxed">
+                            "I was <strong>struggling to build consistent habits</strong>. Cohesive lets me <strong>track my habits with reminders</strong> and see how they connect to my mood and productivity. After three months, my <strong>morning exercise routine finally stuck</strong>!"
+                        </p>
+                    </div>
+                    <div class="mt-auto text-center">
+                        <p class="font-semibold text-domain-on-background">James T.</p>
+                        <p class="text-sm text-domain-outline">Habit Builder</p>
+                    </div>
+                </div>
+
+                <!-- ADHD Testimonial -->
+                <div class="group bg-domain-surface rounded-lg shadow-lg p-8 flex flex-col border border-domain-outline/20 h-full transition duration-300 hover:shadow-xl animate-on-scroll animation-delay-200">
+                    <img alt="Alex R., Cohesive User" class="w-16 h-16 rounded-full mx-auto mb-4 object-cover transition duration-300 group-hover:scale-110" src="images/testimonial-3.jpg">
+                    <div class="flex-grow mb-4 text-center">
+                        <p class="text-lg text-domain-on-surface italic leading-relaxed">
+                            "With ADHD, <strong>my ideas used to vanish</strong> before I could use them. Cohesive lets me <strong>capture thoughts instantly</strong> without breaking focus. The <strong>automatic organization</strong> feels like I finally have an assistant for my scattered brain."
+                        </p>
+                    </div>
+                    <div class="mt-auto text-center">
+                        <p class="font-semibold text-domain-on-background">Alex R.</p>
+                        <p class="text-sm text-domain-outline">Startup Founder with ADHD</p>
+                    </div>
+                </div>
+
+                <!-- Emotional Tracking Testimonial -->
+                <div class="group bg-domain-surface rounded-lg shadow-lg p-8 flex flex-col border border-domain-outline/20 h-full transition duration-300 hover:shadow-xl animate-on-scroll animation-delay-300">
+                    <img alt="Leila S., Cohesive User" class="w-16 h-16 rounded-full mx-auto mb-4 object-cover transition duration-300 group-hover:scale-110" src="images/testimonial-4.jpg">
+                    <div class="flex-grow mb-4 text-center">
+                        <p class="text-lg text-domain-on-surface italic leading-relaxed">
+                            "I started <strong>tracking my emotions</strong> in therapy, but couldn't see patterns. Cohesive's AI <strong>reveals connections between my feelings and activities</strong>. Now I understand my emotional triggers and have developed better coping strategies."
+                        </p>
+                    </div>
+                    <div class="mt-auto text-center">
+                        <p class="font-semibold text-domain-on-background">Leila S.</p>
+                        <p class="text-sm text-domain-outline">Emotional Wellness Enthusiast</p>
+                    </div>
+                </div>
+
+                <!-- Fitness Tracking Testimonial -->
+                <div class="group bg-domain-surface rounded-lg shadow-lg p-8 flex flex-col border border-domain-outline/20 h-full transition duration-300 hover:shadow-xl animate-on-scroll animation-delay-400">
+                    <img alt="Marcus J., Cohesive User" class="w-16 h-16 rounded-full mx-auto mb-4 object-cover transition duration-300 group-hover:scale-110" src="images/testimonial-5.jpg">
+                    <div class="flex-grow mb-4 text-center">
+                        <p class="text-lg text-domain-on-surface italic leading-relaxed">
+                            "I use Cohesive to <strong>track my workouts and nutrition</strong> in one place. The voice notes are perfect for <strong>logging exercises between sets</strong>. Best of all, it shows how my <strong>sleep patterns affect my performance</strong> — game changer!"
+                        </p>
+                    </div>
+                    <div class="mt-auto text-center">
+                        <p class="font-semibold text-domain-on-background">Marcus J.</p>
+                        <p class="text-sm text-domain-outline">Fitness Enthusiast</p>
+                    </div>
+                </div>
+
+                <!-- Creative Professional Testimonial -->
+                <div class="group bg-domain-surface rounded-lg shadow-lg p-8 flex flex-col border border-domain-outline/20 h-full transition duration-300 hover:shadow-xl animate-on-scroll animation-delay-500">
+                    <img alt="Dr. Lena K., Cohesive User" class="w-16 h-16 rounded-full mx-auto mb-4 object-cover transition duration-300 group-hover:scale-110" src="images/testimonial-6.jpg">
+                    <div class="flex-grow mb-4 text-center">
+                        <p class="text-lg text-domain-on-surface italic leading-relaxed">
+                            "My research generated <strong>folders full of disconnected notes</strong>. Cohesive's linking feature creates a <strong>true knowledge web</strong> across my literature reviews. The AI analysis <strong>reveals connections I'd never spot</strong> on my own."
+                        </p>
+                    </div>
+                    <div class="mt-auto text-center">
+                        <p class="font-semibold text-domain-on-background">Dr. Lena K.</p>
+                        <p class="text-sm text-domain-outline">PhD Researcher</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 animate-on-scroll animation-delay-600">
+                <a class="inline-flex items-center justify-center bg-domain-secondary hover:opacity-90 text-domain-on-secondary font-semibold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 active:scale-95" href="/app.html">
+                    Start Your Cohesive Journey
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-domain-background" id="pricing">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-domain-on-background mb-8 md:mb-12 animate-on-scroll">
+                Choose Your Plan
+            </h2>
+
+            <div class="flex justify-center mb-8 animate-on-scroll animation-delay-100">
+                <div class="relative flex w-fit p-1 bg-domain-primary-container/60 rounded-full border border-domain-outline/20">
+                    <button class="relative z-10 flex items-center justify-center flex-1 text-sm font-medium h-8 px-5 rounded-full focus-visible:outline-none focus-visible:ring focus-visible:ring-domain-secondary focus-visible:ring-opacity-50 transition-colors duration-150 ease-in-out text-gray-500" id="toggle-monthly">Monthly</button>
+                    <button class="relative z-10 flex items-center justify-center flex-1 text-sm font-medium h-8 px-5 rounded-full focus-visible:outline-none focus-visible:ring focus-visible:ring-domain-secondary focus-visible:ring-opacity-50 transition-colors duration-150 ease-in-out text-white font-semibold" id="toggle-annual">Annually</button>
+                    <span class="absolute z-0 inset-0 m-1 pointer-events-none bg-domain-secondary rounded-full shadow-sm transform transition-transform duration-150 ease-in-out" id="toggle-glider"></span>
+                </div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row justify-center items-center lg:items-stretch gap-8 max-w-4xl mx-auto">
+                <div class="bg-domain-surface rounded-lg shadow-lg p-8 border border-domain-outline/30 w-full lg:w-1/2 flex flex-col transition duration-300 hover:shadow-xl hover:scale-[1.02] animate-on-scroll animation-delay-200">
+                    <h3 class="text-2xl font-semibold text-domain-on-surface mb-2">Free</h3>
+                    <p class="text-4xl font-bold text-domain-on-background mb-2">€0<span class="text-lg font-medium text-domain-outline">/forever</span></p>
+                    <p class="text-sm text-domain-outline mb-6">Get started with the basics</p>
+                    <ul class="space-y-2.5 text-domain-on-background/80 mb-8 flex-grow text-sm">
+                        <li class="flex items-start">
+                            <svg aria-hidden="true" class="w-5 h-5 text-domain-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Core Note-Taking</span>
+                        </li>
+                        <li class="flex items-start pl-7">
+                            <svg aria-hidden="true" class="w-5 h-5 text-domain-outline mr-2 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>100 Notes/month</span>
+                        </li>
+                        <li class="flex items-start pl-7">
+                            <svg aria-hidden="true" class="w-5 h-5 text-domain-outline mr-2 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>45s Voice Notes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg aria-hidden="true" class="w-5 h-5 text-domain-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Basic Organization</span>
+                        </li>
+                        <li class="flex items-start pl-7">
+                            <svg aria-hidden="true" class="w-5 h-5 text-domain-outline mr-2 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>15 Tags</span>
+                        </li>
+                        <li class="flex items-start pl-7">
+                            <svg aria-hidden="true" class="w-5 h-5 text-domain-outline mr-2 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>3 Tag Groups</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg aria-hidden="true" class="w-5 h-5 text-domain-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Limited AI Features</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg aria-hidden="true" class="w-5 h-5 text-domain-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>10 Reminders/month</span>
+                        </li>
+                    </ul>
+                    <a class="w-full mt-auto text-center bg-domain-outline/20 hover:bg-domain-outline/30 text-domain-on-background font-semibold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 active:scale-95" href="/app.html">
+                        Sign Up Free
+                    </a>
+                </div>
+
+                <div class="bg-domain-surface rounded-lg shadow-lg p-8 border-2 border-domain-secondary w-full lg:w-1/2 flex flex-col relative overflow-hidden transition duration-300 hover:shadow-2xl hover:scale-[1.03] animate-on-scroll animation-delay-300">
+                    <h3 class="text-2xl font-semibold text-domain-on-surface mb-2">Pro</h3>
+                    <div class="flex items-baseline gap-x-2 mb-1">
+                        <span class="text-4xl font-bold text-domain-on-background" id="pro-price-amount">€9.99</span>
+                        <span class="text-lg font-medium text-domain-outline" id="pro-price-unit">/month</span>
+                        <span class="inline-flex items-center text-xs font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded-full align-middle ml-1" id="pro-price-save">Save 23%</span>
+                    </div>
+                    <p class="text-sm text-domain-outline mb-6" id="pro-price-billing">Billed as €119.88 per year</p>
+                    <ul class="space-y-2.5 text-domain-on-background/80 mb-8 flex-grow text-sm">
+                        <li class="flex items-start">
+                            <svg aria-hidden="true" class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Everything in Free, plus:
+                        </li>
+                        <li class="flex items-start">
+                            <svg aria-hidden="true" class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Unlimited Notes & Storage
+                        </li>
+                        <li class="flex items-start">
+                            <svg aria-hidden="true" class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Unlimited Tags & Groups
+                        </li>
+                        <li class="flex items-start">
+                            <svg aria-hidden="true" class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Full AI Analysis (Text, Image)
+                        </li>
+                        <li class="flex items-start">
+                            <svg aria-hidden="true" class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Unlimited Voice (90s/item)
+                        </li>
+                        <li class="flex items-start">
+                            <svg aria-hidden="true" class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Unlimited Tag Suggestions
+                        </li>
+                        <li class="flex items-start">
+                            <svg aria-hidden="true" class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Unlimited Related Notes
+                        </li>
+                        <li class="flex items-start">
+                            <svg aria-hidden="true" class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Unlimited Reminders
+                        </li>
+                        <li class="flex items-start">
+                            <svg aria-hidden="true" class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Priority Support
+                        </li>
+                    </ul>
+                    <a class="w-full mt-auto text-center bg-domain-secondary hover:opacity-90 text-domain-on-secondary font-semibold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 active:scale-95" href="/app.html?plan=pro" id="pro-cta-button">
+                        Choose Pro
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="py-16 md:py-24 bg-domain-background" id="faq">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-domain-on-background mb-12 md:mb-16 animate-on-scroll">
+                Frequently Asked Questions
+            </h2>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <details class="bg-domain-surface p-6 rounded-lg shadow-sm border border-domain-outline/20 group animate-on-scroll">
+                    <summary class="font-semibold text-lg text-domain-on-surface cursor-pointer list-none flex justify-between items-center">
+                        What is Cohesive?
+                        <span class="text-domain-secondary transition-transform duration-300 group-open:rotate-45 transform">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.5v15m7.5-7.5h-15" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
+                    </summary>
+                    <div class="text-domain-on-surface/80 mt-4 leading-relaxed transition-all duration-300 ease-in-out">
+                        Cohesive is an AI-powered note-taking application designed to be your "second brain". It helps you quickly capture thoughts via text, voice, or images, automatically organizes them with tags and links, and uses AI to surface insights and patterns within your notes. It's built with Kotlin Multiplatform to work seamlessly across all your devices.
+                    </div>
+                </details>
+                <details class="bg-domain-surface p-6 rounded-lg shadow-sm border border-domain-outline/20 group animate-on-scroll animation-delay-100">
+                    <summary class="font-semibold text-lg text-domain-on-surface cursor-pointer list-none flex justify-between items-center">
+                        How does the AI organization work?
+                        <span class="text-domain-secondary transition-transform duration-300 group-open:rotate-45 transform">
+                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.5v15m7.5-7.5h-15" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
+                    </summary>
+                    <div class="text-domain-on-surface/80 mt-4 leading-relaxed transition-all duration-300 ease-in-out">
+                        When you add notes, Cohesive's AI analyzes the content. It suggests relevant tags based on keywords and context. It also looks for connections between notes, automatically linking related ideas to help you build a web of knowledge and discover relationships you might have missed. Pro users get more advanced analysis and suggestions.
+                    </div>
+                </details>
+                <details class="bg-domain-surface p-6 rounded-lg shadow-sm border border-domain-outline/20 group animate-on-scroll animation-delay-200">
+                    <summary class="font-semibold text-lg text-domain-on-surface cursor-pointer list-none flex justify-between items-center">
+                        What platforms does Cohesive support?
+                        <span class="text-domain-secondary transition-transform duration-300 group-open:rotate-45 transform">
+                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.5v15m7.5-7.5h-15" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
+                    </summary>
+                    <div class="text-domain-on-surface/80 mt-4 leading-relaxed transition-all duration-300 ease-in-out">
+                        Cohesive is built using Kotlin Multiplatform, allowing it to run natively on iOS, Android, Web browsers, Windows, macOS, and Linux. Your notes sync across all platforms where you're logged in.
+                    </div>
+                </details>
+                <details class="bg-domain-surface p-6 rounded-lg shadow-sm border border-domain-outline/20 group animate-on-scroll animation-delay-300">
+                    <summary class="font-semibold text-lg text-domain-on-surface cursor-pointer list-none flex justify-between items-center">
+                        Is my data secure and private?
+                        <span class="text-domain-secondary transition-transform duration-300 group-open:rotate-45 transform">
+                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.5v15m7.5-7.5h-15" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
+                    </summary>
+                    <div class="text-domain-on-surface/80 mt-4 leading-relaxed transition-all duration-300 ease-in-out">
+                        We take data privacy and security very seriously. Your notes are encrypted in transit and at rest. We utilize industry-standard security practices to protect your information. AI analysis is performed securely, and your personal note content is not used to train models for other users. Please refer to our Privacy Policy for full details.
+                    </div>
+                </details>
+                <details class="bg-domain-surface p-6 rounded-lg shadow-sm border border-domain-outline/20 group animate-on-scroll animation-delay-400">
+                    <summary class="font-semibold text-lg text-domain-on-surface cursor-pointer list-none flex justify-between items-center">
+                        What are the main differences between Free and Pro plans?
+                        <span class="text-domain-secondary transition-transform duration-300 group-open:rotate-45 transform">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.5v15m7.5-7.5h-15" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
+                    </summary>
+                    <div class="text-domain-on-surface/80 mt-4 leading-relaxed transition-all duration-300 ease-in-out">
+                        The Free plan provides core note-taking functionality with generous limits on the number of notes, basic tagging, and limited access to AI features (like analysis, suggestions, and voice transcription duration/quantity). The Pro plan offers unlimited notes, storage, tags, reminders, and full access to all current and future advanced AI capabilities with higher limits or unlimited usage, plus priority support. See our Pricing section for a detailed comparison.
+                    </div>
+                </details>
+                <details class="bg-domain-surface p-6 rounded-lg shadow-sm border border-domain-outline/20 group animate-on-scroll animation-delay-500">
+                    <summary class="font-semibold text-lg text-domain-on-surface cursor-pointer list-none flex justify-between items-center">
+                        Can I import my notes from other applications?
+                        <span class="text-domain-secondary transition-transform duration-300 group-open:rotate-45 transform">
+                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.5v15m7.5-7.5h-15" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                             </span>
+                    </summary>
+                    <div class="text-domain-on-surface/80 mt-4 leading-relaxed transition-all duration-300 ease-in-out">
+                        We are actively working on import features for popular note-taking formats and apps like Evernote, Markdown, etc. Please check our roadmap or contact support for the latest status on specific import options.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="bg-[#FAF7F5] py-16">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+            <div>
+                <div class="flex items-center mb-4">
+                    <img alt="Cohesive Logo" class="h-8 w-auto mr-2" src="/images/logo.svg">
+                    <span class="text-xl font-bold text-domain-on-primary">Cohesive</span>
+                </div>
+                <p class="text-sm text-domain-on-primary-container/80 mb-6">
+                    Helping you organize thoughts, build habits, and connect ideas across all your devices.
+                </p>
+                <div class="flex space-x-4">
+                    <a aria-label="Twitter" class="text-gray-500 hover:text-domain-secondary transition-colors" href="https://twitter.com/cohesiveapp">
+                        <svg fill="currentColor" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                        </svg>
+                    </a>
+                    <a aria-label="Instagram" class="text-gray-500 hover:text-domain-secondary transition-colors" href="https://instagram.com/cohesiveapp">
+                        <svg fill="currentColor" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-domain-on-primary font-semibold mb-5">Quick Links</h4>
+                <ul class="space-y-3 text-gray-600 text-sm">
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/#features">Features</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/#pricing">Pricing</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/blog">Blog</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/#faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-domain-on-primary font-semibold mb-5">Support</h4>
+                <ul class="space-y-3 text-gray-600 text-sm">
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/contact.html">Contact Us</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/contact.html">Help Center</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/privacy.html">Privacy Policy</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-domain-on-primary font-semibold mb-5">Available On</h4>
+                <ul class="space-y-3 text-gray-600 text-sm">
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/app.html">Web</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/app.html">iOS</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/app.html">Android</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/app.html">Windows</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/app.html">macOS</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/app.html">Linux</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-domain-on-primary font-semibold mb-5">Stay Updated</h4>
+                <p class="text-sm text-gray-600 mb-4">
+                    Get tips on productivity, wellness tracking, and exclusive updates.
+                </p>
+                <div class="flex">
+                    <input
+                            aria-label="Email for newsletter"
+                            class="flex-grow text-sm rounded-l-lg py-3 px-4 focus:outline-none border border-gray-300 bg-white"
+                            placeholder="Your email"
+                            type="email"
+                    >
+                    <button
+                            aria-label="Subscribe to newsletter"
+                            class="bg-domain-secondary text-white text-sm font-medium px-4 rounded-r-lg hover:opacity-90 transition-opacity"
+                            type="submit"
+                    >
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-200 my-8"></div>
+
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-xs text-gray-500 mb-2 md:mb-0">
+                © 2025 Cohesive. All rights reserved.
+            </p>
+            <p class="text-xs text-gray-500">
+                Made with ❤️ by Alejandro
+            </p>
+        </div>
     </div>
-  </div>
-</section>
-
-<section class="pricing" id="pricing">
-  <div class="container">
-    <h2 class="section-title">Start Your Journey Free, Unleash Your Full Potential with Pro</h2>
-
-
-    <div class="payment-switch-container">
-      <div class="payment-switch" id="pricing-toggle">
-        <div class="payment-slider" id="pricing-slider"></div>
-        <div class="payment-option active" id="monthly-option">Monthly</div>
-        <div class="payment-option" id="annual-option">Annually <span class="save-badge">Save 23%</span></div>
-      </div>
-    </div>
-
-    <div class="pricing-cards">
-      <div class="pricing-card">
-        <div class="pricing-header">
-          <h3>Free Plan</h3>
-          <p class="price">€0<span>/month</span></p>
-        </div>
-        <ul class="pricing-features">
-          <li><span class="check">✓</span> Up to 50 notes/month (200 total)</li>
-          <li><span class="check">✓</span> Essential hierarchical organization</li>
-          <li><span class="check">✓</span> Seamless cross-platform sync</li>
-          <li><span class="check">✓</span> AI-powered note enhancement</li>
-          <li><span class="check">✓</span> Voice recording (45 sec, 5/month)</li>
-          <li><span class="check">✓</span> Smart tagging (15 tags, 2 groups)</li>
-          <li><span class="lock">✗</span> Unlimited note creation</li>
-          <li><span class="lock">✗</span> Advanced AI insights & suggestions</li>
-          <li><span class="lock">✗</span> Extended voice & multimedia features</li>
-        </ul>
-        <a class="btn btn-secondary open-app-btn" data-app-link="cohesive://signup" href="/app.html">Start Free - No Credit Card Needed</a>
-      </div>
-      <div class="pricing-card featured">
-        <div class="popular-badge">Most Popular</div>
-        <div class="pricing-header">
-          <div class="pricing-options">
-            <div class="pricing-option monthly active">
-              <h3>Monthly</h3>
-              <p class="price-primary">€12.99<span>/month</span></p>
-              <p class="price-secondary">Flexible, no long-term commitment</p>
-            </div>
-            <div class="pricing-option annual">
-              <h3>Annual</h3>
-              <p class="price-primary">€119.88<span>/year</span></p>
-              <p class="price-secondary">Just €9.99/month (save €36/year)</p>
-            </div>
-          </div>
-        </div>
-        <ul class="pricing-features">
-          <li><span class="check">✓</span> Unlimited notes & ideas capture</li>
-          <li><span class="check">✓</span> Advanced hierarchical organization with unlimited depth</li>
-          <li><span class="check">✓</span> Real-time sync across all your devices</li>
-          <li><span class="check">✓</span> Premium voice recording (5 min, unlimited per month)</li>
-          <li><span class="check">✓</span> Unlimited tags & smart organization system</li>
-          <li><span class="check">✓</span> Advanced AI insights & personalized suggestions</li>
-          <li><span class="check">✓</span> Multilingual support with instant translation</li>
-          <li><span class="check">✓</span> Priority support & early access to new features</li>
-        </ul>
-        <a class="btn btn-primary open-app-btn" data-app-link="cohesive://upgrade" href="/app.html">Unlock Full Potential Now</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="faq" id="faq">
-  <div class="container">
-    <h2 class="section-title">Frequently Asked Questions</h2>
-    <div class="faq-container">
-      <div class="faq-item">
-        <div class="faq-question">
-          <h3>How is Cohesive different from other note-taking apps?</h3>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>Cohesive is designed specifically for hierarchical thinking. Most note-taking apps focus on linear notes or simple linking. Cohesive's parent-child relationships allow you to organize thoughts in a way that mirrors your natural thinking process, with AI assistance to enhance your ideas.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">
-          <h3>Is my data private and secure?</h3>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>Yes, your data is private and secure. We use HTTPS for all communication and secure JWT authentication. Your notes are only accessible to you, and our database enforces user-specific data filtering to ensure no one else can access your content. We're continuously improving our security practices.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">
-          <h3>Can I use Cohesive offline?</h3>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>Currently, Cohesive requires an internet connection to sync your data across devices. We're actively working on offline capabilities for a future release.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">
-          <h3>Can I cancel my subscription at any time?</h3>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>Yes, you can cancel your subscription anytime. After cancellation, you'll continue to have Pro access until the end of your billing period, then you'll automatically move to the Free plan.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">
-          <h3>Which platforms does Cohesive support?</h3>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>Cohesive is available on iOS, Android, and Web. You can use the same account across all platforms, and your notes will synchronize seamlessly. Our web version works on any desktop browser, and our mobile apps are available in both Apple App Store and Google Play Store.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="cta">
-  <div class="container">
-    <h2>Ready to build your second brain?</h2>
-    <p>Join thousands of users who are already thinking clearer and creating better with Cohesive.</p>
-    <a class="btn btn-primary btn-large open-app-btn" data-app-link="cohesive://signup" href="/app.html">Get Started for Free</a>
-
-    <div class="download-options">
-      <h3>Available on all your devices</h3>
-      <div class="download-buttons">
-        <a class="store-button google-play" href="https://play.google.com/store/apps/details?id=org.acv.cohesive">
-          <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png">
-        </a>
-        <a class="store-button app-store" href="https://apps.apple.com/app/cohesive-journal/id6470116043">
-          <img alt="Download on the App Store" src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg">
-        </a>
-        <a class="store-button desktop open-app-btn" data-app-link="cohesive://open" href="/app.html">
-          <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-            <rect height="14" rx="2" ry="2" width="20" x="2" y="3"></rect>
-            <line x1="8" x2="16" y1="21" y2="21"></line>
-            <line x1="12" x2="12" y1="17" y2="21"></line>
-          </svg>
-          <span>Use on Desktop</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<style>
-  .download-options {
-    margin-top: 2rem;
-    text-align: center;
-  }
-
-  .download-options h3 {
-    margin-bottom: 1rem;
-    font-size: 1.4rem;
-    color: var(--text-color);
-  }
-
-  .download-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-
-  .store-button {
-    display: inline-flex;
-    align-items: center;
-    transition: transform 0.3s ease;
-  }
-
-  .store-button:hover {
-    transform: translateY(-3px);
-  }
-
-  .app-store img {
-    height: 50px;
-  }
-
-  .google-play img {
-    height: 60px;
-    margin: -10px; /* Remove padding around the image */
-  }
-
-  .desktop {
-    background-color: var(--tertiary-color);
-    color: white;
-    padding: 0.7rem 1.2rem;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 500;
-  }
-
-  .desktop:hover {
-    background-color: var(--tertiary-color-dark);
-  }
-
-  @media (max-width: 768px) {
-    .download-buttons {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-</style>
-
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-column">
-        <div class="logo footer-logo">
-            <img alt="Cohesive Logo" height="60" src="images/logo.svg" width="60">
-          <span>Cohesive</span>
-        </div>
-        <p>Your digital sanctuary for organizing thoughts and building your second brain.</p>
-      </div>
-      <div class="footer-column">
-        <h4>Product</h4>
-        <ul>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="/app.html">Login</a></li>
-          <li><a href="/app.html">Sign Up</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h4>Resources</h4>
-        <ul>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Help Center</a></li>
-          <li><a href="#">Community</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Cohesive. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-      </div>
-    </div>
-  </div>
 </footer>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const sendButton = document.getElementById('send-button');
-    const editableInput = document.getElementById('note-input-editable');
-    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-    const mainNav = document.getElementById('main-nav');
-    const body = document.body;
-
-    // Create overlay element for mobile menu
-    const overlay = document.createElement('div');
-    overlay.className = 'overlay';
-    document.body.appendChild(overlay);
-
-    // Mobile menu toggle functionality
-    mobileMenuToggle.addEventListener('click', function () {
-      mobileMenuToggle.classList.toggle('active');
-      mainNav.classList.toggle('active');
-      overlay.classList.toggle('active');
-      body.classList.toggle('body-lock');
-    });
-
-    overlay.addEventListener('click', function () {
-      mobileMenuToggle.classList.remove('active');
-      mainNav.classList.remove('active');
-      overlay.classList.remove('active');
-      body.classList.remove('body-lock');
-    });
-
-    // Deep linking functionality
-    const setupDeepLinks = function () {
-      // Get all app buttons
-      const appButtons = document.querySelectorAll('.open-app-btn');
-
-      appButtons.forEach(button => {
-        button.addEventListener('click', function (e) {
-          // Attempt to open native app with specific deep link
-          const appUri = button.getAttribute('data-app-link') || 'cohesive://open';
-          const webUrl = button.getAttribute('href');
-
-          // Detect if on mobile
-          const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-          if (isMobile) {
-            e.preventDefault();
-
-              // Different approach based on platform
-              const isAndroid = /Android/i.test(navigator.userAgent);
-              const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-              if (isiOS) {
-                  // iOS specific approach
-                  // Use direct location change for iOS
-                  const visitedAt = Date.now();
-
-                  // First try opening the app
-                  window.location.href = appUri;
-
-                  // Set timeout to check if app opened
-                  setTimeout(function () {
-                      // If we're still here and less time has passed than expected for a page change,
-                      // the app probably didn't open, so go to web version
-                      if (document.hidden || Date.now() - visitedAt > 2000) {
-                          // Either the app was opened or we somehow left this page
-                          return;
-                      }
-
-                      // App didn't open, go to web version
-                      window.location.href = webUrl;
-                  }, 1500);
-              } else if (isAndroid) {
-                  // Android specific approach with Intent URL (modern Android approach)
-                  const packageName = 'org.acv.cohesive';
-                  const fallbackUrl = encodeURIComponent(webUrl);
-                  const intentUrl = `intent://${appUri.replace('cohesive://', '')}#Intent;scheme=cohesive;package=${packageName};S.browser_fallback_url=${fallbackUrl};end`;
-
-                  try {
-                      window.location.href = intentUrl;
-                  } catch (error) {
-                      // Direct fallback if intent fails
-                      window.location.href = appUri;
-
-                      // Set a timeout to load the web app if the native app doesn't open
-                      setTimeout(function () {
-                          window.location.href = webUrl;
-                      }, 2000);
-                  }
-              } else {
-                  // Fallback for other mobile platforms
-                  // Try a more direct approach
-                  window.location.href = appUri;
-
-                  // Wait a bit and check if we're still on the page
-                  setTimeout(function () {
-                      window.location.href = webUrl;
-                  }, 2000);
-              }
-          }
-        });
-      });
-    };
-
-    setupDeepLinks();
-
-    function updateSendButton() {
-      const noteText = editableInput.innerText.trim();
-      if (noteText) {
-        sendButton.classList.add('enabled');
-      } else {
-        sendButton.classList.remove('enabled');
-      }
-    }
-
-      // Note: This function is replaced by noteSubmit.js functionality
-
-    // Initialize the button state
-    updateSendButton();
-
-    // Input event to detect text changes
-    editableInput.addEventListener('input', updateSendButton);
-
-    // Pricing options toggle
-    const monthlyPricingOption = document.querySelector('.pricing-option.monthly');
-    const annualPricingOption = document.querySelector('.pricing-option.annual');
-    const monthlyOption = document.getElementById('monthly-option');
-    const annualOption = document.getElementById('annual-option');
-    const pricingSlider = document.getElementById('pricing-slider');
-
-      function setMonthlyPricing() {
-        monthlyPricingOption.classList.add('active');
-        annualPricingOption.classList.remove('active');
-        monthlyOption.classList.add('active');
-        annualOption.classList.remove('active');
-        pricingSlider.classList.remove('right');
-      }
-
-      function setAnnualPricing() {
-        monthlyPricingOption.classList.remove('active');
-        annualPricingOption.classList.add('active');
-        monthlyOption.classList.remove('active');
-        annualOption.classList.add('active');
-        pricingSlider.classList.add('right');
-      }
-
-    // Initialize with yearly pricing selected by default (since it has a discount)
-    setAnnualPricing();
-
-    // Add click handlers for pricing cards
-    monthlyPricingOption.addEventListener('click', setMonthlyPricing);
-    annualPricingOption.addEventListener('click', setAnnualPricing);
-
-    // Add click handlers for the new pricing toggle
-    monthlyOption.addEventListener('click', setMonthlyPricing);
-    annualOption.addEventListener('click', setAnnualPricing);
-
-    // Add touch support for mobile
-    monthlyOption.addEventListener('touchend', function (e) {
-      e.preventDefault();
-      setMonthlyPricing();
-    });
-
-    annualOption.addEventListener('touchend', function (e) {
-      e.preventDefault();
-      setAnnualPricing();
-    });
-
-
-    // FAQ accordion
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      question.addEventListener('click', () => {
-        item.classList.toggle('active');
-        const icon = item.querySelector('.faq-icon');
-        icon.textContent = item.classList.contains('active') ? '−' : '+';
-      });
-    });
-
-    // Testimonial carousel functionality
-    const carouselTrack = document.querySelector('.carousel-track');
-    const carouselDots = document.querySelectorAll('.carousel-dots .dot');
-    const prevButton = document.querySelector('.prev-btn');
-    const nextButton = document.querySelector('.next-btn');
-    let currentPage = 0;
-    const totalPages = document.querySelectorAll('.carousel-page').length;
-
-    // Function to update carousel position
-    function goToPage(pageIndex) {
-      if (pageIndex < 0) pageIndex = 0;
-      if (pageIndex >= totalPages) pageIndex = totalPages - 1;
-
-      currentPage = pageIndex;
-      carouselTrack.style.transform = `translateX(-${currentPage * 100}%)`;
-
-      // Update active dot
-      document.querySelector('.carousel-dots .dot.active').classList.remove('active');
-      carouselDots[currentPage].classList.add('active');
-
-      // Add animation to testimonials
-      const activePage = document.querySelectorAll('.carousel-page')[currentPage];
-      const testimonials = activePage.querySelectorAll('.testimonial');
-
-      testimonials.forEach((testimonial, i) => {
-        testimonial.style.opacity = '0';
-        testimonial.style.animation = 'none';
-        setTimeout(() => {
-          testimonial.style.animation = `fadeInUp 0.5s ease-out forwards ${i * 0.1}s`;
-        }, 50);
-      });
-    }
-
-    // Add click event listeners to dots
-    carouselDots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        goToPage(index);
-      });
-    });
-
-    // Add click event listeners to navigation buttons
-    prevButton.addEventListener('click', () => {
-      goToPage(currentPage - 1);
-    });
-
-    nextButton.addEventListener('click', () => {
-      goToPage(currentPage + 1);
-    });
-
-    // Auto-rotate carousel every 8 seconds
-    let autoRotateInterval = setInterval(() => {
-      goToPage((currentPage + 1) % totalPages);
-    }, 8000);
-
-    // Pause auto-rotation when user interacts with carousel
-    const carouselContainer = document.querySelector('.testimonial-carousel');
-    carouselContainer.addEventListener('mouseenter', () => {
-      clearInterval(autoRotateInterval);
-    });
-
-    carouselContainer.addEventListener('mouseleave', () => {
-      autoRotateInterval = setInterval(() => {
-        goToPage((currentPage + 1) % totalPages);
-      }, 8000);
-    });
-
-    // Swipe detection for mobile
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    carouselTrack.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    });
-
-    carouselTrack.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      handleSwipe();
-    });
-
-    function handleSwipe() {
-      const swipeThreshold = 50;
-      if (touchEndX < touchStartX - swipeThreshold) {
-        // Swipe left, go to next page
-        goToPage(currentPage + 1);
-      } else if (touchEndX > touchStartX + swipeThreshold) {
-        // Swipe right, go to previous page
-        goToPage(currentPage - 1);
-      }
-    }
-
-    // Intersection Observer for animations
-    if ('IntersectionObserver' in window) {
-      const observerOptions = {
-        threshold: 0.2
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-
-      // Observe feature showcases
-      document.querySelectorAll('.feature-showcase').forEach(showcase => {
-        observer.observe(showcase);
-      });
-
-      // Observe steps
-      document.querySelectorAll('.step').forEach(step => {
-        observer.observe(step);
-      });
-    }
-  });
-</script>
 <script src="noteSubmit.js"></script>
+<script src="landing-styles.css"></script>
+<script src="mobile-menu.js"></script>
+
 </body>
 </html>

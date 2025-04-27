@@ -3,401 +3,454 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Cohesive Journal - Privacy Policy</title>
+    <title>Cohesive: Privacy Policy</title>
+    <meta content="Privacy Policy for the Cohesive AI-powered note taking app. Learn how we protect your data and ensure your privacy." name="description">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="landing-styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'domain-primary': '#CCBEAF',
+                        'domain-on-primary': '#3D3930',
+                        'domain-primary-container': '#FAF5F0',
+                        'domain-on-primary-container': '#4E4A41',
+                        'domain-secondary': '#93B0A0',
+                        'domain-on-secondary': '#FFFFFF',
+                        'domain-secondary-container': '#E8F0EA',
+                        'domain-on-secondary-container': '#354A3F',
+                        'domain-tertiary': '#80A4A6',
+                        'domain-on-tertiary': '#2A3536',
+                        'domain-background': '#F9F7F5',
+                        'domain-on-background': '#3B3B38',
+                        'domain-surface': '#FFFFFF',
+                        'domain-on-surface': '#3B3B38',
+                        'domain-outline': '#ACA8A2',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --primary-color: #86a6a7;
-            --secondary-color: #d1a9a0;
-            --text-color: #333;
-            --light-bg: #f7f9fa;
-            --border-color: #e1e4e8;
-        }
-        
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            color: var(--text-color);
-            background-color: white;
-        }
-
-        .content {
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .logo-svg {
-            height: 40px;
-            width: 40px;
-        }
-
-        .logo span {
-            font-size: 22px;
-            font-weight: 600;
-        }
-
-        nav a {
-            color: var(--primary-color);
-            text-decoration: none;
-            padding: 5px 15px;
-            border-radius: 20px;
-            transition: background-color 0.3s;
-        }
-
-        nav a:hover {
-            background-color: var(--light-bg);
-        }
-
-        h1, h2, h3 {
-            color: #2c3e50;
-        }
-
-        h1 {
-            font-size: 32px;
-            margin-top: 0;
-        }
-
-        h2 {
-            margin-top: 40px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        h3 {
-            margin-top: 25px;
-        }
-
-        p, li {
-            color: #4a5568;
-        }
-
-        section {
-            margin: 40px 0;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
-            margin: 10px 0;
-        }
-
-        .highlight-box {
-            background-color: var(--light-bg);
-            border-left: 4px solid var(--primary-color);
-            padding: 15px 20px;
-            border-radius: 0 5px 5px 0;
-            margin: 20px 0;
-        }
-        
-        .footer {
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-            font-size: 0.9em;
-            color: #666;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        th {
-            background-color: var(--light-bg);
-            font-weight: 600;
-        }
-
-        tr:hover {
-            background-color: #f5f5f5;
-        }
-
-        @media (max-width: 768px) {
-            .content {
-                padding: 20px 15px;
-                box-shadow: none;
-            }
-
-            h1 {
-                font-size: 28px;
-            }
-
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-
-            nav {
-                margin-top: 10px;
-            }
+            font-family: 'Inter', sans-serif;
         }
     </style>
 </head>
-<body>
-<div class="content">
-    <header>
-        <a class="logo" href="/">
-            <svg class="logo-svg" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 60C20 37.9086 37.9086 20 60 20C82.0914 20 100 37.9086 100 60C100 82.0914 82.0914 100 60 100C37.9086 100 20 82.0914 20 60Z" fill="#86a6a7" opacity="0.7"/>
-                <path d="M0 40C0 17.9086 17.9086 0 40 0C62.0914 0 80 17.9086 80 40C80 62.0914 62.0914 80 40 80C17.9086 80 0 62.0914 0 40Z" fill="#d1a9a0" opacity="0.7"/>
+<body class="bg-domain-background text-domain-on-background antialiased">
+
+<header class="bg-domain-primary-container sticky top-0 z-50 shadow-sm">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a class="text-2xl font-bold text-domain-on-primary flex items-center" href="/">
+            <svg class="h-8 w-auto mr-3" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 60C20 37.9086 37.9086 20 60 20C82.0914 20 100 37.9086 100 60C100 82.0914 82.0914 100 60 100C37.9086 100 20 82.0914 20 60Z" fill="#CCBEAF" opacity="0.7"/>
+                <path d="M0 40C0 17.9086 17.9086 0 40 0C62.0914 0 80 17.9086 80 40C80 62.0914 62.0914 80 40 80C17.9086 80 0 62.0914 0 40Z" fill="#93B0A0" opacity="0.7"/>
             </svg>
-            <span>Cohesive Journal</span>
+            Cohesive
         </a>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/app.html">App</a>
-        </nav>
-    </header>
+        <div class="hidden md:flex items-center space-x-6">
+            <a class="text-domain-on-primary-container hover:text-domain-secondary transition duration-200" href="/#features">Features</a>
+            <a class="text-domain-on-primary-container hover:text-domain-secondary transition duration-200" href="/#how-it-works">How It Works</a>
+            <a class="text-domain-on-primary-container hover:text-domain-secondary transition duration-200" href="/#pricing">Pricing</a>
+            <a class="bg-domain-on-primary-container text-white hover:opacity-90 text-sm font-medium py-2 px-5 rounded-full transition duration-200 transform hover:scale-105 active:scale-95" href="/app.html">Login</a>
+        </div>
+        <div class="md:hidden">
+            <button aria-label="Open mobile menu" class="text-domain-on-primary-container" id="mobile-menu-button">
+                <svg aria-hidden="true" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
 
-    <h1>Privacy Policy</h1>
-
-    <div class="highlight-box">
-        <strong>Last updated:</strong> April 3, 2024
+    <!-- Mobile Menu -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" id="mobile-menu">
+        <div class="bg-domain-background h-full w-4/5 max-w-xs p-6 shadow-lg transform transition-transform duration-300 ease-in-out">
+            <div class="flex justify-between items-center mb-8">
+                <a class="text-xl font-bold text-domain-on-primary flex items-center" href="/">
+                    <svg class="h-7 w-auto mr-2" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 60C20 37.9086 37.9086 20 60 20C82.0914 20 100 37.9086 100 60C100 82.0914 82.0914 100 60 100C37.9086 100 20 82.0914 20 60Z" fill="#CCBEAF" opacity="0.7"/>
+                        <path d="M0 40C0 17.9086 17.9086 0 40 0C62.0914 0 80 17.9086 80 40C80 62.0914 62.0914 80 40 80C17.9086 80 0 62.0914 0 40Z" fill="#93B0A0" opacity="0.7"/>
+                    </svg>
+                    Cohesive
+                </a>
+                <button aria-label="Close mobile menu" class="text-domain-on-background" id="mobile-menu-close">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-4">
+                <a class="text-domain-on-background hover:text-domain-secondary py-2 transition duration-200" href="/#features">Features</a>
+                <a class="text-domain-on-background hover:text-domain-secondary py-2 transition duration-200" href="/#how-it-works">How It Works</a>
+                <a class="text-domain-on-background hover:text-domain-secondary py-2 transition duration-200" href="/#pricing">Pricing</a>
+                <div class="pt-4 border-t border-domain-outline/20">
+                    <a class="block w-full bg-domain-on-primary-container text-white text-center font-medium py-3 px-5 rounded-lg hover:opacity-90 transition duration-200" href="/app.html">Login</a>
+                </div>
+            </div>
+        </div>
     </div>
+</header>
 
-    <section>
-        <h2>Introduction</h2>
-        <p>
-            Welcome to Cohesive Journal ("we," "our," or "us"). We are committed to protecting your privacy and ensuring you have a positive experience when using our application.
-        </p>
-        <p>
-            This Privacy Policy explains how we collect, use, process, and disclose your information across our services. By using Cohesive Journal, you consent to the data practices described in this policy.
-        </p>
-    </section>
+<main class="container mx-auto px-6 py-12 md:py-16">
+    <div class="max-w-3xl mx-auto bg-domain-surface rounded-xl shadow-lg p-8 md:p-10">
+        <h1 class="text-3xl md:text-4xl font-bold text-domain-on-background mb-6">Privacy Policy</h1>
 
-    <section>
-        <h2>Information We Collect</h2>
+        <div class="bg-domain-primary-container/30 border-l-4 border-domain-secondary rounded p-4 mb-8">
+            <p class="font-medium">Last updated: April 3, 2024</p>
+        </div>
 
-        <h3>Account Information</h3>
-        <p>When you register for Cohesive Journal, we collect:</p>
-        <ul>
-            <li>Your email address</li>
-            <li>Your username</li>
-            <li>Authentication information (password hash or social login information)</li>
-        </ul>
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-domain-on-background mb-4 pb-2 border-b border-domain-outline/20">Introduction</h2>
+            <p class="mb-4 text-domain-on-background/80">
+                Welcome to Cohesive Journal ("we," "our," or "us"). We are committed to protecting your privacy and ensuring you have a positive experience when using our application.
+            </p>
+            <p class="mb-4 text-domain-on-background/80">
+                This Privacy Policy explains how we collect, use, process, and disclose your information across our services. By using Cohesive Journal, you consent to the data practices described in this policy.
+            </p>
+        </section>
 
-        <h3>User Content</h3>
-        <p>We collect and store the content you create, upload, or receive from others when using our service, including:</p>
-        <ul>
-            <li>Notes and journal entries</li>
-            <li>Tags and categorization information</li>
-            <li>Voice recordings</li>
-            <li>Images</li>
-            <li>Hierarchical relationships between content</li>
-        </ul>
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-domain-on-background mb-4 pb-2 border-b border-domain-outline/20">Information We Collect</h2>
 
-        <h3>Device Information</h3>
-        <p>We collect information about the devices you use to access Cohesive Journal, including:</p>
-        <ul>
-            <li>Device type and model</li>
-            <li>Operating system and version</li>
-            <li>Unique device identifiers</li>
-            <li>Browser type (for web app users)</li>
-        </ul>
+            <h3 class="text-xl font-semibold text-domain-on-background mt-6 mb-3">Account Information</h3>
+            <p class="mb-3 text-domain-on-background/80">When you register for Cohesive Journal, we collect:</p>
+            <ul class="list-disc pl-6 mb-6 text-domain-on-background/80 space-y-2">
+                <li>Your email address</li>
+                <li>Your username</li>
+                <li>Authentication information (password hash or social login information)</li>
+            </ul>
 
-        <h3>Usage Information</h3>
-        <p>We collect information about how you use Cohesive Journal, including:</p>
-        <ul>
-            <li>Features you use</li>
-            <li>Actions you take</li>
-            <li>Time, frequency, and duration of your activities</li>
-        </ul>
-    </section>
+            <h3 class="text-xl font-semibold text-domain-on-background mt-6 mb-3">User Content</h3>
+            <p class="mb-3 text-domain-on-background/80">We collect and store the content you create, upload, or receive from others when using our service, including:</p>
+            <ul class="list-disc pl-6 mb-6 text-domain-on-background/80 space-y-2">
+                <li>Notes and journal entries</li>
+                <li>Tags and categorization information</li>
+                <li>Voice recordings</li>
+                <li>Images</li>
+                <li>Hierarchical relationships between content</li>
+            </ul>
 
-    <section>
-        <h2>How We Use Your Information</h2>
+            <h3 class="text-xl font-semibold text-domain-on-background mt-6 mb-3">Device Information</h3>
+            <p class="mb-3 text-domain-on-background/80">We collect information about the devices you use to access Cohesive Journal, including:</p>
+            <ul class="list-disc pl-6 mb-6 text-domain-on-background/80 space-y-2">
+                <li>Device type and model</li>
+                <li>Operating system and version</li>
+                <li>Unique device identifiers</li>
+                <li>Browser type (for web app users)</li>
+            </ul>
 
-        <table>
-            <tr>
-                <th>Purpose</th>
-                <th>Description</th>
-            </tr>
-            <tr>
-                <td><strong>Providing our Service</strong></td>
-                <td>To provide and maintain the Cohesive Journal service, including syncing your content across devices and providing hierarchical organization.</td>
-            </tr>
-            <tr>
-                <td><strong>Improving our Service</strong></td>
-                <td>To understand how users interact with our app, identify areas for improvement, and develop new features.</td>
-            </tr>
-            <tr>
-                <td><strong>AI-Enhanced Features</strong></td>
-                <td>To provide AI-powered features like hierarchical organization suggestions, tag recommendations, and pattern recognition.</td>
-            </tr>
-            <tr>
-                <td><strong>Communication</strong></td>
-                <td>To send service announcements, updates, security alerts, and support messages.</td>
-            </tr>
-            <tr>
-                <td><strong>Account Management</strong></td>
-                <td>To create and manage your account, including authentication and billing.</td>
-            </tr>
-            <tr>
-                <td><strong>Security</strong></td>
-                <td>To detect, prevent, and address technical issues, security risks, and potentially prohibited activities.</td>
-            </tr>
-        </table>
-    </section>
+            <h3 class="text-xl font-semibold text-domain-on-background mt-6 mb-3">Usage Information</h3>
+            <p class="mb-3 text-domain-on-background/80">We collect information about how you use Cohesive Journal, including:</p>
+            <ul class="list-disc pl-6 mb-6 text-domain-on-background/80 space-y-2">
+                <li>Features you use</li>
+                <li>Actions you take</li>
+                <li>Time, frequency, and duration of your activities</li>
+            </ul>
+        </section>
 
-    <section>
-        <h2>Required Permissions</h2>
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-domain-on-background mb-4 pb-2 border-b border-domain-outline/20">How We Use Your Information</h2>
 
-        <h3>Camera Permission</h3>
-        <p>We request camera access to allow you to:</p>
-        <ul>
-            <li>Take photos and attach them to your notes</li>
-            <li>Capture important visual information for your reference</li>
-        </ul>
-        <p>
-            Photos are processed on your device and synced with your account. We do not analyze the content of your photos for advertising or tracking purposes.
-        </p>
+            <div class="overflow-x-auto">
+                <table class="w-full mb-6">
+                    <thead>
+                    <tr class="bg-domain-primary-container/30">
+                        <th class="py-3 px-4 text-left font-semibold text-domain-on-background border-b border-domain-outline/20">Purpose</th>
+                        <th class="py-3 px-4 text-left font-semibold text-domain-on-background border-b border-domain-outline/20">Description</th>
+                    </tr>
+                    </thead>
+                    <tbody class="divide-y divide-domain-outline/10">
+                    <tr class="hover:bg-domain-background/40 transition">
+                        <td class="py-3 px-4 font-medium">Providing our Service</td>
+                        <td class="py-3 px-4 text-domain-on-background/80">To provide and maintain the Cohesive Journal service, including syncing your content across devices and providing hierarchical organization.</td>
+                    </tr>
+                    <tr class="hover:bg-domain-background/40 transition">
+                        <td class="py-3 px-4 font-medium">Improving our Service</td>
+                        <td class="py-3 px-4 text-domain-on-background/80">To understand how users interact with our app, identify areas for improvement, and develop new features.</td>
+                    </tr>
+                    <tr class="hover:bg-domain-background/40 transition">
+                        <td class="py-3 px-4 font-medium">AI-Enhanced Features</td>
+                        <td class="py-3 px-4 text-domain-on-background/80">To provide AI-powered features like hierarchical organization suggestions, tag recommendations, and pattern recognition.</td>
+                    </tr>
+                    <tr class="hover:bg-domain-background/40 transition">
+                        <td class="py-3 px-4 font-medium">Communication</td>
+                        <td class="py-3 px-4 text-domain-on-background/80">To send service announcements, updates, security alerts, and support messages.</td>
+                    </tr>
+                    <tr class="hover:bg-domain-background/40 transition">
+                        <td class="py-3 px-4 font-medium">Account Management</td>
+                        <td class="py-3 px-4 text-domain-on-background/80">To create and manage your account, including authentication and billing.</td>
+                    </tr>
+                    <tr class="hover:bg-domain-background/40 transition">
+                        <td class="py-3 px-4 font-medium">Security</td>
+                        <td class="py-3 px-4 text-domain-on-background/80">To detect, prevent, and address technical issues, security risks, and potentially prohibited activities.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-        <h3>Microphone Permission</h3>
-        <p>We request microphone access to enable:</p>
-        <ul>
-            <li>Voice recording functionality for audio notes</li>
-            <li>Audio attachments to text notes</li>
-        </ul>
-        <p>
-            Audio recordings are stored securely and are only accessible to you through your account.
-        </p>
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-domain-on-background mb-4 pb-2 border-b border-domain-outline/20">Required Permissions</h2>
 
-        <h3>Storage Permission</h3>
-        <p>On mobile devices, we request storage access to:</p>
-        <ul>
-            <li>Save temporary files during note creation</li>
-            <li>Allow you to select and upload images from your device</li>
-        </ul>
-    </section>
+            <h3 class="text-xl font-semibold text-domain-on-background mt-6 mb-3">Camera Permission</h3>
+            <p class="mb-3 text-domain-on-background/80">We request camera access to allow you to:</p>
+            <ul class="list-disc pl-6 mb-6 text-domain-on-background/80 space-y-2">
+                <li>Take photos and attach them to your notes</li>
+                <li>Capture important visual information for your reference</li>
+            </ul>
+            <p class="mb-6 text-domain-on-background/80">
+                Photos are processed on your device and synced with your account. We do not analyze the content of your photos for advertising or tracking purposes.
+            </p>
 
-    <section>
-        <h2>Data Security</h2>
-        <p>
-            The security of your information is important to us. We implement appropriate security measures to protect your information:
-        </p>
-        <ul>
-            <li>HTTPS encryption for all data in transit</li>
-            <li>Secure JWT authentication for user sessions</li>
-            <li>User-specific data filtering to ensure information is only accessible to authorized users</li>
-            <li>Regular security audits and updates</li>
-        </ul>
-        <p>
-            While we strive to protect your personal information, no method of internet transmission or electronic storage is 100% secure. We cannot guarantee absolute security.
-        </p>
-    </section>
+            <h3 class="text-xl font-semibold text-domain-on-background mt-6 mb-3">Microphone Permission</h3>
+            <p class="mb-3 text-domain-on-background/80">We request microphone access to enable:</p>
+            <ul class="list-disc pl-6 mb-6 text-domain-on-background/80 space-y-2">
+                <li>Voice recording functionality for audio notes</li>
+                <li>Audio attachments to text notes</li>
+            </ul>
+            <p class="mb-6 text-domain-on-background/80">
+                Audio recordings are stored securely and are only accessible to you through your account.
+            </p>
 
-    <section>
-        <h2>Data Sharing and Disclosure</h2>
-        <p>We may share your information in the following situations:</p>
+            <h3 class="text-xl font-semibold text-domain-on-background mt-6 mb-3">Storage Permission</h3>
+            <p class="mb-3 text-domain-on-background/80">On mobile devices, we request storage access to:</p>
+            <ul class="list-disc pl-6 mb-6 text-domain-on-background/80 space-y-2">
+                <li>Save temporary files during note creation</li>
+                <li>Allow you to select and upload images from your device</li>
+            </ul>
+        </section>
 
-        <h3>Service Providers</h3>
-        <p>
-            We use trusted third-party service providers to help us operate our service. These providers have access to your information only to perform specific tasks on our behalf and are obligated to protect your information.
-        </p>
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-domain-on-background mb-4 pb-2 border-b border-domain-outline/20">Data Security</h2>
+            <p class="mb-4 text-domain-on-background/80">
+                The security of your information is important to us. We implement appropriate security measures to protect your information:
+            </p>
+            <ul class="list-disc pl-6 mb-6 text-domain-on-background/80 space-y-2">
+                <li>HTTPS encryption for all data in transit</li>
+                <li>Secure JWT authentication for user sessions</li>
+                <li>User-specific data filtering to ensure information is only accessible to authorized users</li>
+                <li>Regular security audits and updates</li>
+            </ul>
+            <p class="mb-4 text-domain-on-background/80">
+                While we strive to protect your personal information, no method of internet transmission or electronic storage is 100% secure. We cannot guarantee absolute security.
+            </p>
+        </section>
 
-        <h3>Legal Requirements</h3>
-        <p>
-            We may disclose your information if required to do so by law or in response to valid requests by public authorities (e.g., a court or government agency).
-        </p>
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-domain-on-background mb-4 pb-2 border-b border-domain-outline/20">Data Sharing and Disclosure</h2>
+            <p class="mb-4 text-domain-on-background/80">We may share your information in the following situations:</p>
 
-        <h3>Business Transfers</h3>
-        <p>
-            If we are involved in a merger, acquisition, or asset sale, your information may be transferred as part of that transaction. We will notify you before your information is transferred and becomes subject to a different privacy policy.
-        </p>
+            <h3 class="text-xl font-semibold text-domain-on-background mt-6 mb-3">Service Providers</h3>
+            <p class="mb-6 text-domain-on-background/80">
+                We use trusted third-party service providers to help us operate our service. These providers have access to your information only to perform specific tasks on our behalf and are obligated to protect your information.
+            </p>
 
-        <h3>With Your Consent</h3>
-        <p>
-            We may disclose your personal information for any other purpose with your consent.
-        </p>
-    </section>
+            <h3 class="text-xl font-semibold text-domain-on-background mt-6 mb-3">Legal Requirements</h3>
+            <p class="mb-6 text-domain-on-background/80">
+                We may disclose your information if required to do so by law or in response to valid requests by public authorities (e.g., a court or government agency).
+            </p>
 
-    <section>
-        <h2>Your Rights and Choices</h2>
-        <p>Depending on your location, you may have certain rights regarding your personal information:</p>
+            <h3 class="text-xl font-semibold text-domain-on-background mt-6 mb-3">Business Transfers</h3>
+            <p class="mb-6 text-domain-on-background/80">
+                If we are involved in a merger, acquisition, or asset sale, your information may be transferred as part of that transaction. We will notify you before your information is transferred and becomes subject to a different privacy policy.
+            </p>
 
-        <ul>
-            <li><strong>Access:</strong> You can request access to the personal information we hold about you.</li>
-            <li><strong>Correction:</strong> You can request that we correct inaccurate or incomplete information.</li>
-            <li><strong>Deletion:</strong> You can request that we delete your personal information.</li>
-            <li><strong>Data Portability:</strong> You may have the right to receive your personal information in a structured, commonly used, and machine-readable format.</li>
-            <li><strong>Withdraw Consent:</strong> If we process your information based on consent, you have the right to withdraw that consent at any time.</li>
-        </ul>
+            <h3 class="text-xl font-semibold text-domain-on-background mt-6 mb-3">With Your Consent</h3>
+            <p class="mb-6 text-domain-on-background/80">
+                We may disclose your personal information for any other purpose with your consent.
+            </p>
+        </section>
 
-        <p>
-            To exercise these rights, please contact us using the information provided at the end of this policy.
-        </p>
-    </section>
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-domain-on-background mb-4 pb-2 border-b border-domain-outline/20">Your Rights and Choices</h2>
+            <p class="mb-4 text-domain-on-background/80">Depending on your location, you may have certain rights regarding your personal information:</p>
 
-    <section>
-        <h2>Children's Privacy</h2>
-        <p>
-            Our service is not directed to children under the age of 13, and we do not knowingly collect personal information from children under 13. If we learn that we have collected personal information from a child under 13, we will promptly delete that information.
-        </p>
-    </section>
+            <ul class="list-disc pl-6 mb-6 text-domain-on-background/80 space-y-2">
+                <li><strong>Access:</strong> You can request access to the personal information we hold about you.</li>
+                <li><strong>Correction:</strong> You can request that we correct inaccurate or incomplete information.</li>
+                <li><strong>Deletion:</strong> You can request that we delete your personal information.</li>
+                <li><strong>Data Portability:</strong> You may have the right to receive your personal information in a structured, commonly used, and machine-readable format.</li>
+                <li><strong>Withdraw Consent:</strong> If we process your information based on consent, you have the right to withdraw that consent at any time.</li>
+            </ul>
 
-    <section>
-        <h2>International Data Transfers</h2>
-        <p>
-            Your information may be transferred to — and maintained on — computers located outside of your state, province, country, or other governmental jurisdiction where the data protection laws may differ from those of your jurisdiction.
-        </p>
-        <p>
-            If you are located outside the United States and choose to provide information to us, please note that we transfer the information, including personal information, to the United States and process it there.
-        </p>
-    </section>
+            <p class="mb-4 text-domain-on-background/80">
+                To exercise these rights, please contact us using the information provided at the end of this policy.
+            </p>
+        </section>
 
-    <section>
-        <h2>Changes to This Privacy Policy</h2>
-        <p>
-            We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.
-        </p>
-        <p>
-            You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
-        </p>
-    </section>
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-domain-on-background mb-4 pb-2 border-b border-domain-outline/20">Children's Privacy</h2>
+            <p class="mb-4 text-domain-on-background/80">
+                Our service is not directed to children under the age of 13, and we do not knowingly collect personal information from children under 13. If we learn that we have collected personal information from a child under 13, we will promptly delete that information.
+            </p>
+        </section>
 
-    <section>
-        <h2>Contact Us</h2>
-        <p>
-            If you have any questions about this Privacy Policy or our data practices, please contact us at:
-        </p>
-        <p>
-            Email: <a href="mailto:privacy@cohesivejournal.com">privacy@cohesivejournal.com</a>
-        </p>
-    </section>
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-domain-on-background mb-4 pb-2 border-b border-domain-outline/20">International Data Transfers</h2>
+            <p class="mb-4 text-domain-on-background/80">
+                Your information may be transferred to — and maintained on — computers located outside of your state, province, country, or other governmental jurisdiction where the data protection laws may differ from those of your jurisdiction.
+            </p>
+            <p class="mb-4 text-domain-on-background/80">
+                If you are located outside the United States and choose to provide information to us, please note that we transfer the information, including personal information, to the United States and process it there.
+            </p>
+        </section>
 
-    <div class="footer">
-        <p>&copy; 2024 Cohesive Journal. All rights reserved.</p>
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-domain-on-background mb-4 pb-2 border-b border-domain-outline/20">Changes to This Privacy Policy</h2>
+            <p class="mb-4 text-domain-on-background/80">
+                We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.
+            </p>
+            <p class="mb-4 text-domain-on-background/80">
+                You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
+            </p>
+        </section>
+
+        <section class="mb-6">
+            <h2 class="text-2xl font-bold text-domain-on-background mb-4 pb-2 border-b border-domain-outline/20">Contact Us</h2>
+            <p class="mb-2 text-domain-on-background/80">
+                If you have any questions about this Privacy Policy or our data practices, please contact us at:
+            </p>
+            <p class="text-domain-on-background/80">
+                Email: <a class="text-domain-secondary hover:underline" href="mailto:privacy@cohesivejournal.com">privacy@cohesivejournal.com</a>
+            </p>
+        </section>
     </div>
-</div>
+</main>
+
+<footer class="bg-[#FAF7F5] py-16">
+    <div class="container mx-auto px-6">
+        <!-- Footer Main Content -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <!-- Company Info -->
+            <div>
+                <div class="flex items-center mb-4">
+                    <svg class="h-8 w-auto mr-2" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 60C20 37.9086 37.9086 20 60 20C82.0914 20 100 37.9086 100 60C100 82.0914 82.0914 100 60 100C37.9086 100 20 82.0914 20 60Z" fill="#CCBEAF" opacity="0.7"/>
+                        <path d="M0 40C0 17.9086 17.9086 0 40 0C62.0914 0 80 17.9086 80 40C80 62.0914 62.0914 80 40 80C17.9086 80 0 62.0914 0 40Z" fill="#93B0A0" opacity="0.7"/>
+                    </svg>
+                    <span class="text-xl font-bold text-domain-on-primary">Cohesive</span>
+                </div>
+                <p class="text-sm text-domain-on-primary-container/80 mb-6">
+                    Helping you organize thoughts, build habits, and connect ideas across all your devices.
+                </p>
+                <div class="flex space-x-4">
+                    <a aria-label="Twitter" class="text-gray-500 hover:text-domain-secondary transition-colors" href="https://twitter.com/cohesiveapp">
+                        <svg fill="currentColor" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                        </svg>
+                    </a>
+                    <a aria-label="Instagram" class="text-gray-500 hover:text-domain-secondary transition-colors" href="https://instagram.com/cohesiveapp">
+                        <svg fill="currentColor" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-domain-on-primary font-semibold mb-5">Quick Links</h4>
+                <ul class="space-y-3 text-gray-600 text-sm">
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/#features">Features</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/#pricing">Pricing</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/blog.html">Blog</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/#faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Support -->
+            <div>
+                <h4 class="text-domain-on-primary font-semibold mb-5">Support</h4>
+                <ul class="space-y-3 text-gray-600 text-sm">
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/contact.html">Contact Us</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/help.html">Help Center</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/privacy.html">Privacy Policy</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter Signup -->
+            <div>
+                <h4 class="text-domain-on-primary font-semibold mb-5">Stay Updated</h4>
+                <p class="text-sm text-gray-600 mb-4">
+                    Get tips on productivity, wellness tracking, and exclusive updates.
+                </p>
+                <div class="flex">
+                    <input
+                            aria-label="Email for newsletter"
+                            class="flex-grow text-sm rounded-l-lg py-3 px-4 focus:outline-none border border-gray-300 bg-white"
+                            placeholder="Your email"
+                            type="email"
+                    >
+                    <button
+                            aria-label="Subscribe to newsletter"
+                            class="bg-domain-secondary text-white text-sm font-medium px-4 rounded-r-lg hover:opacity-90 transition-opacity"
+                            type="submit"
+                    >
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Separator -->
+        <div class="border-t border-gray-200 my-8"></div>
+
+        <!-- Trust Badges -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+            <div class="flex flex-wrap justify-center md:justify-start gap-6 mb-6 md:mb-0">
+                <div class="flex items-center text-gray-500">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="text-sm">256-bit Encryption</span>
+                </div>
+                <div class="flex items-center text-gray-500">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="text-sm">Privacy-First</span>
+                </div>
+                <div class="flex items-center text-gray-500">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="text-sm">99.9% Uptime</span>
+                </div>
+            </div>
+
+            <div class="flex items-center">
+                <a class="mr-4 transition-transform hover:scale-105" href="/app.html">
+                    <img alt="Download on App Store" class="h-10 w-auto" src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-example-preferred.png">
+                </a>
+                <a class="transition-transform hover:scale-105" href="/app.html">
+                    <img alt="Get it on Google Play" class="h-14 w-auto" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png">
+                </a>
+            </div>
+        </div>
+
+        <!-- Separator -->
+        <div class="border-t border-gray-200 my-8"></div>
+
+        <!-- Copyright -->
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-xs text-gray-500 mb-2 md:mb-0">
+                © 2025 Cohesive. All rights reserved.
+            </p>
+            <p class="text-xs text-gray-500">
+                Made with ❤️ by Alejandro
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script src="mobile-menu.js"></script>
+
 </body>
 </html>
