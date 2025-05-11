@@ -7,9 +7,5 @@ Disallow: /404.html
 Disallow: /.nojekyll
 Disallow: /notification-worker.js
 
-# CSS and JS don't need to be crawled
-Disallow: /*.css$
-Disallow: /*.js$
-
 # Sitemap location
 Sitemap: https://cohesivejournal.com/sitemap.xml
