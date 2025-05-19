@@ -8,6 +8,7 @@
     html {
         scroll-behavior: smooth;
     }
+
     body {
         font-family: 'Inter', sans-serif;
         @apply bg-domain-background text-domain-on-background antialiased overflow-x-hidden;
