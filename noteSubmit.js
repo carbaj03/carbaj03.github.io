@@ -141,8 +141,8 @@ document.addEventListener('DOMContentLoaded', function () { // Single Listener S
     function updatePricing(isAnnual) {
         const selected = isAnnual ? 'annual' : 'monthly';
         const prices = {
-            monthly: {amount: '€12.99', billing: 'Billed monthly', saveVisible: false, planLink: '/app.html?plan=pro_monthly'}, // Corrected link
-            annual: {amount: '€9.99', billing: 'Billed as €119.88 per year', saveVisible: true, planLink: '/app.html?plan=pro_annual'} // Corrected link
+            monthly: {amount: '€12.99', billing: 'Billed monthly', saveVisible: false, planLink: '/app.html?plan=pro_subscription_monthly'}, // Corrected link
+            annual: {amount: '€9.99', billing: 'Billed as €119.88 per year', saveVisible: true, planLink: '/app.html?plan=pro_subscription_annual'} // Corrected link
         };
         const activeButton = isAnnual ? annualButton : monthlyButton;
         const inactiveButton = isAnnual ? monthlyButton : annualButton;
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () { // Single Listener S
         }
         if (proCtaButton) {
             // Update this if you want the button link to change based on selection
-            proCtaButton.href = `/app.html?plan=${selected === 'annual' ? 'pro_annual' : 'pro_monthly'}`;
+            proCtaButton.href = `/app.html?plan=${selected === 'annual' ? 'pro_subscription_annual' : 'pro_subscription_monthly'}`;
         }
     }
 
