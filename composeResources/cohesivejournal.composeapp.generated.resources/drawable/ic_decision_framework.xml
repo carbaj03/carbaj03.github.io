@@ -1,0 +1,10 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24">
+    <!-- Balance/Decision Framework icon -->
+    <path
+            android:fillColor="#000000"
+            android:pathData="M13,7.83c0.85-0.3,1.53-0.98,1.83-1.83H18l-3,7c0,1.66,1.57,3,3.5,3s3.5-1.34,3.5-3l-3-7h2V4h-6.17C14.42,2.83,13.31,2,12,2S9.58,2.83,9.17,4H3v2h2l-3,7c0,1.66,1.57,3,3.5,3S9,14.66,9,13L6,6h3.17C9.47,6.85,10.15,7.53,11,7.83V20H7v2h10v-2h-4V7.83zM20.37,9h-3.74l1.87,4.36L20.37,9zM7.37,9H3.63L5.5,13.36L7.37,9zM12,5.5c-0.55,0-1-0.45-1-1s0.45-1,1-1s1,0.45,1,1S12.55,5.5,12,5.5z"/>
+</vector>
