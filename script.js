@@ -77,6 +77,7 @@ const placeholders = [
 ];
 
 let placeholderIndex = 0;
+
 function cyclePlaceholder() {
     demoInput.placeholder = placeholders[placeholderIndex];
     placeholderIndex = (placeholderIndex + 1) % placeholders.length;
@@ -159,7 +160,7 @@ const animateElements = () => {
                     observer.unobserve(stat);
                 }
             });
-        }, { threshold: 0.5 });
+        }, {threshold: 0.5});
 
         observer.observe(stat);
     });
@@ -274,13 +275,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Handle CTA buttons
 document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
-    if (button.textContent.includes('Start') || button.textContent.includes('Get Started')) {
+    if (button.textContent.includes('Start') || button.textContent.includes('Get Started') || button.textContent.includes('Demo')) {
         button.addEventListener('click', (e) => {
             if (!button.href) {
                 e.preventDefault();
-                // You can redirect to your app or show a signup modal
-                console.log('Start journey clicked');
-                // window.location.href = '/app';
+                window.location.href = '/app.html';
             }
         });
     }
