@@ -1,10 +1,9 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
         android:width="24dp"
         android:height="24dp"
-        android:viewportWidth="24"
-        android:viewportHeight="24">
-    <!-- Science/Experiment icon -->
+        android:viewportWidth="256"
+        android:viewportHeight="256">
     <path
             android:fillColor="#000000"
-            android:pathData="M20.5,14.04V17h2v2h-2v3h-2v-3h-2v-2h2v-2.96L15,12.49V3.5C15,2.67,14.33,2,13.5,2h-3C9.67,2,9,2.67,9,3.5v8.99L5.5,17C4.67,17,4,17.67,4,18.5c0,0.83,0.67,1.5,1.5,1.5h9c0.83,0,1.5-0.67,1.5-1.5c0-0.83-0.67-1.5-1.5-1.5L11,12.49V4h2v8.49l3.5,4.55V14.04H18.5z"/>
+            android:pathData="M221.69,199.77 160,96.92V40h8a8,8 0,0 0,0 -16H88a8,8 0,0 0,0 16h8V96.92L34.31,199.77A16,16 0,0 0,48 224H208a16,16 0,0 0,13.72 -24.23ZM110.86,103.25A7.93,7.93 0,0 0,112 99.14V40h32V99.14a7.93,7.93 0,0 0,1.14 4.11L183.36,167c-12,2.37 -29.07,1.37 -51.75,-10.11 -15.91,-8.05 -31.05,-12.32 -45.22,-12.81ZM48,208l28.54,-47.58c14.25,-1.74 30.31,1.85 47.82,10.72 19,9.61 35,12.88 48,12.88a69.89,69.89 0,0 0,19.55 -2.7L208,208Z"/>
 </vector>

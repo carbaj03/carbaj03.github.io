@@ -66,24 +66,10 @@ suggestions.forEach(suggestion => {
     });
 });
 
-// Placeholder animation for demo input
-const placeholders = [
-    "What's on your mind?",
-    "That insight you just had...",
-    "A pattern you're noticing...",
-    "Something you want to remember...",
-    "How you're feeling right now...",
-    "An idea worth capturing..."
-];
-
-let placeholderIndex = 0;
-
-function cyclePlaceholder() {
-    demoInput.placeholder = placeholders[placeholderIndex];
-    placeholderIndex = (placeholderIndex + 1) % placeholders.length;
+// Static placeholder for demo input
+if (demoInput) {
+    demoInput.placeholder = "What's on your mind?";
 }
-
-setInterval(cyclePlaceholder, 3000);
 
 // FAQ accordion
 const faqItems = document.querySelectorAll('.faq-item');
@@ -206,25 +192,26 @@ const captureBox = document.querySelector('.capture-demo');
 const captureInput = document.querySelector('.capture-input');
 const captureSubmit = document.querySelector('.capture-submit');
 
-if (captureSubmit) {
+if (captureSubmit && captureInput) {
     captureSubmit.addEventListener('click', (e) => {
         e.preventDefault();
 
-        if (captureInput.value.trim()) {
-            // Simulate capture
-            captureSubmit.innerHTML = '✓';
-            captureSubmit.style.background = 'var(--success)';
+        const text = captureInput.value.trim();
+        if (text) {
+            // Navigate to app with the captured text
+            const encodedText = encodeURIComponent(text);
+            window.location.href = `/app.html?text=${encodedText}`;
+        } else {
+            // If empty, just navigate to app
+            window.location.href = '/app.html';
+        }
+    });
 
-            setTimeout(() => {
-                captureInput.value = '';
-                captureSubmit.innerHTML = `
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="22" y1="2" x2="11" y2="13"></line>
-                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                    </svg>
-                `;
-                captureSubmit.style.background = '';
-            }, 2000);
+    // Also submit on Enter key
+    captureInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            captureSubmit.click();
         }
     });
 }
