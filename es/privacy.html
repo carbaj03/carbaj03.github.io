@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Política de Privacidad | Cohesive Journal</title>
+    <meta content="Política de Privacidad para la aplicación Cohesive de notas con IA. Aprende cómo protegemos tus datos y garantizamos tu privacidad." name="description">
+    <link href="https://cohesivejournal.com/es/privacy.html" rel="canonical"/>
+
+    <!-- hreflang tags for internationalization -->
+    <link href="https://cohesivejournal.com/privacy.html" hreflang="en" rel="alternate"/>
+    <link href="https://cohesivejournal.com/es/privacy.html" hreflang="es" rel="alternate"/>
+    <link href="https://cohesivejournal.com/privacy.html" hreflang="x-default" rel="alternate"/>
+
+    <!-- Open Graph -->
+    <meta content="website" property="og:type">
+    <meta content="https://cohesivejournal.com/es/privacy.html" property="og:url">
+    <meta content="Política de Privacidad | Cohesive Journal" property="og:title">
+    <meta content="Aprende cómo protegemos tus datos y garantizamos tu privacidad en Cohesive Journal." property="og:description">
+    <meta content="es_ES" property="og:locale">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="../landing-styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'domain-primary': '#CCBEAF',
+                        'domain-on-primary': '#3D3930',
+                        'domain-primary-container': '#FAF5F0',
+                        'domain-on-primary-container': '#4E4A41',
+                        'domain-secondary': '#93B0A0',
+                        'domain-on-secondary': '#FFFFFF',
+                        'domain-secondary-container': '#E8F0EA',
+                        'domain-on-secondary-container': '#354A3F',
+                        'domain-tertiary': '#80A4A6',
+                        'domain-on-tertiary': '#2A3536',
+                        'domain-background': '#F9F7F5',
+                        'domain-on-background': '#3B3B38',
+                        'domain-surface': '#FFFFFF',
+                        'domain-on-surface': '#3B3B38',
+                        'domain-outline': '#ACA8A2',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-domain-background text-domain-on-background antialiased">
+
+<header class="bg-domain-primary-container sticky top-0 z-50 shadow-sm">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a class="text-2xl font-bold text-domain-on-primary flex items-center" href="/es/">
+            <svg class="h-8 w-auto mr-3" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 60C20 37.9086 37.9086 20 60 20C82.0914 20 100 37.9086 100 60C100 82.0914 82.0914 100 60 100C37.9086 100 20 82.0914 20 60Z" fill="#CCBEAF" opacity="0.7"/>
+                <path d="M0 40C0 17.9086 17.9086 0 40 0C62.0914 0 80 17.9086 80 40C80 62.0914 62.0914 80 40 80C17.9086 80 0 62.0914 0 40Z" fill="#93B0A0" opacity="0.7"/>
+            </svg>
+            Cohesive
+        </a>
+        <div class="hidden md:flex items-center space-x-6">
+            <a class="text-domain-on-primary-container hover:text-domain-secondary transition duration-200" href="/es/#features">Funciones</a>
+            <a class="text-domain-on-primary-container hover:text-domain-secondary transition duration-200" href="/es/#how-it-works">Cómo Funciona</a>
+            <a class="text-domain-on-primary-container hover:text-domain-secondary transition duration-200" href="/es/#pricing">Precios</a>
+            <a class="lang-switcher" href="/privacy.html" title="English">EN</a>
+            <a class="bg-domain-on-primary-container text-white hover:opacity-90 text-sm font-medium py-2 px-5 rounded-full transition duration-200 transform hover:scale-105 active:scale-95" href="/app.html">Iniciar Sesión</a>
+        </div>
+        <div class="md:hidden">
+            <button aria-label="Abrir menú móvil" class="text-domain-on-primary-container" id="mobile-menu-button">
+                <svg aria-hidden="true" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" id="mobile-menu">
+        <div class="bg-domain-background h-full w-4/5 max-w-xs p-6 shadow-lg transform transition-transform duration-300 ease-in-out">
+            <div class="flex justify-between items-center mb-8">
+                <a class="text-xl font-bold text-domain-on-primary flex items-center" href="/es/">
+                    <svg class="h-7 w-auto mr-2" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 60C20 37.9086 37.9086 20 60 20C82.0914 20 100 37.9086 100 60C100 82.0914 82.0914 100 60 100C37.9086 100 20 82.0914 20 60Z" fill="#CCBEAF" opacity="0.7"/>
+                        <path d="M0 40C0 17.9086 17.9086 0 40 0C62.0914 0 80 17.9086 80 40C80 62.0914 62.0914 80 40 80C17.9086 80 0 62.0914 0 40Z" fill="#93B0A0" opacity="0.7"/>
+                    </svg>
+                    Cohesive
+                </a>
+                <button aria-label="Cerrar menú móvil" class="text-domain-on-background" id="mobile-menu-close">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-4">
+                <a class="text-domain-on-background hover:text-domain-secondary py-2 transition duration-200" href="/es/#features">Funciones</a>
+                <a class="text-domain-on-background hover:text-domain-secondary py-2 transition duration-200" href="/es/#how-it-works">Cómo Funciona</a>
+                <a class="text-domain-on-background hover:text-domain-secondary py-2 transition duration-200" href="/es/#pricing">Precios</a>
+                <a class="text-domain-on-background hover:text-domain-secondary py-2 transition duration-200" href="/privacy.html">English</a>
+                <div class="pt-4 border-t border-domain-outline/20">
+                    <a class="block w-full bg-domain-on-primary-container text-white text-center font-medium py-3 px-5 rounded-lg hover:opacity-90 transition duration-200" href="/app.html">Iniciar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="container mx-auto px-6 py-12 md:py-16">
+    <div class="max-w-3xl mx-auto bg-domain-surface rounded-xl shadow-lg p-8 md:p-10">
+        <h1 class="text-3xl md:text-4xl font-bold text-domain-on-background mb-6">Política de Privacidad</h1>
+
+        <div class="bg-domain-primary-container/30 border-l-4 border-domain-secondary rounded p-4 mb-8">
+            <p class="font-medium">Última actualización: 23 de noviembre de 2025</p>
+        </div>
+
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-domain-on-background mb-4 pb-2 border-b border-domain-outline/20">Introducción</h2>
+            <p class="mb-4 text-domain-on-background/80">
+                Bienvenido a Cohesive Journal ("nosotros", "nuestro" o "nos"). Estamos comprometidos a proteger tu privacidad y asegurar que tengas una experiencia positiva al usar nuestra aplicación.
+            </p>
+            <p class="mb-4 text-domain-on-background/80">
+                Esta Política de Privacidad explica cómo recopilamos, usamos, procesamos y divulgamos tu información a través de nuestros servicios. Al usar Cohesive Journal, consientes las prácticas de datos descritas en esta política.
+            </p>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-domain-on-background mb-4 pb-2 border-b border-domain-outline/20">Información que Recopilamos</h2>
+
+            <h3 class="text-xl font-semibold text-domain-on-background mt-6 mb-3">Información de la Cuenta</h3>
+            <p class="mb-3 text-domain-on-background/80">Cuando te registras en Cohesive Journal, recopilamos:</p>
+            <ul class="list-disc pl-6 mb-6 text-domain-on-background/80 space-y-2">
+                <li>Tu dirección de correo electrónico</li>
+                <li>Tu nombre de usuario</li>
+                <li>Información de autenticación (hash de contraseña o información de inicio de sesión social)</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-domain-on-background mt-6 mb-3">Contenido del Usuario</h3>
+            <p class="mb-3 text-domain-on-background/80">Recopilamos y almacenamos el contenido que creas, subes o recibes de otros al usar nuestro servicio, incluyendo:</p>
+            <ul class="list-disc pl-6 mb-6 text-domain-on-background/80 space-y-2">
+                <li>Notas y entradas de diario</li>
+                <li>Etiquetas e información de categorización</li>
+                <li>Grabaciones de voz</li>
+                <li>Imágenes</li>
+                <li>Relaciones jerárquicas entre contenido</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-domain-on-background mt-6 mb-3">Información del Dispositivo</h3>
+            <p class="mb-3 text-domain-on-background/80">Recopilamos información sobre los dispositivos que usas para acceder a Cohesive Journal, incluyendo:</p>
+            <ul class="list-disc pl-6 mb-6 text-domain-on-background/80 space-y-2">
+                <li>Tipo y modelo del dispositivo</li>
+                <li>Sistema operativo y versión</li>
+                <li>Identificadores únicos del dispositivo</li>
+                <li>Tipo de navegador (para usuarios de la app web)</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-domain-on-background mt-6 mb-3">Información de Uso</h3>
+            <p class="mb-3 text-domain-on-background/80">Recopilamos información sobre cómo usas Cohesive Journal, incluyendo:</p>
+            <ul class="list-disc pl-6 mb-6 text-domain-on-background/80 space-y-2">
+                <li>Funciones que usas</li>
+                <li>Acciones que realizas</li>
+                <li>Tiempo, frecuencia y duración de tus actividades</li>
+            </ul>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-domain-on-background mb-4 pb-2 border-b border-domain-outline/20">Cómo Usamos Tu Información</h2>
+
+            <div class="overflow-x-auto">
+                <table class="w-full mb-6">
+                    <thead>
+                    <tr class="bg-domain-primary-container/30">
+                        <th class="py-3 px-4 text-left font-semibold text-domain-on-background border-b border-domain-outline/20">Propósito</th>
+                        <th class="py-3 px-4 text-left font-semibold text-domain-on-background border-b border-domain-outline/20">Descripción</th>
+                    </tr>
+                    </thead>
+                    <tbody class="divide-y divide-domain-outline/10">
+                    <tr class="hover:bg-domain-background/40 transition">
+                        <td class="py-3 px-4 font-medium">Proporcionar nuestro Servicio</td>
+                        <td class="py-3 px-4 text-domain-on-background/80">Para proporcionar y mantener el servicio de Cohesive Journal, incluyendo sincronizar tu contenido entre dispositivos y proporcionar organización jerárquica.</td>
+                    </tr>
+                    <tr class="hover:bg-domain-background/40 transition">
+                        <td class="py-3 px-4 font-medium">Mejorar nuestro Servicio</td>
+                        <td class="py-3 px-4 text-domain-on-background/80">Para entender cómo los usuarios interactúan con nuestra app, identificar áreas de mejora y desarrollar nuevas funciones.</td>
+                    </tr>
+                    <tr class="hover:bg-domain-background/40 transition">
+                        <td class="py-3 px-4 font-medium">Funciones Mejoradas con IA</td>
+                        <td class="py-3 px-4 text-domain-on-background/80">Para proporcionar funciones con IA como sugerencias de organización jerárquica, recomendaciones de etiquetas y reconocimiento de patrones.</td>
+                    </tr>
+                    <tr class="hover:bg-domain-background/40 transition">
+                        <td class="py-3 px-4 font-medium">Comunicación</td>
+                        <td class="py-3 px-4 text-domain-on-background/80">Para enviar anuncios del servicio, actualizaciones, alertas de seguridad y mensajes de soporte.</td>
+                    </tr>
+                    <tr class="hover:bg-domain-background/40 transition">
+                        <td class="py-3 px-4 font-medium">Gestión de Cuenta</td>
+                        <td class="py-3 px-4 text-domain-on-background/80">Para crear y gestionar tu cuenta, incluyendo autenticación y facturación.</td>
+                    </tr>
+                    <tr class="hover:bg-domain-background/40 transition">
+                        <td class="py-3 px-4 font-medium">Seguridad</td>
+                        <td class="py-3 px-4 text-domain-on-background/80">Para detectar, prevenir y abordar problemas técnicos, riesgos de seguridad y actividades potencialmente prohibidas.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-domain-on-background mb-4 pb-2 border-b border-domain-outline/20">Seguridad de Datos</h2>
+            <p class="mb-4 text-domain-on-background/80">
+                La seguridad de tu información es importante para nosotros. Implementamos medidas de seguridad apropiadas para proteger tu información:
+            </p>
+            <ul class="list-disc pl-6 mb-6 text-domain-on-background/80 space-y-2">
+                <li>Cifrado HTTPS para todos los datos en tránsito</li>
+                <li>Autenticación JWT segura para sesiones de usuario</li>
+                <li>Filtrado de datos específico por usuario para asegurar que la información solo sea accesible para usuarios autorizados</li>
+                <li>Auditorías y actualizaciones de seguridad regulares</li>
+            </ul>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-domain-on-background mb-4 pb-2 border-b border-domain-outline/20">Tus Derechos y Opciones</h2>
+            <p class="mb-4 text-domain-on-background/80">Dependiendo de tu ubicación, puedes tener ciertos derechos respecto a tu información personal:</p>
+
+            <ul class="list-disc pl-6 mb-6 text-domain-on-background/80 space-y-2">
+                <li><strong>Acceso:</strong> Puedes solicitar acceso a la información personal que tenemos sobre ti.</li>
+                <li><strong>Corrección:</strong> Puedes solicitar que corrijamos información inexacta o incompleta.</li>
+                <li><strong>Eliminación:</strong> Puedes solicitar que eliminemos tu información personal.</li>
+                <li><strong>Portabilidad de Datos:</strong> Puedes tener derecho a recibir tu información personal en un formato estructurado, de uso común y legible por máquina.</li>
+                <li><strong>Retirar Consentimiento:</strong> Si procesamos tu información basándonos en consentimiento, tienes derecho a retirar ese consentimiento en cualquier momento.</li>
+            </ul>
+
+            <p class="mb-4 text-domain-on-background/80">
+                Para ejercer estos derechos, por favor contáctanos usando la información proporcionada al final de esta política.
+            </p>
+        </section>
+
+        <section class="mb-6">
+            <h2 class="text-2xl font-bold text-domain-on-background mb-4 pb-2 border-b border-domain-outline/20">Contáctanos</h2>
+            <p class="mb-2 text-domain-on-background/80">
+                Si tienes alguna pregunta sobre esta Política de Privacidad o nuestras prácticas de datos, por favor contáctanos en:
+            </p>
+            <p class="text-domain-on-background/80">
+                Email: <a class="text-domain-secondary hover:underline" href="mailto:privacy@cohesivejournal.com">privacy@cohesivejournal.com</a>
+            </p>
+        </section>
+    </div>
+</main>
+
+<footer class="bg-[#FAF7F5] py-16">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div>
+                <div class="flex items-center mb-4">
+                    <svg class="h-8 w-auto mr-2" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 60C20 37.9086 37.9086 20 60 20C82.0914 20 100 37.9086 100 60C100 82.0914 82.0914 100 60 100C37.9086 100 20 82.0914 20 60Z" fill="#CCBEAF" opacity="0.7"/>
+                        <path d="M0 40C0 17.9086 17.9086 0 40 0C62.0914 0 80 17.9086 80 40C80 62.0914 62.0914 80 40 80C17.9086 80 0 62.0914 0 40Z" fill="#93B0A0" opacity="0.7"/>
+                    </svg>
+                    <span class="text-xl font-bold text-domain-on-primary">Cohesive</span>
+                </div>
+                <p class="text-sm text-domain-on-primary-container/80 mb-6">
+                    Ayudándote a organizar pensamientos, construir hábitos y conectar ideas en todos tus dispositivos.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="text-domain-on-primary font-semibold mb-5">Enlaces Rápidos</h4>
+                <ul class="space-y-3 text-gray-600 text-sm">
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/es/#features">Funciones</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/es/#pricing">Precios</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/es/#faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-domain-on-primary font-semibold mb-5">Soporte</h4>
+                <ul class="space-y-3 text-gray-600 text-sm">
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/es/contact.html">Contáctanos</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/es/privacy.html">Política de Privacidad</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/es/terms.html">Términos de Servicio</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-domain-on-primary font-semibold mb-5">Idioma</h4>
+                <ul class="space-y-3 text-gray-600 text-sm">
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/privacy.html">English</a></li>
+                    <li><a class="text-domain-secondary font-medium" href="/es/privacy.html">Español</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-200 my-8"></div>
+
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-xs text-gray-500 mb-2 md:mb-0">
+                © 2025 Cohesive. Todos los derechos reservados.
+            </p>
+            <p class="text-xs text-gray-500">
+                Hecho con ❤️ por Alejandro
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script src="../mobile-menu.js"></script>
+
+</body>
+</html>

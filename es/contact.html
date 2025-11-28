@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Contáctanos | Cohesive</title>
+    <meta content="Ponte en contacto con Cohesive para soporte, comentarios o consultas. Nos encantaría saber de ti." name="description">
+    <meta content="contacto cohesive, soporte, comentarios, ayuda app notas con ia" name="keywords">
+    <link href="https://cohesivejournal.com/es/contact.html" rel="canonical"/>
+
+    <!-- hreflang tags for internationalization -->
+    <link href="https://cohesivejournal.com/contact.html" hreflang="en" rel="alternate"/>
+    <link href="https://cohesivejournal.com/es/contact.html" hreflang="es" rel="alternate"/>
+    <link href="https://cohesivejournal.com/contact.html" hreflang="x-default" rel="alternate"/>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="../landing-styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'domain-primary': '#CCBEAF',
+                        'domain-on-primary': '#3D3930',
+                        'domain-primary-container': '#FAF5F0',
+                        'domain-on-primary-container': '#4E4A41',
+                        'domain-secondary': '#93B0A0',
+                        'domain-on-secondary': '#FFFFFF',
+                        'domain-secondary-container': '#E8F0EA',
+                        'domain-on-secondary-container': '#354A3F',
+                        'domain-tertiary': '#80A4A6',
+                        'domain-on-tertiary': '#2A3536',
+                        'domain-background': '#F9F7F5',
+                        'domain-on-background': '#3B3B38',
+                        'domain-surface': '#FFFFFF',
+                        'domain-on-surface': '#3B3B38',
+                        'domain-outline': '#ACA8A2',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-domain-background text-domain-on-background antialiased overflow-x-hidden">
+
+<header class="bg-domain-primary-container sticky top-0 z-50 shadow-sm">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a class="text-2xl font-bold text-domain-on-primary flex items-center shrink-0" href="/es/">
+            <img alt="Logo de Cohesive" class="h-8 w-auto mr-3" src="../images/logo.svg">
+            Cohesive
+        </a>
+        <div class="hidden md:flex items-center space-x-6">
+            <a class="text-domain-on-primary-container hover:text-domain-secondary transition duration-200" href="/es/#features">Funciones</a>
+            <a class="text-domain-on-primary-container hover:text-domain-secondary transition duration-200" href="/es/#how-it-works">Cómo Funciona</a>
+            <a class="text-domain-on-primary-container hover:text-domain-secondary transition duration-200" href="/es/#pricing">Precios</a>
+            <a class="text-domain-secondary font-semibold transition duration-200" href="/es/contact.html">Contacto</a>
+            <a class="lang-switcher" href="/contact.html" title="English">EN</a>
+            <a class="bg-domain-on-primary-container text-white hover:opacity-90 text-sm font-medium py-2 px-5 rounded-full transition duration-200 transform hover:scale-105 active:scale-95" href="/app.html">Iniciar Sesión</a>
+        </div>
+        <div class="md:hidden">
+            <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú móvil" class="text-domain-on-primary-container p-1" id="mobile-menu-button">
+                <svg class="w-6 h-6" fill="none" id="menu-icon-open" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" id="mobile-menu">
+        <div class="bg-domain-background h-full w-4/5 max-w-xs p-6 shadow-lg transform transition-transform duration-300 ease-in-out">
+            <div class="flex justify-between items-center mb-8">
+                <a class="text-xl font-bold text-domain-on-primary flex items-center" href="/es/">
+                    <img alt="Logo de Cohesive" class="h-7 w-auto mr-2" src="../images/logo.svg">
+                    Cohesive
+                </a>
+                <button aria-label="Cerrar menú móvil" class="text-domain-on-background" id="mobile-menu-close">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-4">
+                <a class="text-domain-on-background hover:text-domain-secondary py-2 transition duration-200" href="/es/#features">Funciones</a>
+                <a class="text-domain-on-background hover:text-domain-secondary py-2 transition duration-200" href="/es/#how-it-works">Cómo Funciona</a>
+                <a class="text-domain-on-background hover:text-domain-secondary py-2 transition duration-200" href="/es/#pricing">Precios</a>
+                <a class="text-domain-on-background hover:text-domain-secondary py-2 transition duration-200" href="/es/contact.html">Contacto</a>
+                <a class="text-domain-on-background hover:text-domain-secondary py-2 transition duration-200" href="/contact.html">English</a>
+                <div class="pt-4 border-t border-domain-outline/20">
+                    <a class="block w-full bg-domain-on-primary-container text-white text-center font-medium py-3 px-5 rounded-lg hover:opacity-90 transition duration-200" href="/app.html">Iniciar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="py-16 md:py-24 bg-domain-primary-container/30" id="contact-us">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-domain-on-primary mb-4">Ponte en Contacto</h1>
+                <p class="text-lg md:text-xl text-domain-on-primary-container">Estamos aquí para ayudar y responder cualquier pregunta que puedas tener. ¡Esperamos tener noticias tuyas!</p>
+            </div>
+
+            <form action="#" class="max-w-xl mx-auto bg-domain-surface p-8 rounded-lg shadow-xl border border-domain-outline/20" id="contact-form" method="POST">
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-domain-on-surface mb-1" for="contact-name">Nombre</label>
+                    <input class="w-full px-4 py-2 bg-white border border-domain-outline/50 rounded-md focus:ring-domain-secondary focus:border-domain-secondary transition duration-150 ease-in-out" id="contact-name" name="name" required type="text">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-domain-on-surface mb-1" for="contact-email">Correo Electrónico</label>
+                    <input class="w-full px-4 py-2 bg-white border border-domain-outline/50 rounded-md focus:ring-domain-secondary focus:border-domain-secondary transition duration-150 ease-in-out" id="contact-email" name="email" required type="email">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-domain-on-surface mb-1" for="contact-subject">Asunto</label>
+                    <input class="w-full px-4 py-2 bg-white border border-domain-outline/50 rounded-md focus:ring-domain-secondary focus:border-domain-secondary transition duration-150 ease-in-out" id="contact-subject" name="subject" type="text">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-domain-on-surface mb-1" for="contact-message">Mensaje</label>
+                    <textarea class="w-full px-4 py-2 bg-white border border-domain-outline/50 rounded-md focus:ring-domain-secondary focus:border-domain-secondary transition duration-150 ease-in-out" id="contact-message" name="message" required rows="5"></textarea>
+                </div>
+                <div>
+                    <button class="w-full bg-domain-secondary hover:opacity-90 text-domain-on-secondary font-semibold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-domain-secondary" type="submit">
+                        Enviar Mensaje
+                    </button>
+                </div>
+                <div class="mt-4 text-center text-sm" id="form-status"></div>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-[#FAF7F5] py-16">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div>
+                <div class="flex items-center mb-4">
+                    <img alt="Logo de Cohesive" class="h-8 w-auto mr-2" src="../images/logo.svg">
+                    <span class="text-xl font-bold text-domain-on-primary">Cohesive</span>
+                </div>
+                <p class="text-sm text-domain-on-primary-container/80 mb-6">
+                    Ayudándote a organizar pensamientos, construir hábitos y conectar ideas en todos tus dispositivos.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="text-domain-on-primary font-semibold mb-5">Enlaces Rápidos</h4>
+                <ul class="space-y-3 text-gray-600 text-sm">
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/es/#features">Funciones</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/es/#pricing">Precios</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/es/#faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-domain-on-primary font-semibold mb-5">Soporte</h4>
+                <ul class="space-y-3 text-gray-600 text-sm">
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/es/contact.html">Contáctanos</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/es/privacy.html">Política de Privacidad</a></li>
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/es/terms.html">Términos de Servicio</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-domain-on-primary font-semibold mb-5">Idioma</h4>
+                <ul class="space-y-3 text-gray-600 text-sm">
+                    <li><a class="hover:text-domain-secondary transition-colors" href="/contact.html">English</a></li>
+                    <li><a class="text-domain-secondary font-medium" href="/es/contact.html">Español</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-200 my-8"></div>
+
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-xs text-gray-500 mb-2 md:mb-0">
+                © 2025 Cohesive. Todos los derechos reservados.
+            </p>
+            <p class="text-xs text-gray-500">
+                Hecho con ❤️ por Alejandro
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script src="../mobile-menu.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('contact-form');
+        const statusDiv = document.getElementById('form-status');
+
+        if (form && statusDiv) {
+            form.addEventListener('submit', function (e) {
+                statusDiv.textContent = 'Enviando...';
+                statusDiv.className = 'mt-4 text-center text-sm text-blue-600';
+            });
+        }
+    });
+</script>
+
+</body>
+</html>

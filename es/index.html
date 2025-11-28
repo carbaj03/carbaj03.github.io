@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>El Diario Que Potencia Tu Mente | Cohesive</title>
+    <meta content="App de diario con IA que revela patrones inconscientes y mejora tu forma de pensar. Captura pensamientos por voz, descubre qué te impulsa y convierte la autoconciencia en acción. Más que un diario - es tu mente potenciada." name="description">
+    <meta content="app de diario, diario digital, diario con IA, segunda mente, diario de voz, diario inteligente, reconocimiento de patrones, autoconciencia, diario personal, mindfulness, meditación, diario de pensamientos" name="keywords">
+    <link href="https://cohesivejournal.com/es/" rel="canonical"/>
+
+    <!-- hreflang tags for internationalization -->
+    <link href="https://cohesivejournal.com/" hreflang="en" rel="alternate"/>
+    <link href="https://cohesivejournal.com/es/" hreflang="es" rel="alternate"/>
+    <link href="https://cohesivejournal.com/" hreflang="x-default" rel="alternate"/>
+
+    <!-- Open Graph / Social Media -->
+    <meta content="website" property="og:type">
+    <meta content="https://cohesivejournal.com/es/" property="og:url">
+    <meta content="El Diario Que Potencia Tu Mente | Cohesive" property="og:title">
+    <meta content="Más que un diario. La IA revela patrones inconscientes en tus pensamientos, mejora tu autoconciencia y te ayuda a actuar sobre tus insights. Potencia tu forma de pensar." property="og:description">
+    <meta content="https://cohesivejournal.com/images/og-image.jpg" property="og:image">
+    <meta content="es_ES" property="og:locale">
+    <meta content="en_US" property="og:locale:alternate">
+
+    <!-- Twitter Card -->
+    <meta content="summary_large_image" property="twitter:card">
+    <meta content="https://cohesivejournal.com/es/" property="twitter:url">
+    <meta content="El Diario Que Potencia Tu Mente" property="twitter:title">
+    <meta content="App de diario con IA que revela tus patrones y mejora tu forma de pensar." property="twitter:description">
+    <meta content="https://cohesivejournal.com/images/og-image.jpg" property="twitter:image">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="../styles.css" rel="stylesheet">
+
+    <!-- Structured Data for Rich Snippets -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Cohesive Journal",
+            "applicationCategory": "LifestyleApplication",
+            "operatingSystem": "iOS, Android, Web, Windows, macOS, Linux",
+            "inLanguage": "es",
+            "offers": {
+                "@type": "AggregateOffer",
+                "priceCurrency": "USD",
+                "lowPrice": "0",
+                "highPrice": "9",
+                "offerCount": "2"
+            },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "ratingCount": "10000"
+            },
+            "description": "El diario que potencia tu mente. App de diario con IA y reconocimiento de patrones que revela lo que no puedes ver de ti mismo y convierte la conciencia en acción.",
+            "featureList": [
+                "Diario con IA: voz, texto e imagen",
+                "Reconocimiento de patrones que revela bucles inconscientes",
+                "Organización personalizada para emociones y consciencia",
+                "Chatea con todo tu historial de diario",
+                "Segunda mente que mejora tu forma de pensar"
+            ]
+        }
+    </script>
+</head>
+<body>
+<!-- SVG Icon Sprite -->
+<svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="icon-microphone" viewBox="0 0 256 256">
+        <path d="M128,176a48.05,48.05,0,0,0,48-48V64a48,48,0,0,0-96,0v64A48.05,48.05,0,0,0,128,176ZM96,64a32,32,0,0,1,64,0v64a32,32,0,0,1-64,0Zm40,143.6V240a8,8,0,0,1-16,0V207.6A80.11,80.11,0,0,1,48,128a8,8,0,0,1,16,0,64,64,0,0,0,128,0,8,8,0,0,1,16,0A80.11,80.11,0,0,1,136,207.6Z"/>
+    </symbol>
+    <symbol id="icon-tag" viewBox="0 0 256 256">
+        <path d="M243.31,136,144,36.69A15.86,15.86,0,0,0,132.69,32H40a8,8,0,0,0-8,8v92.69A15.86,15.86,0,0,0,36.69,144L136,243.31a16,16,0,0,0,22.63,0l84.68-84.68a16,16,0,0,0,0-22.63Zm-96,96L48,132.69V48h84.69L232,147.31ZM96,84A12,12,0,1,1,84,72,12,12,0,0,1,96,84Z"/>
+    </symbol>
+    <symbol id="icon-brain" viewBox="0 0 256 256">
+        <path d="M246,124a54.09,54.09,0,0,0-38-51.62V64a46,46,0,0,0-46-46c-19.18,0-34.87,12.62-41.51,30a44.46,44.46,0,0,0-21,0C92.87,30.62,77.18,18,58,18A46,46,0,0,0,12,64v8.38A54.09,54.09,0,0,0,10,174c16,12.32,45.47,24,78,24,16.67,0,31.73-2.39,45-5.78V224a14,14,0,0,0,14,14h50a14,14,0,0,0,14-14V192.22c13.27,3.39,28.33,5.78,45,5.78,32.53,0,62-11.68,78-24A54.09,54.09,0,0,0,246,124ZM28,64a30,30,0,0,1,30-30c15.44,0,28,14.36,28,32v36.37C54.19,97.71,28.72,82.84,28,82.36Zm105,92v68H85V197.65A190.72,190.72,0,0,0,88,198c20.5,0,45-4.88,45-11.43V156ZM85,58.61A29.93,29.93,0,0,1,99,66v14a102.4,102.4,0,0,0-14,9.55V66A15.09,15.09,0,0,1,85,58.61ZM99,182V118.87a115.37,115.37,0,0,1,34,0V182a115.37,115.37,0,0,1-34,0Zm72-15.39V80a102.4,102.4,0,0,0-14-9.55V66a29.93,29.93,0,0,1,14-7.39A15.09,15.09,0,0,1,171,66V89.55a102.4,102.4,0,0,0-14,9.55V182a103.49,103.49,0,0,0,14-15.39ZM197,222H147V156h50Zm-27.87-40.3c.62.1,1.24.22,1.87.33V198c20.5,0,45-4.88,45-11.43v-30.2A190.72,190.72,0,0,0,228,198C207.5,198,182.76,193.08,169.13,181.7ZM228,82.36C227.28,82.84,201.81,97.71,170,102.37V66c0-17.64,12.56-32,28-32a30,30,0,0,1,30,30Z"/>
+    </symbol>
+    <symbol id="icon-sparkles" viewBox="0 0 256 256">
+        <path d="M197.58,129.06,146,110l-19-51.62a15.92,15.92,0,0,0-29.88,0L78,110l-51.62,19a15.92,15.92,0,0,0,0,29.88L78,178l19,51.62a15.92,15.92,0,0,0,29.88,0L146,178l51.62-19a15.92,15.92,0,0,0,0-29.88ZM137,164.22a8,8,0,0,0-4.74,4.74L112,223.85,91.78,169A8,8,0,0,0,87,164.22L32.15,144,87,123.78A8,8,0,0,0,91.78,119L112,64.15,132.22,119a8,8,0,0,0,4.74,4.74L191.85,144ZM144,40a8,8,0,0,1,8-8h16V16a8,8,0,0,1,16,0V32h16a8,8,0,0,1,0,16H184V64a8,8,0,0,1-16,0V48H152A8,8,0,0,1,144,40ZM248,88a8,8,0,0,1-8,8h-8v8a8,8,0,0,1-16,0V96h-8a8,8,0,0,1,0-16h8V72a8,8,0,0,1,16,0v8h8A8,8,0,0,1,248,88Z"/>
+    </symbol>
+    <symbol id="icon-chat" viewBox="0 0 256 256">
+        <path d="M128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"/>
+    </symbol>
+    <symbol id="icon-search" viewBox="0 0 256 256">
+        <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/>
+    </symbol>
+    <symbol id="icon-tree" viewBox="0 0 256 256">
+        <path d="M160,112h48a16,16,0,0,0,16-16V48a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16V64H128a24,24,0,0,0-24,24v32H72v-8A16,16,0,0,0,56,96H24A16,16,0,0,0,8,112v32a16,16,0,0,0,16,16H56a16,16,0,0,0,16-16v-8h32v32a24,24,0,0,0,24,24h16v16a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V160a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16v16H128a8,8,0,0,1-8-8V88a8,8,0,0,1,8-8h16V96A16,16,0,0,0,160,112ZM56,144H24V112H56v32Zm104,16h48v48H160Zm0-112h48V96H160Z"/>
+    </symbol>
+    <symbol id="icon-bulb" viewBox="0 0 256 256">
+        <path d="M176,232a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h80A8,8,0,0,1,176,232Zm40-128a87.55,87.55,0,0,1-33.64,69.21A16.24,16.24,0,0,0,176,186v6a16,16,0,0,1-16,16H96a16,16,0,0,1-16-16v-6a16,16,0,0,0-6.23-12.66A87.59,87.59,0,0,1,40,104.5C39.74,56.83,78.26,17.15,125.88,16A88,88,0,0,1,216,104Zm-16,0a72,72,0,0,0-73.74-72c-39,.92-70.47,33.39-70.26,72.39a71.64,71.64,0,0,0,27.64,56.3h0A32,32,0,0,1,96,186v6h24V147.31L90.34,117.66a8,8,0,0,1,11.32-11.32L128,132.69l26.34-26.35a8,8,0,0,1,11.32,11.32L136,147.31V192h24v-6a32.12,32.12,0,0,1,12.47-25.35A71.65,71.65,0,0,0,200,104Z"/>
+    </symbol>
+    <symbol id="icon-clock" viewBox="0 0 256 256">
+        <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/>
+    </symbol>
+    <symbol id="icon-repeat" viewBox="0 0 256 256">
+        <path d="M24,128A72.08,72.08,0,0,1,96,56h96V40a8,8,0,0,1,13.66-5.66l24,24a8,8,0,0,1,0,11.32l-24,24A8,8,0,0,1,192,88V72H96a56.06,56.06,0,0,0-56,56,8,8,0,0,1-16,0Zm200-8a8,8,0,0,0-8,8,56.06,56.06,0,0,1-56,56H64V168a8,8,0,0,0-13.66-5.66l-24,24a8,8,0,0,0,0,11.32l24,24A8,8,0,0,0,64,216V200h96a72.08,72.08,0,0,0,72-72A8,8,0,0,0,224,120Z"/>
+    </symbol>
+    <symbol id="icon-image" viewBox="0 0 256 256">
+        <path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,16V158.75l-26.07-26.06a16,16,0,0,0-22.63,0l-20,20-44-44a16,16,0,0,0-22.62,0L40,149.37V56ZM40,172l52-52,80,80H40Zm176,28H194.63l-36-36,20-20L216,181.38V200ZM144,100a12,12,0,1,1,12,12A12,12,0,0,1,144,100Z"/>
+    </symbol>
+</svg>
+
+<!-- Navigation -->
+<nav class="nav" id="navbar">
+    <div class="container">
+        <div class="nav-wrapper">
+            <a class="nav-logo" href="/es/">
+                <img alt="Cohesive Journal - App de Diario con IA" class="logo-image" src="../images/logo.svg">
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a class="nav-link" href="#features">Funciones</a>
+                <a class="nav-link" href="#how-it-works">Cómo Funciona</a>
+                <a class="nav-link" href="#use-cases">Casos de Uso</a>
+                <a class="nav-link" href="#pricing">Precios</a>
+                <a class="nav-link" href="#faq">FAQ</a>
+            </div>
+            <div class="nav-actions">
+                <a class="lang-switcher" href="/" title="English">EN</a>
+                <button class="btn btn-primary">Empezar Gratis</button>
+                <button class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-icon">✨</span>
+                <span>Únete a más de 10,000 creadores conscientes</span>
+            </div>
+            <h1 class="hero-title">
+                El Diario Que<br>
+                <span class="text-gradient">Potencia Tu Mente</span>
+            </h1>
+            <p class="hero-description">
+                Diario con IA que revela patrones inconscientes, mejora tu forma de pensar
+                y convierte la autoconciencia en resultados reales. Más que un diario - es tu mente, potenciada.
+            </p>
+
+            <!-- Quick Capture Demo -->
+            <div class="capture-demo">
+                <div class="capture-box">
+                        <textarea
+                                class="capture-input"
+                                id="demo-input"
+                                placeholder="¿Qué tienes en mente?"></textarea>
+                    <div class="capture-actions">
+                        <button class="capture-btn voice-btn" title="Nota de voz">
+                            <svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                                <line x1="12" x2="12" y1="19" y2="23"></line>
+                                <line x1="8" x2="16" y1="23" y2="23"></line>
+                            </svg>
+                        </button>
+                        <button class="capture-btn image-btn" title="Añadir imagen">
+                            <svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20">
+                                <rect height="18" rx="2" ry="2" width="18" x="3" y="3"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <polyline points="21 15 16 10 5 21"></polyline>
+                            </svg>
+                        </button>
+                        <button class="capture-btn capture-submit">
+                            <svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20">
+                                <line x1="22" x2="11" y1="2" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="capture-suggestions">
+                    <span class="suggestion-label">Prueba:</span>
+                    <button class="suggestion" data-text="Me siento ansioso por la presentación de mañana">Registrar emociones</button>
+                    <button class="suggestion" data-text="Idea: Añadir modo oscuro a la página de ajustes">Capturar ideas</button>
+                    <button class="suggestion" data-text="Recordar llamar a mamá este fin de semana @recordatorio">Crear recordatorios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Problem/Solution Section -->
+<section class="problem-solution">
+    <div class="container">
+        <h2 class="section-title">No Puedes Ver Tus Propios Patrones</h2>
+        <p class="section-subtitle">Hasta ahora</p>
+
+        <div class="comparison-grid">
+            <div class="comparison-card problem">
+                <div class="card-icon">😰</div>
+                <h3>Sin Cohesive</h3>
+                <ul class="comparison-list">
+                    <li><span class="x-mark">×</span> Repites patrones durante años sin verlos</li>
+                    <li><span class="x-mark">×</span> Tus mejores ideas desaparecen antes de capturarlas</li>
+                    <li><span class="x-mark">×</span> Ciego a tus disparadores y sesgos</li>
+                    <li><span class="x-mark">×</span> Reaccionas inconscientemente en vez de responder sabiamente</li>
+                    <li><span class="x-mark">×</span> Las ideas quedan atrapadas, nunca ejecutadas</li>
+                </ul>
+            </div>
+            <div class="comparison-card solution">
+                <div class="card-icon">🧘</div>
+                <h3>Con Cohesive</h3>
+                <ul class="comparison-list">
+                    <li><span class="check-mark">✓</span> Ve patrones y rompe bucles inconscientes</li>
+                    <li><span class="check-mark">✓</span> Captura cada insight—la sabiduría se acumula</li>
+                    <li><span class="check-mark">✓</span> Comprende qué te impulsa realmente</li>
+                    <li><span class="check-mark">✓</span> Elige respuestas conscientes sobre reacciones</li>
+                    <li><span class="check-mark">✓</span> Convierte claridad en acción—las ideas se hacen realidad</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features" id="features">
+    <div class="container">
+        <h2 class="section-title">Lo Que Obtienes</h2>
+        <p class="section-subtitle">Las herramientas que convierten la autoconciencia en resultados reales</p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <span>🎤</span>
+                </div>
+                <h3>Diario por Voz</h3>
+                <p><strong>Habla tus pensamientos.</strong> Voz, texto o imagen—escribe como te sea natural. Ideas en la ducha, cambios emocionales, ideas brillantes—todo capturado antes de que desaparezca. <strong>Sin fricción, solo flujo.</strong></p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <span>🔮</span>
+                </div>
+                <h3>Ve Tus Patrones</h3>
+                <p>La IA revela <strong>bucles inconscientes</strong> que has repetido durante años. Disparadores emocionales. Creencias ocultas. <strong>Puntos ciegos.</strong> Finalmente entiende qué te impulsa.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <span>🏷️</span>
+                </div>
+                <h3>Organiza a Tu Manera</h3>
+                <p>Etiquetas personalizadas para <strong>emociones, niveles de consciencia, proyectos.</strong> Grupos para trabajo espiritual, relaciones, metas. <strong>Tu sistema, no el nuestro.</strong></p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <span>🌳</span>
+                </div>
+                <h3>Conecta Todo</h3>
+                <p>Ve cómo los pensamientos se relacionan con los sentimientos, cómo los insights se construyen unos sobre otros, cómo <strong>todo está interconectado.</strong> Piensa sistémicamente.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <span>💬</span>
+                </div>
+                <h3>Chatea Con Tu Diario</h3>
+                <p><strong>"¿Por qué sigo sintiéndome ansioso por X?"</strong> "¿Qué he aprendido sobre Y?" La IA analiza todo tu historial de diario y te da <strong>respuestas instantáneas.</strong></p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <span>🔄</span>
+                </div>
+                <h3>Sigue Tu Viaje</h3>
+                <p>Monitoriza la <strong>evolución de tu consciencia.</strong> Mueve ideas de concepto a lanzado. Ve tu crecimiento a lo largo del tiempo, <strong>tanto interno como externo.</strong></p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <span>🔍</span>
+                </div>
+                <h3>Encuentra Todo al Instante</h3>
+                <p>La búsqueda semántica entiende <strong>significado, no solo palabras clave.</strong> Haz preguntas naturales. Obtén respuestas relevantes de <strong>todo tu historial.</strong></p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <span>⏰</span>
+                </div>
+                <h3>Recuerda Sin Recordar</h3>
+                <p>Crea recordatorios. Controla el tiempo. <strong>Libera tu mente</strong> de la carga de la memoria. <strong>Mantente presente</strong> mientras tu segunda mente maneja el resto.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <span>💡</span>
+                </div>
+                <h3>Contexto Cuando Lo Necesitas</h3>
+                <p>Notas similares <strong>aparecen automáticamente.</strong> Insights relevantes surgen en el momento adecuado. Como tener un <strong>consejero sabio</strong> que conoce toda tu historia.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Outcomes Section -->
+<section class="outcomes">
+    <div class="container">
+        <h2 class="section-title">Lo Que Lograrás</h2>
+        <p class="section-subtitle">Resultados reales en 90 días</p>
+
+        <div class="outcomes-grid">
+            <div class="outcome-card">
+                <div class="outcome-number">89%</div>
+                <h3>Autoconciencia Profunda</h3>
+                <p>Comprende <strong>tus patrones, disparadores,</strong> y qué te impulsa. Toma decisiones desde la <strong>claridad, no la confusión.</strong></p>
+            </div>
+
+            <div class="outcome-card">
+                <div class="outcome-number">3.2x</div>
+                <h3>Más Descubrimientos</h3>
+                <p><strong>Realizaciones emocionales. Insights creativos.</strong> Giros estratégicos. El tipo de claridad que <strong>lo cambia todo.</strong></p>
+            </div>
+
+            <div class="outcome-card">
+                <div class="outcome-number">Cero</div>
+                <h3>Deuda Mental</h3>
+                <p>Sin culpa. Sin ansiedad. Sin ideas perdidas. Solo <strong>presencia, paz,</strong> y avance.</p>
+            </div>
+
+            <div class="outcome-card">
+                <div class="outcome-number">90 días</div>
+                <h3>Para Ver el Cambio</h3>
+                <p><strong>Los patrones se vuelven visibles.</strong> Las ideas se ejecutan. Tu visión se manifiesta. Ves <strong>en quién te estás convirtiendo.</strong></p>
+            </div>
+        </div>
+
+        <div class="outcomes-testimonial">
+            <p class="testimonial-quote">"En tres meses, había sanado un patrón de 10 años Y escrito el libro. La autoconciencia se convirtió en poder creativo."</p>
+            <p class="testimonial-author">— Sarah Chen, Autora y Coach</p>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-it-works" id="how-it-works">
+    <div class="container">
+        <h2 class="section-title">Cómo Funciona</h2>
+        <p class="section-subtitle">Cuatro pasos hacia la claridad y la acción</p>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-icon">
+                    <span class="emoji">🎤</span>
+                </div>
+                <h3>Captura</h3>
+                <p><strong>Voz, texto o imagen.</strong> Registra tus pensamientos, sentimientos e ideas—todo fluye a tu <strong>segunda mente</strong> instantáneamente.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">
+                    <span class="emoji">🏷️</span>
+                </div>
+                <h3>Organiza</h3>
+                <p>Etiqueta emociones, sigue la consciencia, construye <strong>flujos personalizados.</strong> Tu sistema refleja <strong>cómo piensas realmente.</strong></p>
+            </div>
+            <div class="step">
+                <div class="step-icon">
+                    <span class="emoji">🧠</span>
+                </div>
+                <h3>Descubre</h3>
+                <p>La IA revela <strong>patrones que has ignorado durante años.</strong> Los bucles inconscientes se hacen visibles. <strong>Los puntos ciegos se iluminan.</strong></p>
+            </div>
+            <div class="step">
+                <div class="step-icon">
+                    <span class="emoji">✨</span>
+                </div>
+                <h3>Transforma</h3>
+                <p><strong>La conciencia se convierte en acción.</strong> Los insights se convierten en ideas ejecutadas. El autoconocimiento se convierte en <strong>resultados reales.</strong></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Use Cases -->
+<section class="use-cases" id="use-cases">
+    <div class="container">
+        <h2 class="section-title">Resultados Reales</h2>
+        <p class="section-subtitle">Lo que pasa cuando finalmente te ves con claridad</p>
+
+        <div class="use-cases-grid">
+            <div class="use-case-card">
+                <div class="use-case-header">
+                    <span class="use-case-emoji">🧘‍♀️</span>
+                    <h3>Rompió un Patrón de 10 Años</h3>
+                </div>
+                <p>"La IA me mostró que había estado escribiendo sobre el mismo disparador durante una década. Verlo claramente lo cambió todo. Mis relaciones sanaron."</p>
+                <div class="use-case-author">
+                    <strong>Maya Patel</strong> - Terapeuta
+                </div>
+            </div>
+
+            <div class="use-case-card">
+                <div class="use-case-header">
+                    <span class="use-case-emoji">📚</span>
+                    <h3>Publicó en 8 Meses</h3>
+                </div>
+                <p>"Cohesive reveló el hilo que conectaba años de diario. Eso se convirtió en la tesis de mi libro. La autocomprensión se convirtió en creación."</p>
+                <div class="use-case-author">
+                    <strong>Dra. Sarah Okafor</strong> - Autora
+                </div>
+            </div>
+
+            <div class="use-case-card">
+                <div class="use-case-header">
+                    <span class="use-case-emoji">❤️</span>
+                    <h3>Sanó 15 Años de Ansiedad</h3>
+                </div>
+                <p>"90 días de seguir pensamientos revelaron mi disparador de ansiedad—algo que había ignorado en años de terapia. La conciencia sola inició la sanación."</p>
+                <div class="use-case-author">
+                    <strong>David Chen</strong> - Ingeniero
+                </div>
+            </div>
+
+            <div class="use-case-card">
+                <div class="use-case-header">
+                    <span class="use-case-emoji">🚀</span>
+                    <h3>Construyó una Empresa</h3>
+                </div>
+                <p>"Notas de voz de meditaciones caminando se convirtieron en la tesis de mi startup. El autoconocimiento se convirtió en un negocio que ayuda a otros a transformarse."</p>
+                <div class="use-case-author">
+                    <strong>Alex Rivera</strong> - Fundador
+                </div>
+            </div>
+
+            <div class="use-case-card">
+                <div class="use-case-header">
+                    <span class="use-case-emoji">🌱</span>
+                    <h3>Siguió la Evolución de Consciencia</h3>
+                </div>
+                <p>"Etiqueté notas por la Escala de Hawkins. Vi mi nivel subir de 200 a 400 en un año. Prueba de que mi trabajo interior era real."</p>
+                <div class="use-case-author">
+                    <strong>Jennifer Park</strong> - Sanadora Energética
+                </div>
+            </div>
+
+            <div class="use-case-card">
+                <div class="use-case-header">
+                    <span class="use-case-emoji">💡</span>
+                    <h3>Dio el Salto</h3>
+                </div>
+                <p>"La IA conectó 50 notas sobre mi resistencia profesional—me mostró que ya sabía la respuesta pero tenía miedo. Esa claridad me dio coraje."</p>
+                <div class="use-case-author">
+                    <strong>Rachel Martínez</strong> - Artista
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Section -->
+<section class="pricing" id="pricing">
+    <div class="container">
+        <h2 class="section-title">Precios Simples</h2>
+        <p class="section-subtitle">Empieza gratis, mejora cuando estés listo</p>
+
+        <div class="pricing-toggle">
+            <button class="toggle-btn active" data-period="monthly">Mensual</button>
+            <button class="toggle-btn" data-period="yearly">Anual (Ahorra 20%)</button>
+        </div>
+
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <h3 class="plan-name">Gratis</h3>
+                <div class="plan-price">
+                    <span class="price-currency">$</span>
+                    <span class="price-amount">0</span>
+                </div>
+                <p class="plan-description">Perfecto para empezar</p>
+                <ul class="plan-features">
+                    <li><span class="check">✓</span> 100 notas por mes</li>
+                    <li><span class="check">✓</span> Captura de voz, texto e imagen</li>
+                    <li><span class="check">✓</span> Etiquetas y grupos personalizados</li>
+                    <li><span class="check">✓</span> Insights de patrones</li>
+                    <li><span class="check">✓</span> Jerarquías y conexiones</li>
+                    <li><span class="check">✓</span> Recordatorios y temporizadores</li>
+                    <li><span class="check">✓</span> Todas las plataformas</li>
+                </ul>
+                <button class="btn btn-secondary btn-block">Empezar Gratis</button>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="popular-badge">Más Popular</div>
+                <h3 class="plan-name">Pro</h3>
+                <div class="plan-price">
+                    <span class="price-currency">$</span>
+                    <span class="price-amount" data-monthly="9" data-yearly="7">9</span>
+                    <span class="price-period">/mes</span>
+                </div>
+                <p class="plan-description">Para transformación seria</p>
+                <ul class="plan-features">
+                    <li><span class="check">✓</span> <strong>Notas ilimitadas</strong></li>
+                    <li><span class="check">✓</span> Notas de voz extendidas (5 min)</li>
+                    <li><span class="check">✓</span> <strong>Etiquetas y metodologías ilimitadas</strong></li>
+                    <li><span class="check">✓</span> <strong>Reconocimiento avanzado de patrones</strong></li>
+                    <li><span class="check">✓</span> <strong>Chat con IA sobre tus notas</strong></li>
+                    <li><span class="check">✓</span> Transcripción automática y gramática</li>
+                    <li><span class="check">✓</span> Recuperación de contexto</li>
+                    <li><span class="check">✓</span> Exportación completa y propiedad de datos</li>
+                    <li><span class="check">✓</span> Soporte prioritario</li>
+                </ul>
+                <button class="btn btn-primary btn-block">Comenzar</button>
+                <p class="trial-note">Empieza con el plan gratuito, mejora cuando quieras</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq" id="faq">
+    <div class="container">
+        <h2 class="section-title">Preguntas Frecuentes</h2>
+
+        <div class="faq-grid">
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>¿En qué se diferencia esta app de diario de otras?</span>
+                    <svg class="faq-icon" fill="none" height="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>A diferencia de las apps de diario tradicionales o herramientas de notas (Notion, Day One, Obsidian), Cohesive Journal usa IA para revelar patrones inconscientes en tu diario. No es solo un diario digital—es una segunda mente que te muestra lo que no puedes ver de ti mismo, y luego te ayuda a transformar esos insights en acción.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>¿Mis datos son privados y seguros?</span>
+                    <svg class="faq-icon" fill="none" height="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutamente. Tus pensamientos están cifrados de extremo a extremo. Nunca entrenamos modelos de IA con tus datos personales. Puedes exportar todo en cualquier momento, y eliminar tu cuenta con un clic - creemos en la propiedad de los datos.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>¿Qué hace especiales a los insights de IA?</span>
+                    <svg class="faq-icon" fill="none" height="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>La recuperación de contexto encuentra automáticamente notas similares cuando escribes, revelando conexiones que no veías. La IA analiza patrones en todas tus notas y genera insights sobre correlaciones y temas. Puedes chatear con la IA sobre estos insights o hacer preguntas sobre toda tu colección de notas.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>¿Cómo organizo mis notas?</span>
+                    <svg class="faq-icon" fill="none" height="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>¡Construyes tu propio sistema! Crea etiquetas personalizadas para significado semántico, agrupa etiquetas en categorías, define metodologías con estados de flujo personalizados, y construye jerarquías de notas. El sistema crece contigo - sin estructura forzada, solo herramientas que se adaptan a tu pensamiento.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>¿Qué plataformas soportan?</span>
+                    <svg class="faq-icon" fill="none" height="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>iOS, Android, Web, Windows, macOS y Linux. Tus pensamientos se sincronizan en todas partes instantáneamente. Las notas de voz funcionan en todas las plataformas móviles, y nuestra app web tiene todas las funciones para uso de escritorio.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>¿Puedo probarlo sin registrarme?</span>
+                    <svg class="faq-icon" fill="none" height="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Tenemos un generoso plan gratuito (100 notas/mes) que solo requiere registro por email. Las funciones Pro vienen con una prueba de 30 días - sin necesidad de tarjeta de crédito. Creemos que deberías experimentar la paz mental antes de pagar por ella.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Mírate Con Claridad. Actúa Con Poder.</h2>
+            <p>Tu segunda mente revela patrones que no puedes ver solo—y luego te ayuda a transformarlos en realidad.</p>
+            <div class="cta-actions">
+                <button class="btn btn-large btn-primary">Empieza Gratis Hoy</button>
+                <button class="btn btn-large btn-secondary">Ve Cómo Funciona</button>
+            </div>
+            <p class="cta-note">Gratis para siempre · Sin tarjeta de crédito · Más de 10,000 usuarios</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img alt="Logo de Cohesive Journal - App de Diario con IA" class="logo-image" src="../images/logo.svg">
+                </div>
+                <p>El diario que potencia tu mente.<br>Captura todo. Descubre patrones. Transforma insights en acción.</p>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Producto</h4>
+                    <a href="#features">Funciones</a>
+                    <a href="#pricing">Precios</a>
+                    <a href="#how-it-works">Cómo Funciona</a>
+                    <a href="#">Roadmap</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Recursos</h4>
+                    <a href="#">Blog</a>
+                    <a href="#">Documentación</a>
+                    <a href="#">API</a>
+                    <a href="#">Comunidad</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Empresa</h4>
+                    <a href="#">Sobre Nosotros</a>
+                    <a href="/es/privacy.html">Privacidad</a>
+                    <a href="/es/terms.html">Términos</a>
+                    <a href="/es/contact.html">Contacto</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Cohesive Journal. Todos los derechos reservados.</p>
+            <p>Hecho con ❤️ para mentes conscientes en todas partes</p>
+        </div>
+    </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
